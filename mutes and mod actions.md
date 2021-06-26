@@ -31,6 +31,24 @@ Bonus!
 
 Zepp will take the reason you put and make a case for that action with that reason
 
+**BAN TIP**
+
+Add this to your ban message to give it that extra zing
+![bangif](https://images-ext-1.discordapp.net/external/ca4NEXYwFeI_9-iPkqo747gF5Hlz1iyuXFis1UDhYfM/https/i.imgur.com/V4TVpbC.mp4)
+
+
+📣 **GOOD TO KNOW**
+Massbans are logged as cases but not automatically posted on your case log channel since it would be very spammy
+
+You *should* be able to see those cases if you do `!cases <userid>` for one of the banned users however
+
+**NOTIFY TIP**
+
+Available variables are  `off` / `dm` / `channel`
+
+if using channel, `-notify-channel` is also required to be set!
+
+
 
 
 **PLUGIN CODE**

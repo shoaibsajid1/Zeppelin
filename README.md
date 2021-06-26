@@ -66,8 +66,6 @@ If you have it the other way round it'll delete everything, even from mods.
 
 
 **MULTIPLE CHANNELS IN OVERRIDE**
-<details>
-  <summary>Click to view code</summary>
 
 ```yaml
 overrides:
@@ -79,8 +77,6 @@ overrides:
 ```
 
 
-
-
 **SAVE TO DATABASE**
 
 > Zeppelin needs to have the message saved locally to be able to figure out the channel id (which is needed for a lot of things) such as reaction roles!
@@ -89,40 +85,9 @@ overrides:
 
 
 
-**NOTIFY TIP**
-
->Available variables are  `off` / `dm` / `channel`
-
-> if using channel, `-notify-channel` is also required to be set!
-
-
-
 **YAML VALIDATOR**  http://www.yamllint.com/
 
 
-
-
-
-
-📣 **GOOD TO KNOW**
-Massbans are logged as cases but not automatically posted on your case log channel since it would be very spammy
-
-You *should* be able to see those cases if you do `!cases <userid>` for one of the banned users however
-
-
-
-
-
-📣 **GOOD TO KNOW**
-Massbans are logged as cases but not automatically posted on your case log channel since it would be very spammy
-
-You *should* be able to see those cases if you do `!cases <userid>` for one of the banned users however
-
-
-
-<:peepo_ping:714656171763695617> **ALERT TIP** by <@!108552944961454080>
-`replieduser` is whether or not to ping the user you are replying to
---
 
 **ZEPPELIN RESTARTED?**
 
@@ -134,18 +99,6 @@ Someone restarts it manually
 Drag pushes an update
 
 
-**BAN TIP**
-
-Add this to your ban message to give it that extra zing
-![bangif](https://images-ext-1.discordapp.net/external/ca4NEXYwFeI_9-iPkqo747gF5Hlz1iyuXFis1UDhYfM/https/i.imgur.com/V4TVpbC.mp4)
-
-**CLEAN COMMAND TIP**
-
-Deletes everything but image attachments
-
-![clean](https://media.discordapp.net/attachments/846691383280009216/856783756232359946/unknown.png?width=581&height=518)
-
-[Badword](badword.md)
 
 ### Example Shots
 

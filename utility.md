@@ -33,6 +33,12 @@ Note: *the results can be used for `!massban` command afterwards*
 Note: the `-update` at the end is if you want to add it to their mod log case
 
 
+**CLEAN COMMAND TIP**
+
+Deletes everything but image attachments
+
+![clean](https://media.discordapp.net/attachments/846691383280009216/856783756232359946/unknown.png?width=581&height=518)
+
 **PLUGIN CODE**
 
 ```yaml

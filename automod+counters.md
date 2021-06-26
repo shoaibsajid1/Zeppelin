@@ -16,6 +16,9 @@
  *between* letters for word matching
  so e.g. if you wanted to match "hello" and enabled `loose_matching`, it would also match e.g. "h|e|l|l|o"
 
+ **ALERT TIP**
+ `replieduser` is whether or not to ping the user you are replying to
+
 
 
  **AUTOMOD TIP**
