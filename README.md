@@ -7,6 +7,7 @@ This is my repo for tips and tricks for Dragorys Bot
 
 ### Follow User
 **HOW TO GET ALERTED WHEN SOMEONE JOINS VC USING FOLLOW COMMAND**
+
 `!f @DEX#5006 -d 9999h reminder message` everytime user joins/leaves vc, zep will ping u
 
 `!fs` shows a list of all your alerts you set up
