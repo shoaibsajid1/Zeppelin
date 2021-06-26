@@ -1,0 +1,57 @@
+utility:
+  config:
+    can_roles: false
+    can_level: false
+    can_search: false
+    can_clean: false
+    can_info: false
+    can_server: false
+    can_inviteinfo: false
+    can_channelinfo: false
+    can_messageinfo: false
+    can_userinfo: false
+    can_roleinfo: false
+    can_emojiinfo: false
+    can_snowflake: false
+    can_reload_guild: false
+    can_nickname: false
+    can_ping: false
+    can_source: false
+    can_vcmove: false
+    can_vckick: false
+    can_help: false
+    can_about: false
+    can_context: false
+    can_jumbo: false
+    jumbo_size: 128
+    can_avatar: false
+    info_on_single_result: true
+  overrides:
+    - level: '>=50'
+      config:
+        can_roles: true
+        can_level: true
+        can_search: true
+        can_clean: true
+        can_info: true
+        can_server: true
+        can_inviteinfo: true
+        can_channelinfo: true
+        can_messageinfo: true
+        can_userinfo: true
+        can_roleinfo: true
+        can_emojiinfo: true
+        can_snowflake: true
+        can_nickname: true
+        can_vcmove: true
+        can_vckick: true
+        can_help: true
+        can_context: true
+        can_jumbo: true
+        can_avatar: true
+        can_source: true
+    - level: '>=100'
+      config:
+        can_reload_guild: true
+        can_ping: true
+        can_about: true

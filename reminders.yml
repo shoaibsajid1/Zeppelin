@@ -1,0 +1,6 @@
+  reminders:
+    replaceDefaultOverrides: true #replaces default settings if true
+    overrides:
+      - level: '>=50'
+        config:
+          can_use: true #only level 50 and above can use it
