@@ -3,8 +3,10 @@ Zeppelin is a moderation bot for Discord, and I am DEX....I dont know where I am
 This is my repo for tips and tricks for Dragorys Bot
 
 
-**Example Shots**
+#Example Shots
+
 ![Example 1](assets/example1.png)
+
 ![Example 2](assets/example2.png)
 
 
