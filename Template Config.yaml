@@ -1,7 +1,8 @@
 #This is a template config created by DEX#0001 (ID:347727875266576395) to help old and new users
+
 prefix: '!'
-success_emoji: <:zep_green_tick:578531215921905664> #custom success emoji
-error_emoji: ":x:"
+success_emoji: <:tick:743132094892605451> #custom emoji
+error_emoji: <:cross:743132137586294856>
 
 levels:
 #by default, many zep features consider lvl 50 as mod and lvl 100, to remove them, I use replaceDefaultOverrides: true in plugins to allow full customization
