@@ -106,7 +106,7 @@ Drag pushes an update
 
 ![Example 1](assets/example1.png)
 
-![Example 2](assets/example2.png)
+
 
 
 See https://zeppelin.gg/ for more details.
