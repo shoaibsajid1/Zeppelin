@@ -1,7 +1,7 @@
-## Zep by DEX
+# Zep by DEX
 Zeppelin is a moderation bot for Discord, and I am DEX....I dont know where I am going with this....Anyways
-This is my repo for tips and tricks for Dragorys Bot
 
+This is my repo for tips and tricks for Dragorys Bot
 
 ## Example Shots
 
@@ -12,6 +12,8 @@ This is my repo for tips and tricks for Dragorys Bot
 
 See https://zeppelin.gg/ for more details.
 
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 ## More Info
 
 You can find me on the zeppelin support server!
