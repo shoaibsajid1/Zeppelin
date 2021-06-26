@@ -1,3 +1,7 @@
+
+**PLUGIN CODE**
+
+```yaml
   auto_reactions:
     replaceDefaultOverrides: true #replaces default settings
     overrides:
@@ -10,3 +14,4 @@
 
           #!auto_reactions disable 629990160477585428
           #to disable auto reactions from a channel
+```

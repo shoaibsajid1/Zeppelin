@@ -1,3 +1,9 @@
+# AUTO DELETE
+
+
+**PLUGIN CODE**
+
+```yaml
   auto_delete:
     replaceDefaultOverrides: true #replaces default settings
     overrides:
@@ -9,3 +15,4 @@
       - level: '>=50'
         config:
           enabled: false #lvl 50 and up are exempt from deletion
+```

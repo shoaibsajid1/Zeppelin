@@ -27,6 +27,8 @@ on https://discord.gg/JCZf3sHYpE
 
 [Automod & Counters](automod+counters.md)
 
+[Automod Rules](rules.md)
+
 [Reaction Roles](reaction_roles.md)
 
 
