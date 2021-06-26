@@ -1,3 +1,40 @@
+**UTILITY**
+
+![avatar](https://media.discordapp.net/attachments/770256340639416320/830444957654843413/Screen_Shot_2021-04-10_at_7.11.36_PM.png)
+
+
+![jumbo](https://cdn.discordapp.com/attachments/832964085976530964/834393774426816552/Screen_Shot_2021-04-21_at_4.40.37_PM.png)
+
+🚩 **SEARCH FLAGS**
+
+`!s -sort id dex` sort all dex results by ID
+
+`!s -bot` lists all bots
+
+`!s -p 1 dex` search page 1 of dex results
+
+`!s -e` export results (via a link)
+
+`!s -ids` excludes usernames and lists only ids
+
+`!s -re dex` regex search for users named dex
+
+`!s -v` lists all ppl in vc
+
+Examples:
+`!s -ids -e dex` exports all ids of users named dex on server
+Note: *the results can be used for `!massban` command afterwards*
+
+🗒️ **CLEAN MESSAGES FROM USER AND ADD TO CASE**
+
+`!clear <count> -u userid -c #channel -update`
+
+Note: the `-update` at the end is if you want to add it to their mod log case
+
+
+**PLUGIN CODE**
+
+```yaml
 utility: #https://zeppelin.gg/docs/plugins/utility/usage
   replaceDefaultOverrides: true #replaces default settings if true
   config:
@@ -136,3 +173,4 @@ utility: #https://zeppelin.gg/docs/plugins/utility/usage
         can_reload_guild: true
         can_ping: true
         can_about: true
+```
