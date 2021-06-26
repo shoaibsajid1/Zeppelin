@@ -177,15 +177,18 @@ This log type is not functional unfortunately. So just skip it!
 Zepp will take the reason you put and make a case for that action with that reason
 
 
-### Tags
+### TAGS
 
 💡 **TAG TIP**
 <details>
   <summary>Click to view</summary>
 
 `user_tag_cooldown`is the cooldown per user per tag
+
 `global_tag_cooldown` is the global cooldown (server wide) per tag
+
 `user_cooldown` is the cooldown per user (not tag specific)
+
 `global_cooldown` is the global cooldown (server wide) (not tag specific)
 </details>
 
