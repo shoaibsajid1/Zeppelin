@@ -12,12 +12,15 @@ This is my repo for tips and tricks for Dragorys Bot
 
 `!fs` shows a list of all your alerts you set up
 example output:
+
 `1.` Target: @banana
+
 `2.` Target: @pear
 
 `!fs d 1` deletes the first alert from the list
 
 ![Follow User](https://media.discordapp.net/attachments/770256340639416320/834398760854618122/Screen_Shot_2021-04-21_at_5.02.26_PM.png)
+
 -----------------------------------------
 
 ### Reminder
@@ -35,16 +38,23 @@ example output:
 🚩 **SEARCH FLAGS**
 
 `!s -sort id dex` sort all dex results by ID
+
 `!s -bot` lists all bots
+
 `!s -p 1 dex` search page 1 of dex results
+
 `!s -e` export results (via a link)
+
 `!s -ids` excludes usernames and lists only ids
+
 `!s -re dex` regex search for users named dex
+
 `!s -v` lists all ppl in vc
 
 Examples:
 `!s -ids -e dex` exports all ids of users named dex on server
 Note: *the results can be used for `!massban` command afterwards*
+
 -----------------------------------------
 #### Clear
 🗒️ **CLEAN MESSAGES FROM USER AND ADD TO CASE**
@@ -74,6 +84,7 @@ welcome `<@!{user.id}>!`
 COUNTER TIP
 
 Counter decays are currently processed every 5 minutes. They are, however, still applied according to the decay time, even if it's lower than 5 minutes, so "1 every 30s" would decay 10 points at once every 5 minutes.
+
 -----------------------------------------
 
 ### Cases
@@ -83,11 +94,13 @@ Counter decays are currently processed every 5 minutes. They are, however, still
 `relative_time_cutoff` is the amount of time after which `!cases` will show the full date, not a relative time (e.g. "5 hours ago")
 
 so if you set relative time cutoff to 24h, any cases older than 24h would show the full date, e.g. "2021-01-30", rather than e.g. "1 day ago"
+
 -----------------------------------------
 
 ### Logs
 **COMMAND LOG VARIABLE**
 This log type is not functional unfortunately. So just skip it!
+
 -----------------------------------------
 
 ### Tags
@@ -98,7 +111,8 @@ This log type is not functional unfortunately. So just skip it!
 `global_tag_cooldown` is the global cooldown (server wide) per tag
 `user_cooldown` is the cooldown per user (not tag specific)
 `global_cooldown` is the global cooldown (server wide) (not tag specific)
------------------------------------------
+
+
 
 **TAGS RESOURCES**
 
@@ -116,6 +130,7 @@ https://github.com/Dragory/ZeppelinBot/blob/master/backend/src/plugins/Tags/util
 
 useful doc
 https://gist.github.com/vcokltfre/8cff17725485f70992c44970f53977fd
+
 -----------------------------------------
 
 ### Others
@@ -149,7 +164,7 @@ If you have it the other way round it'll delete everything, even from mods.
           copypasta:
             enabled: false
 ```
-
+-----------------------------------------
 
 ### Example Shots
 
