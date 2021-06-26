@@ -1,9 +1,0 @@
-  locate_user:
-    replaceDefaultOverrides: true #replaces default settings if true
-    config:
-      #!where / !w - Posts an instant invite to the voice channel that member is in
-      #Usage: !w 108552944961454080 where 108552944961454080 is the member
-      can_where: true
-      #!follow / !f - Sets up an alert that notifies you any time <member> switches or joins voice channels
-      #!f @DEX#0001 -d 9999h reminder message
-      can_alert: true
