@@ -15,7 +15,7 @@ on https://discord.gg/JCZf3sHYpE
 
 [Utility](utility.md)
 
-[Mutes & Modactions](mutes and mod actions.md)
+[Mutes & Mod actions](mutes&modactions.md.md)
 
 [Companion Channels](companion_channels.md)
 
