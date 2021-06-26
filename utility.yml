@@ -1,30 +1,111 @@
-utility:
+utility: #https://zeppelin.gg/docs/plugins/utility/usage
+  replaceDefaultOverrides: true #replaces default settings if true
   config:
-    can_roles: false
+    #List all roles or roles matching a search
+    #!roles [search] -counts -sort
+    can_roles: true
+
+    #Show the permission level of a user
+    #!level [member]
     can_level: false
-    can_search: false
+
+    #Search banned users
+    #!bansearch <query> [-page] [-sort] [-case-sensitive] [-export] [-ids] [-regex]
+    #Search server members
+    #!search [query] [-page] [-role] [-voice] [-bot] [-sort] [-case-sensitive] [-export] [-ids] [-regex] [-status-search]
+    can_search: true
+
+    #Remove a number of recent messages
+    #!clean <count>
     can_clean: false
+
+    #Show information about the specified thing
+    #needed for many info sub commands
+    #!info [value]
     can_info: false
+
+    #Show server information
+    #!server [serverId]
     can_server: false
+
+    #Show information about an invite
+    #!invite <inviteCode>
     can_inviteinfo: false
+
+    #Show information about a channel
+    #!channel [channel]
     can_channelinfo: false
+
+    #Show information about a message
+    #!message <message>
     can_messageinfo: false
+
+    #Show information about a user
+    #!user [user] -compact
     can_userinfo: false
+
+    #Show information about a role
+    #!roleinfo <role>
     can_roleinfo: false
+
+    #Show information about an emoji
+    #!emoji [emoji]
     can_emojiinfo: false
+
+    #Show information about a snowflake ID
+    #!snowflake <id>
     can_snowflake: false
+
+    #Reload the Zeppelin configuration and all plugins for the server.
+    #This can sometimes fix issues.
+    #!reload_guild
     can_reload_guild: false
+
+    #Set a member's nickname
+    #!nickname <member> <nickname>
+    #Reset a member's nickname to their username
+    #!nickname reset <member>
     can_nickname: false
+
+    #Test the bot's ping to the Discord API
+    #!ping
     can_ping: false
+
+    #View the message source of the specified message id
+    #!source <message>
     can_source: false
+
+    #Move a member to another voice channel
+    #!vcmove <member> <channel>
+    #Move all members of a voice channel to another voice channel
+    #!vcmoveall <oldChannel> <channel>
     can_vcmove: false
+
+    #Disconnect a member from their voice channel
+    #!vcdisconnect <member>
     can_vckick: false
+
+    #Show a quick reference for the specified command's usage
+    #!help <command>
     can_help: false
+
+    #Show information about Zeppelin's status on the server
+    #!about
     can_about: false
+
+    #Get a link to the context of the specified message
+    #!context <channel> <messageId>
     can_context: false
+
+    #Makes an emoji jumbo
+    #!jumbo <emoji>
     can_jumbo: false
     jumbo_size: 128
+
+    #Retrieves a user's profile picture
+    #!avatar [user]
     can_avatar: false
+
     info_on_single_result: true
   overrides:
     - level: '>=50'
