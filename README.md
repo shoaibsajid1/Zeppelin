@@ -31,6 +31,21 @@ example output:
 #### Jumbo
 ![jumbo](https://cdn.discordapp.com/attachments/832964085976530964/834393774426816552/Screen_Shot_2021-04-21_at_4.40.37_PM.png)
 
+#### Search
+🚩 **SEARCH FLAGS**
+
+`!s -sort id dex` sort all dex results by ID
+`!s -bot` lists all bots
+`!s -p 1 dex` search page 1 of dex results
+`!s -e` export results (via a link)
+`!s -ids` excludes usernames and lists only ids
+`!s -re dex` regex search for users named dex
+`!s -v` lists all ppl in vc
+
+Examples:
+`!s -ids -e dex` exports all ids of users named dex on server
+Note: *the results can be used for `!massban` command afterwards*
+-----------------------------------------
 #### Clear
 🗒️ **CLEAN MESSAGES FROM USER AND ADD TO CASE**
 `!clear <count> -u userid -c #channel -update`
@@ -76,7 +91,17 @@ This log type is not functional unfortunately. So just skip it!
 -----------------------------------------
 
 ### Tags
+
+💡 **TAG TIP**
+
+`user_tag_cooldown`is the cooldown per user per tag
+`global_tag_cooldown` is the global cooldown (server wide) per tag
+`user_cooldown` is the cooldown per user (not tag specific)
+`global_cooldown` is the global cooldown (server wide) (not tag specific)
+-----------------------------------------
+
 **TAGS RESOURCES**
+
 `member / user` here:
 https://github.com/Dragory/ZeppelinBot/blob/master/backend/src/plugins/Tags/util/renderTagFromString.ts#L30
 
@@ -96,6 +121,7 @@ https://gist.github.com/vcokltfre/8cff17725485f70992c44970f53977fd
 ### Others
 
 **Override Tip**
+
 Overrides are always calculated top down
 
 For example:
