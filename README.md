@@ -5,6 +5,10 @@ This is my repo for tips and tricks for Dragorys Bot
 
 ## PLUGINS:
 
+**CURRENTLY UNDER CONSTRUCTION**
+To follow updates you can join my server and keep an eye on the github channel for updates on the changes i make, u can also follow the channel on your server and leave the server
+
+
 [Locate User](locate.md)
 
 [Reminders](reminder.md)
