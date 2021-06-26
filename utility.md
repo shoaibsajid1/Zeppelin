@@ -1,8 +1,9 @@
 **UTILITY**
 
+**AVATAR**
 ![avatar](https://media.discordapp.net/attachments/770256340639416320/830444957654843413/Screen_Shot_2021-04-10_at_7.11.36_PM.png)
 
-
+**JUMBO**
 ![jumbo](https://cdn.discordapp.com/attachments/832964085976530964/834393774426816552/Screen_Shot_2021-04-21_at_4.40.37_PM.png)
 
 🚩 **SEARCH FLAGS**
