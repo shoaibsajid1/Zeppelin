@@ -1,0 +1,27 @@
+#This is a template config created by DEX#0001 (ID:347727875266576395) to help old and new users
+
+
+prefix: '!' #server prefix
+success_emoji: <:tick:743132094892605451> #custom emoji
+error_emoji: <:cross:743132137586294856>
+
+aliases:
+  - &admin "844782218563944488"
+  - &mod "844759879847247893"
+
+levels:
+  *admin: 100 # Admin role
+  *mod: 50    # Mod role
+
+plugins:
+  auto_delete:
+    replaceDefaultOverrides: true #replaces default settings
+    overrides:
+      - level: '>=50'
+        config:
+          enabled: false #lvl 50 and up are exempt from deletion
+
+      - channel: *autodelete
+        config:
+          enabled: true #auto_delete enabled in only 1 channel
+          delay: 1s #deletes 1s after posting
