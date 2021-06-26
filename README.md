@@ -3,7 +3,7 @@ Zeppelin is a moderation bot for Discord, and I am DEX....I dont know where I am
 
 This is my repo for tips and tricks for Dragorys Bot
 
-## Plugins
+## Plugins Tips
 
 ### Follow User
 ![Follow User](https://media.discordapp.net/attachments/770256340639416320/834398760854618122/Screen_Shot_2021-04-21_at_5.02.26_PM.png)
@@ -11,11 +11,38 @@ This is my repo for tips and tricks for Dragorys Bot
 ### Reminder
 ![reminder](https://media.discordapp.net/attachments/799195773408903188/830389173210972160/Screen_Shot_2021-04-10_at_3.29.45_PM.png)
 
-### Avatar
+### Utility
+
+#### Avatar
 ![avatar](https://media.discordapp.net/attachments/770256340639416320/830444957654843413/Screen_Shot_2021-04-10_at_7.11.36_PM.png)
 
-### Jumbo
+#### Jumbo
 ![jumbo](https://cdn.discordapp.com/attachments/832964085976530964/834393774426816552/Screen_Shot_2021-04-21_at_4.40.37_PM.png)
+
+### Welcome
+**WELCOME PLUGIN VARIABLES**
+`member`, `user`, and `guild`
+
+Usage:
+welcome `{user.username}` to `{guild.name}!`
+welcome `<@!{user.id}>!`
+
+### Counters
+COUNTER TIP
+
+Counter decays are currently processed every 5 minutes. They are, however, still applied according to the decay time, even if it's lower than 5 minutes, so "1 every 30s" would decay 10 points at once every 5 minutes.
+
+### Cases
+⏲️ **RELATIVE TIME**
+`relative_time_cutoff: 7d`
+
+`relative_time_cutoff` is the amount of time after which `!cases` will show the full date, not a relative time (e.g. "5 hours ago")
+
+so if you set relative time cutoff to 24h, any cases older than 24h would show the full date, e.g. "2021-01-30", rather than e.g. "1 day ago"
+
+### Logs
+**COMMAND LOG VARIABLE**
+This log type is not functional unfortunately. So just skip it!
 
 
 ### Example Shots
