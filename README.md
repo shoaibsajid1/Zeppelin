@@ -124,14 +124,18 @@ welcome `<@!{user.id}>!`
 </details>
 
 ### Counters
-COUNTER TIP
-<details>
-  <summary>Click to view</summary>
+**COUNTER TIP**
 
-Counter decays are currently processed every 5 minutes. They are, however, still applied according to the decay time, even if it's lower than 5 minutes, so "1 every 30s" would decay 10 points at once every 5 minutes.
-</details>
+>Counter decays are currently processed every 5 minutes. They are, however, still applied according to the decay time, even if it's lower than 5 minutes, so "1 every 30s" would decay 10 points at once every 5 minutes.
 
------------------------------------------
+
+
+
+**COUNTER DECAY**
+
+> Counter decays are currently processed every 5 minutes. They are, however, still applied according to the decay time, even if it's lower than 5 minutes, so "1 every 30s" would decay 10 points at once every 5 minutes.
+
+
 
 ### Cases
 ⏲️ **RELATIVE TIME**
@@ -223,7 +227,73 @@ If you have it the other way round it'll delete everything, even from mods.
             enabled: false
 ```
 </details>
------------------------------------------
+
+**MULTIPLE CHANNELS IN OVERRIDE**
+```yaml
+overrides:
+  - channel:
+      - "534722948246929429" #channel 1
+      - "739034889399042129" #channel 2
+    config:
+      settings here
+```
+
+**SAVE TO DATABASE**
+
+`!save_messages_to_db CHANNELID MESSAGEID`
+
+Zeppelin needs to have the message saved locally to be able to figure out the channel id (which is needed for a lot of things) such as reaction roles!
+
+**NOTIFY TIP**
+
+<details>
+  <summary>Click to view</summary>
+Available variables are  `off` / `dm` / `channel`
+
+if using channel, `-notify-channel` is also required to be set!
+</details>
+
+**YAML VALIDATOR**  http://www.yamllint.com/
+
+
+📮 **SCHEDULED POSTS**
+
+<details>
+  <summary>Click to view</summary>
+scheduled posts are messages that are scheduled to be posted later, using the `-schedule` option for `!post`,
+
+ e.g. `!post -schedule="2021-02-01 12:00" Some message that is posted on Feb 1 at 12pm`
+</details>
+
+**LOOSE MATCHING**
+<details>
+  <summary>Click to view</summary>
+
+ `loose_matching` allows a number of letters
+ (controlled by `loose_matching_threshold`)
+ *between* letters for word matching
+ so e.g. if you wanted to match "hello" and enabled `loose_matching`, it would also match e.g. "h|e|l|l|o"
+</details>
+
+**MOD ACTION TIP**
+
+`can_act_as_other` allows you to use the `-mod` option for commands such as `!ban` - this will set the case's moderator as the user you specify, and also mention your name below theirs if you view the case
+
+**MOD ACTION TIP**
+`create_cases_for_manual_actions` - Manual actions wouls be stuff like right click ban, right click kick
+
+Zepp will take the reason you put and make a case for that action with that reason
+
+
+**REGEX TIP**
+
+`(<a?:[\w~]{2,32}:\d{17,19}>)` is an emoji regex for animated and non-animated emojis.
+
+**REACTION ROLE TIP**
+"auto refresh interval" for reaction roles sets how often the reactions are "refreshed", i.e. removed and re-added. This is done because high-volume reactions like reaction roles can become very glitchy after some time if they're not reset.
+
+you can also do this manually with `!reaction_roles refresh MESSAGE_ID`
+
 
 ### Example Shots
 
