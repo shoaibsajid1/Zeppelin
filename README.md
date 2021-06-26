@@ -446,7 +446,7 @@ Deletes everything but image attachments
 
 ![clean](https://media.discordapp.net/attachments/846691383280009216/856783756232359946/unknown.png?width=581&height=518)
 
-
+[Badword](badword.md)
 
 ### Example Shots
 
