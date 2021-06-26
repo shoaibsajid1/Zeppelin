@@ -3,7 +3,7 @@
     config:
       boards:
         basic: #starboard no1, u can name anything
-          channel_id: "830321220943347772" #ratboard
+          channel_id: "830321220943347772" #ratboard *starboard1
           stars_required: 2
           star_emoji: [":rat:", "🐀"]
           copy_full_embed: true
@@ -12,7 +12,7 @@
           color: 0x000080
 
         levelonly: #starboard no2, u can name anything
-          channel_id: "830321220943347772"
+          channel_id: "830321220943347772" #*starboard2
           stars_required: 0
           star_emoji: [":rat:", "🐀"] #multiple various reactions possible!
           copy_full_embed: true
