@@ -36,8 +36,7 @@ If you want to have mods messages not be deleted, your overrides would need to b
 -  Disable for mods
 If you have it the other way round it'll delete everything, even from mods.
 
-<details>
-  <summary>Click to view code</summary>
+
 
 ```yml
     overrides:
