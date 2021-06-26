@@ -1,0 +1,2362 @@
+#This is a template config created by DEX#0001 (ID:347727875266576395) to help old and new users
+prefix: '!'
+success_emoji: <:zep_green_tick:578531215921905664> #custom success emoji
+error_emoji: ":x:"
+
+levels:
+#by default, many zep features consider lvl 50 as mod and lvl 100, to remove them, I use replaceDefaultOverrides: true in plugins to allow full customization
+  "852064662954049576": 100 #Lvl 100 role
+  "852064700015312926": 50  #Lvl 50 role
+
+plugins: #Auto-delete|Auto-reactions|Automod|Cases|Companion channels|Counters|Locate user|Logs|Mod actions|Mutes|Persist|Pingable roles|Post|Reaction roles|Reminders|Roles|Self-grantable roles|Slowmode|Starboard|Tags|Time and date|Utility|Welcome message
+
+#Notes:
+#cases plugin - log auto actions tf is that
+#starboard - tf is copy full embed
+#self grant roles - tf is ignore cooldown
+#spam protection and censor are legacy plugins and wont be included
+
+
+  auto_delete:
+    replaceDefaultOverrides: true #replaces default settings
+    overrides:
+      - level: '>=50'
+        config:
+          enabled: false #lvl 50 and up are exempt from deletion
+
+      - channel: "851537569644675092" #auto_delete channel
+        config:
+          enabled: true #auto_delete enabled in only 1 channel
+          delay: 1s #deletes 1s after posting
+
+  auto_reactions:
+    replaceDefaultOverrides: true #replaces default settings
+    overrides:
+      - level: '>=100'
+        config:
+          can_manage: true #only managable by level 100
+          #!auto_reactions 629990160477585428 👍 👎
+          #to apply auto reactions to a channel
+
+          #!auto_reactions disable 629990160477585428
+          #to disable auto reactions from a channel
+
+  cases:
+    replaceDefaultOverrides: false #replaces default settings if true
+    config:
+      log_automatic_actions: true
+      case_log_channel: "851837989545050162" #cases channel
+      show_relative_times: true
+      #relative_time_cutoff is the amount of time after which !cases will show the full date, not a relative time (e.g. "5 hours ago")
+      #if you set relative time cutoff to 24h, any cases older than 24h would show the full date, e.g. "2021-01-30", rather than e.g. "1 day ago"
+      relative_time_cutoff: 7d
+      #case_colors: #to enable these options, delete the # infront of the items below
+        #warn: yellow
+        #ban: red
+        #unban: 2EFF27 #green
+        #note: FEE9E9 #whitish
+        #kick: F34B80 #pinkish
+        #mute: yellow
+        #unmute: 2EFF27 #green
+        #deleted: orange
+        #softban: F73C4F #Lighter shade of red
+      case_icons:
+        warn: ":warning:"
+        ban: ":hammer:"
+        unban: ":green_circle:"
+        note: ":pencil:"
+        kick: ":boot:"
+        mute: ":mute:"
+        unmute: ":green_circle:"
+        deleted: ":no_entry:"
+        softban: ":boot:"
+        #for custom emoji "<:do_not_disturb:841799310797832244>"
+
+  companion_channels:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      entries:
+        public_vcs: #name of the entry, could be anything
+          voice_channel_ids:
+            - "851845471587926086" # c1 vc
+          text_channel_ids:
+            - "851845490298454026" #v1 text
+          #the permissions number are the permissions the user will get in the text channel when they join the voice channel
+          #for example u can make it such that a user can only see the text channel when they join the vc
+          #this can be calculated using https://discordapi.com/permissions.html
+          permissions: 52224
+          enabled: true
+    overrides:
+      - level: '>=50'
+        config:
+          entries:
+            public_vcs:
+              enabled: false #disabled for level 50 and up because they likely have perms already so not needed
+
+  locate_user:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      #!where / !w - Posts an instant invite to the voice channel that member is in
+      #Usage: !w 108552944961454080 where 108552944961454080 is the member
+      can_where: true
+      #!follow / !f - Sets up an alert that notifies you any time <member> switches or joins voice channels
+      #!f @DEX#0001 -d 9999h reminder message
+      can_alert: true
+
+  welcome_message:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      send_dm: true
+      send_to_channel: "851851771717353512" #welcome channel
+      message: |-
+              **WELCOME TO DEX's DASHBOARD**
+
+              Invite others with
+              https://discord.gg/JCZf3sHYpE
+
+  persist:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      persisted_roles:
+        - "851852521206710273" #persist role
+      persist_nicknames: true
+      persist_voice_mutes: true
+
+  post:
+    replaceDefaultOverrides: true #replaces default settings if true
+    overrides:
+      - level: '>=100'
+        config:
+          can_post: true #only level 100 can post (use this plugin)
+
+  self_grantable_roles:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      entries:
+        basic: #you can have many entries and name them as u like
+          roles:
+            "851867945760194600": ["test", "tt"] #can have options too!
+          can_use: true #can use this entry? since we can have multiple!
+          can_ignore_cooldown: false
+          max_roles: 1 #maximum no of roles user can pick from the list
+      mention_roles: true #mentions the role itself (but no ping)
+
+  pingable_roles: #makes a role pingable when you start typing in a specific channel
+    replaceDefaultOverrides: true #replaces default settings if true
+    overrides:
+      - level: '>=100'
+        config:
+          #Usage: !pingable_role <channelId> <role>
+          #To disable: !pingable_role disable <channelId> <role>
+          can_manage: true #only level 100 can run that ^
+
+  reminders:
+    replaceDefaultOverrides: true #replaces default settings if true
+    overrides:
+      - level: '>=50'
+        config:
+          can_use: true #only level 50 and above can use it
+
+  reaction_roles:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      auto_refresh_interval: 900000 #re-adds reactions after x seconds
+      remove_user_reactions: true #remove user reaction or let it stay
+    overrides:
+      - level: '>=100'
+        config:
+          can_manage: true #only level 100 can manage
+
+  time_and_date:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      #https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for list
+      timezone: Asia/Karachi
+      can_set_timezone: true #set your own timezone via !timezone <timezone>, reset with !timezone reset and view with !timezone
+      date_formats:
+        date: 'MMM D, YYYY'
+        time: 'H:mm'
+        pretty_datetime: 'MMM D, YYYY [at] H:mm z'
+
+  slowmode:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      use_native_slowmode: true #use discord's built in slowmode (till 6h)
+      is_affected: true #everyone except those in override are affected
+    overrides:
+      - level: '>=50'
+        config:
+          can_manage: true #can set and manage slowmode commands
+          is_affected: false #level 50 and up arent affected by slowmode
+
+  roles:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      assignable_roles: #roles u can add to another user
+        - '558037973581430785'
+    overrides:
+      - level: '>=50'
+        config:
+          can_assign: true #level 50 and up can assign
+      - level: '>=100'
+        config:
+          can_mass_assign: true # level 100 can mass assign and remove roles
+
+  starboard:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      boards:
+        basic: #starboard no1, u can name anything
+          channel_id: "830321220943347772" #ratboard
+          stars_required: 2
+          star_emoji: [":rat:", "🐀"]
+          copy_full_embed: true
+          enabled: true # The starboard is enabled for all
+          show_star_count: true #show the star-count in starboard
+          color: 0x000080
+
+        levelonly: #starboard no2, u can name anything
+          channel_id: "830321220943347772"
+          stars_required: 0
+          star_emoji: [":rat:", "🐀"] #multiple various reactions possible!
+          copy_full_embed: true
+          show_star_count: true #show the star-count in starboard
+          #color: 0x000080 if needed
+      #can_migrate command can be used to move ("migrate") pins to a starboard
+      can_migrate: false
+    overrides:
+      - level: "100"
+        config:
+          boards:
+            levelonly:
+              enabled: true #only for level 100 (admin react = starboard)
+
+  tags:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      prefix: '!!'
+      #delete_with_command would delete the bot response when the original message is deleted
+      delete_with_command: true
+      #user_tag_cooldown is the cooldown per user per tag
+      user_tag_cooldown: null
+      #global_tag_cooldown is the global cooldown (server wide) per tag
+      global_tag_cooldown: null
+      #user_cooldown is the cooldown per user (not tag specific)
+      user_cooldown: null
+      #allow tags to ping?, Can be enabled conditionally via overrides for e.g. only moderators
+      allow_mentions: false
+      #global_cooldown is the global cooldown (server wide) (not tag specific)
+      global_cooldown: null
+      #When turned on, the message triggering a tag will be automatically deleted after the tag is posted
+      auto_delete_command: false
+      categories:
+        "general":
+          tags:
+            "id":
+              embed:
+                description: |-
+                  User id: {user.id}
+        "support":
+          tags:
+            "lost":
+              embed:
+                title: "Hey there, it seems like you're lost!"
+                description: |-
+                  This server is the support server for the site **[discord.io](https://discord.io/)**.
+
+                  Through us, anyone can create a custom invite link for free. However, when those links expire, people often get confused and stumble here.
+
+                  We are not the server you intended to join. If you can, please let the person who gave you the link know that it has expired. Thank you!
+
+                  Click for translation: [🇹🇷](https://translate.google.com/?sl=en&tl=tr&text=This%20server%20is%20the%20support%20server%20for%20the%20site%20discord.io.%0A%0AThrough%20us%2C%20anyone%20can%20create%20a%20custom%20invite%20link%20for%20free.%20However%2C%20when%20those%20links%20expire%2C%20people%20often%20get%20confused%20and%20stumble%20here.%0A%0AWe%20are%20not%20the%20server%20you%20intended%20to%20join.%20If%20you%20can%2C%20please%20let%20the%20person%20who%20gave%20you%20the%20link%20know%20that%20it%20has%20expired.%20Thank%20you!&op=translate) [🇵🇹](https://translate.google.com/?sl=en&tl=pt&text=This%20server%20is%20the%20support%20server%20for%20the%20site%20discord.io.%0A%0AThrough%20us%2C%20anyone%20can%20create%20a%20custom%20invite%20link%20for%20free.%20However%2C%20when%20those%20links%20expire%2C%20people%20often%20get%20confused%20and%20stumble%20here.%0A%0AWe%20are%20not%20the%20server%20you%20intended%20to%20join.%20If%20you%20can%2C%20please%20let%20the%20person%20who%20gave%20you%20the%20link%20know%20that%20it%20has%20expired.%20Thank%20you!&op=translate) [🇷🇺](https://translate.google.com/?sl=en&tl=ru&text=This%20server%20is%20the%20support%20server%20for%20the%20site%20discord.io.%0A%0AThrough%20us%2C%20anyone%20can%20create%20a%20custom%20invite%20link%20for%20free.%20However%2C%20when%20those%20links%20expire%2C%20people%20often%20get%20confused%20and%20stumble%20here.%0A%0AWe%20are%20not%20the%20server%20you%20intended%20to%20join.%20If%20you%20can%2C%20please%20let%20the%20person%20who%20gave%20you%20the%20link%20know%20that%20it%20has%20expired.%20Thank%20you!&op=translate)
+                color: 0xae7aef
+        "tips":
+          tags:
+            "foo":
+              embed:
+                title: "Reminder"
+                description: |-
+                  Bar
+
+                color: 0xae7aef
+                image:
+                  url: https://media.discordapp.net/attachments/799195773408903188/830388041608593438/Screen_Shot_2021-04-10_at_3.25.26_PM.png
+
+            "!reminder":
+              embed:
+                title: "Reminder"
+                #color: 0xae7aef
+                image:
+                  url: https://media.discordapp.net/attachments/799195773408903188/830389173210972160/Screen_Shot_2021-04-10_at_3.29.45_PM.png
+
+            "!avatar":
+              embed:
+                title: "Avatar"
+                #color: 0xae7aef
+                image:
+                  url: https://media.discordapp.net/attachments/770256340639416320/830444957654843413/Screen_Shot_2021-04-10_at_7.11.36_PM.png
+
+            "!jumbo":
+              embed:
+                title: "Jumbo"
+                #color: 0xae7aef
+                image:
+                  url: https://cdn.discordapp.com/attachments/832964085976530964/834393774426816552/Screen_Shot_2021-04-21_at_4.40.37_PM.png
+
+            "!follow":
+              embed:
+                title: "Follow"
+                #color: 0xae7aef
+                image:
+                  url: https://media.discordapp.net/attachments/770256340639416320/834398760854618122/Screen_Shot_2021-04-21_at_5.02.26_PM.png
+            "gg":
+                description: |-
+                  Bar
+    overrides:
+      - level: '>=50'
+        config:
+          #can user use the tags ?
+          can_use: true
+          #can user create tags?
+          can_create: true
+          #can user view the tags list
+          can_list: true
+          #only level 50 and up will a tag ping
+          allow_mentions: false
+
+  mutes:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      mute_role: "852040311521411092" #muterole here
+      move_to_voice_channel: "852040275404128257" #vc id
+      kick_from_voice_channel: false #muted users are also immediately kicked from their current voice channel
+      dm_on_mute: true
+      dm_on_update: true #updating mute time informs user
+      message_on_mute: true
+      message_on_update: true
+      message_channel: "852040519470940200" #muted message channel
+      #mute_message for indefinite mutes
+      mute_message: 'You have been muted on the {guildName} server. Reason given: {reason}'
+      #timed_mute_message for mutes with an expiration time
+      timed_mute_message: >-
+        You have been muted on the {guildName} server for {time}. Reason given:
+        {reason}
+      update_mute_message: 'Your mute on the {guildName} server has been updated to {time}.'
+      remove_roles_on_mute: true #removes all roles upon mute or  : ["role 1", "role 2"] and those specific roles are removed upon mute
+      restore_roles_on_mute: true #restores the roles when mute is over
+      can_view_list: false #can view muted list via !mutes command
+    overrides:
+      - level: '>=50'
+        config:
+          can_view_list: true
+      - level: '>=100'
+        config:
+        #Clear dangling mutes for members who have been banned
+          can_cleanup: true
+
+  mod_actions:
+    config:
+      dm_on_warn: true
+      dm_on_kick: false
+      dm_on_ban: false
+      message_on_warn: false
+      message_on_kick: false
+      message_on_ban: false
+      message_channel: null
+      warn_message: 'You have received a warning on the {guildName} server: {reason}'
+      kick_message: 'You have been kicked from the {guildName} server. Reason given: {reason}'
+      ban_message: 'You have been banned from the {guildName} server. Reason given: {reason}'
+      tempban_message: >-
+        You have been banned from the {guildName} server for {banTime}. Reason
+        given: {reason}
+      alert_on_rejoin: false
+      alert_channel: null
+      #if you have warn_notify_enabled: true, then warn_notify_threshold is the number of warnings the user must get before the !warn  command asks you "hey, this user has already been warned 5 times, warn them again?"
+      warn_notify_enabled: true
+      warn_notify_threshold: 5
+      warn_notify_message: |-
+        The user already has **{priorWarnings}** warnings!
+         Please check their prior cases and assess whether or not to warn anyways.
+         Proceed with the warning?
+      ban_delete_message_days: 0
+      can_note: false
+      can_warn: false
+      can_mute: false
+      can_kick: false
+      can_ban: false
+      can_unban: false
+      can_view: false
+      can_addcase: false
+      can_massunban: false
+      can_massban: false
+      can_massmute: false
+      can_hidecase: false
+      can_deletecase: false
+      #can_act_as_other allows you to use the -mod option for commands such as !ban - this will set the case's moderator as the user you specify, and also mention your name below theirs if you view the case
+      can_act_as_other: false
+      #Manual actions wouls be stuff like right click ban, right click kick , it will create cases for those as well
+      create_cases_for_manual_actions: true
+    overrides:
+      - level: '>=50'
+        config:
+          can_note: true
+          can_warn: true
+          can_mute: true
+          can_kick: true
+          can_ban: true
+          can_unban: true
+          can_view: true
+          can_addcase: true
+      - level: '>=100'
+        config:
+          can_massunban: true
+          can_massban: true
+          can_massmute: true
+          can_hidecase: true
+          can_act_as_other: true
+
+  utility:
+    config:
+      can_roles: false
+      can_level: false
+      can_search: false
+      can_clean: false
+      can_info: false
+      can_server: false
+      can_inviteinfo: false
+      can_channelinfo: false
+      can_messageinfo: false
+      can_userinfo: false
+      can_roleinfo: false
+      can_emojiinfo: false
+      can_snowflake: false
+      can_reload_guild: false
+      can_nickname: false
+      can_ping: false
+      can_source: false
+      can_vcmove: false
+      can_vckick: false
+      can_help: false
+      can_about: false
+      can_context: false
+      can_jumbo: false
+      jumbo_size: 128
+      can_avatar: false
+      info_on_single_result: true
+    overrides:
+      - level: '>=50'
+        config:
+          can_roles: true
+          can_level: true
+          can_search: true
+          can_clean: true
+          can_info: true
+          can_server: true
+          can_inviteinfo: true
+          can_channelinfo: true
+          can_messageinfo: true
+          can_userinfo: true
+          can_roleinfo: true
+          can_emojiinfo: true
+          can_snowflake: true
+          can_nickname: true
+          can_vcmove: true
+          can_vckick: true
+          can_help: true
+          can_context: true
+          can_jumbo: true
+          can_avatar: true
+          can_source: true
+      - level: '>=100'
+        config:
+          can_reload_guild: true
+          can_ping: true
+          can_about: true
+
+  logs:
+    config:
+      channels:
+        '701603686102728725': #modlog X
+          include:
+            - MEMBER_WARN
+            - MEMBER_MUTE
+            - MEMBER_TIMED_MUTE
+            - MEMBER_UNMUTE
+            - MEMBER_TIMED_UNMUTE
+            - MEMBER_MUTE_EXPIRED
+            - MEMBER_KICK
+            - MEMBER_BAN
+            - MEMBER_UNBAN
+            - MEMBER_FORCEBAN
+            - MEMBER_SOFTBAN
+            - MEMBER_NOTE
+            - CLEAN
+            - CASE_CREATE
+            - MASSBAN
+            - CASE_UPDATE
+            - SET_ANTIRAID_USER
+            - SET_ANTIRAID_AUTO
+            - AUTOMOD_ACTION
+            - MESSAGE_SPAM_DETECTED
+            - OTHER_SPAM_DETECTED
+            - CENSOR
+            - BOT_ALERT
+
+        '587370329622446152': #members X
+          include:
+            - MEMBER_JOIN
+            - MEMBER_LEAVE
+            - MEMBER_RESTORE
+            - MEMBER_MUTE_REJOIN
+            - MEMBER_JOIN_WITH_PRIOR_RECORDS
+
+        '614858639420817469': #messages X
+          include:
+            - MESSAGE_EDIT
+            - MESSAGE_DELETE
+            - MESSAGE_DELETE_BULK
+            - MESSAGE_DELETE_BARE
+            - MESSAGE_DELETE_AUTO
+          exclude_bots: true
+          excluded_users: ["176082223894757377"]
+          excluded_message_regexes:
+            - /^[\d,]+?$/ # ignore messages with digits only (#count-to-a-million)
+
+        '14860948733296649': #voice
+          include:
+            - VOICE_CHANNEL_JOIN
+            - VOICE_CHANNEL_MOVE
+            - VOICE_CHANNEL_LEAVE
+            - VOICE_CHANNEL_FORCE_MOVE
+
+        '643511827170590730': #role-changes
+          include:
+            - MEMBER_ROLE_ADD
+            - MEMBER_ROLE_REMOVE
+            - MEMBER_ROLE_CHANGES
+
+        '846039475897106432': #simpler zep
+          exclude: [] # Exclude nothing = include everything
+          excluded_roles:
+            - '777121217630175243' #moote role
+
+
+        '799702944056475709': #zep all
+          #include: []
+          exclude: [] # Exclude nothing = include everything
+          #batched: boolean
+          #batch_time: number
+          #excluded_users:
+            #- as
+          #excluded_message_regexes:
+            #- as
+          #excluded_channels:
+            #- '2454' #channel name
+          #excluded_categories:
+            #- as
+          exclude_bots: true
+
+
+
+      format:
+        timestamp: ""
+        MEMBER_NOTE: "\U0001F58A Note added on {userMention(user)} by {userMention(mod)}"
+        MEMBER_WARN: |-
+            :warning: **MEMBER WARNED**
+            ------------------
+            <:iconmembers:778932116024459275> **USER**
+            <@!{member.id}> | `{member.user.username}#{member.user.discriminator}` | `{member.id}`
+            ------------------
+            <:iconmembers:778932116024459275> **MOD**
+            <@!{mod.id}> | `{mod.username}#{mod.discriminator}` | `{mod.id}`
+            ------------------
+            <:channelnews:779042577365205024> **REASON**
+            {reason}
+        MEMBER_MUTE: "\U0001F507 {userMention(user)} was muted indefinitely by {userMention(mod)}"
+        MEMBER_TIMED_MUTE: "\U0001F507 {userMention(user)} was muted for **{time}** by {userMention(mod)}"
+        MEMBER_UNMUTE: "\U0001F50A {userMention(user)} was unmuted by {userMention(mod)}"
+        MEMBER_TIMED_UNMUTE: "\U0001F50A {userMention(user)} was scheduled to be unmuted in **{time}** by {userMention(mod)}"
+        MEMBER_MUTE_EXPIRED: "\U0001F50A {userMention(member)}'s mute expired"
+        MEMBER_KICK: "\U0001F462 {userMention(user)} was kicked by {userMention(mod)}"
+        MEMBER_BAN: "\U0001F528 {userMention(user)} was banned by {userMention(mod)}"
+        MEMBER_UNBAN: "\U0001F513 User (`{userId}`) was unbanned by {userMention(mod)}"
+        MEMBER_FORCEBAN: "\U0001F528 User (`{userId}`) was forcebanned by {userMention(mod)}"
+        MEMBER_SOFTBAN: "\U0001F528 {userMention(member)} was softbanned by {userMention(mod)}"
+
+        MEMBER_JOIN: "\U0001F4E5 {new} {userMention(member)} joined (created {account_age} ago)"
+        MEMBER_LEAVE: "\U0001F4E4 {userMention(member)} left the server"
+
+        MEMBER_ROLE_ADD: |-
+
+          **ROLE ADDED**
+          ------------------
+          <:iconmembers:778932116024459275> **USER**
+          <@!{member.id}> | `{member.user.username}#{member.user.discriminator}` | `{member.id}`
+          ------------------
+          <:iconmembers:778932116024459275> **BY MOD**
+          <@!{mod.id}> | `{mod.username}#{mod.discriminator}` | `{mod.id}`
+          ------------------
+          <:channelnews:779042577365205024> **ROLES**
+          `{roles}`
+        MEMBER_ROLE_REMOVE: |-
+
+          **ROLE REMOVED**
+          ------------------
+          <:iconmembers:778932116024459275> **USER**
+          <@!{member.id}> | {member.user.username}#{member.user.discriminator} | {member.id}
+          ------------------
+          <:iconmembers:778932116024459275> **BY MOD**
+          <@!{mod.id}> | {mod.username}#{mod.discriminator} | {mod.id}
+          ------------------
+          <:iconsettings:778931333459738626> **ROLES**
+          `{roles}`
+        MEMBER_ROLE_CHANGES: |-
+
+          **ROLE CHANGES**
+          ------------------
+          <:iconmembers:778932116024459275> **USER**
+          <@!{member.id}> | {member.user.username}#{member.user.discriminator} | {member.id}
+          ------------------
+          <:iconmembers:778932116024459275> **BY MOD**
+          <@!{mod.id}> | {mod.username}#{mod.discriminator} | {mod.id}
+          ------------------
+          <:channelnews:779042577365205024> **ROLES ADDED**
+          {addedRoles}
+          ------------------
+          <:iconsettings:778931333459738626> **ROLES REMOVED**
+          `{removedRoles}`
+
+        MEMBER_NICK_CHANGE: |-
+          ✏ **NICKNAME CHANGE**
+          ------------------
+          <:iconmembers:778932116024459275> **USER**
+          <@!{member.id}> | {member.user.username}#{member.user.discriminator} | {member.id}
+          ------------------
+          `{oldNick}` to `{newNick}`
+        MEMBER_USERNAME_CHANGE: |-
+          ✏ **USERNAME CHANGE**
+          ------------------
+          <:iconmembers:778932116024459275> **USER**
+          <@!{member.id}> | {member.user.username}#{member.user.discriminator} | {member.id}
+          ------------------
+          `{oldName}` to `{newName}`
+
+        MEMBER_RESTORE: "\U0001F4BF Restored {restoredData} for {userMention(member)} on rejoin"
+        MEMBER_TIMED_BAN: "\U0001F528 {userMention(user)} was tempbanned by {userMention(mod)} for {banTime}"
+        MEMBER_TIMED_UNBAN: "\U0001F513 User (`{userId}`) was automatically unbanned by {userMention(mod)} after a tempban for {banTime}"
+
+        CHANNEL_CREATE: |-
+            **CHANNEL CREATED**
+            <#{channel.id}> | {channel.name} | {channel.id}
+        CHANNEL_DELETE: |-
+          **CHANNEL DELETED**
+          {channel.name} | {channel.id}
+        CHANNEL_EDIT: '✏ Channel {channelMention(channel)} was edited'
+
+        ROLE_CREATE: |-
+          **ROLE CREATED**
+          {role.name} | {role.id}
+        ROLE_DELETE: |-
+          **ROLE DELETED**
+          {role.name} | {role.id}
+        ROLE_EDIT: |-
+          **ROLE EDITED**
+          {role.name} | {role.id}
+
+        MESSAGE_EDIT: |-
+            :pencil: **MESSAGE EDITED**
+            ------------------
+            <:iconmembers:778932116024459275> **USER**
+            <@!{user.id}> | `{user.username}#{user.discriminator}` | `{user.id}`
+            ------------------
+            <:channeltext:779036156175188001> **CHANNEL**
+            <#{channel.id}> | `{channel.id}`
+            ------------------
+            <:updateMessage:843822776515297280> **MESSAGE**
+            <https://discord.com/channels/736198286813167669/{channel.id}/{after.id}>
+            **Before:**{messageSummary(before)}**After:**{messageSummary(after)}
+        MESSAGE_DELETE: |-
+          <:iconsystemx:842172192418693173> **MESSAGE DELETED**
+          ------------------
+          <:iconmembers:778932116024459275> **USER**
+          <@!{user.id}> | `{user.username}#{user.discriminator}` | `{user.id}`
+          ------------------
+          <:channeltext:779036156175188001> **CHANNEL**
+          <#{channel.id}> | `{channel.id}`
+          ------------------
+          <:deleteMessage:843820564741488671> **MESSAGE**
+          `{message.id}`
+          {messageSummary(message)}
+        MESSAGE_DELETE_BULK: "\U0001F5D1 **{count}** messages by {authorIds} deleted in {channelMention(channel)} ({archiveUrl})"
+        MESSAGE_DELETE_BARE: "\U0001F5D1 Message (`{messageId}`) deleted in {channelMention(channel)} (no more info available)"
+        MESSAGE_DELETE_AUTO: "\U0001F5D1 Auto-deleted message (`{message.id}`) from {userMention(user)} in {channelMention(channel)} (originally posted at **{messageDate}**):{messageSummary(message)}"
+
+        VOICE_CHANNEL_JOIN: |-
+            <:iconundeafened:837072274527485983> **VC JOIN**
+            ------------------
+            <:iconmembers:778932116024459275> **USER**
+            <@!{member.id}> | `{member.user.username}#{member.user.discriminator}` | `{member.id}`
+            ------------------
+            <:iconmembers:778932116024459275> **CHANNEL**
+            <#{channel.id}> | {channel.name} | {channel.id}
+        VOICE_CHANNEL_MOVE: "\U0001F399 ↔ {userMention(member)} moved from {channelMention(oldChannel)} to {channelMention(newChannel)}"
+        VOICE_CHANNEL_LEAVE: |-
+            <:icondeafened:837072274086953000> **VC LEAVE**
+            ------------------
+            <:iconmembers:778932116024459275> **USER**
+            <@!{member.id}> | `{member.user.username}#{member.user.discriminator}` | `{member.id}`
+            ------------------
+            <:iconmembers:778932116024459275> **CHANNEL**
+            <#{channel.id}> | {channel.name} | {channel.id}
+        VOICE_CHANNEL_FORCE_MOVE: "\U0001F399 ✍ {userMention(member)} was moved from **{oldChannel.name}** to **{newChannel.name}** by {userMention(mod)}"
+        VOICE_CHANNEL_FORCE_DISCONNECT: "\U0001F399 \U0001F6AB {userMention(member)} was forcefully disconnected from **{oldChannel.name}** by {userMention(mod)}"
+
+
+        COMMAND: "\U0001F916 {userMention(member)} used command in {channelMention(channel)}:\n`{command}`"
+
+        MESSAGE_SPAM_DETECTED: "\U0001F6D1 {userMention(member)} spam detected in {channelMention(channel)}: {description} (more than {limit} in {interval}s)\n{archiveUrl}"
+        OTHER_SPAM_DETECTED: "\U0001F6D1 {userMention(member)} spam detected: {description} (more than {limit} in {interval}s)"
+
+        CENSOR: "\U0001F6D1 Censored message (`{message.id}`) from {userMention(user)} in {channelMention(channel)}: {reason}:\n```{messageText}```"
+
+        CLEAN: "\U0001F6BF {userMention(mod)} cleaned **{count}** message(s) in {channelMention(channel)}\n{archiveUrl}"
+
+        CASE_CREATE: >-
+          ✏ {userMention(mod)} manually created new **{caseType}** case
+          (#{caseNum})
+        CASE_DELETE: '✂️ **Case #{case.case_number}** was deleted by {userMention(mod)}'
+
+        MASSUNBAN: '⚒ {userMention(mod)} mass-unbanned {count} users'
+        MASSBAN: '⚒ {userMention(mod)} massbanned {count} users'
+        MASSMUTE: "\U0001F4E2\U0001F6AB {userMention(mod)} massmuted {count} users"
+
+        MEMBER_JOIN_WITH_PRIOR_RECORDS: |-
+          ⚠ {userMention(member)} joined with prior records. Recent cases:
+          {recentCaseSummary}
+
+        CASE_UPDATE: |-
+          ✏ {userMention(mod)} updated case #{caseNumber} ({caseType}) with note:
+          ```{note}```
+
+        MEMBER_MUTE_REJOIN: '⚠ Reapplied active mute for {userMention(member)} on rejoin'
+
+
+        SCHEDULED_MESSAGE: >-
+          ⏰ {userMention(author)} scheduled a message to be posted to
+          {channelMention(channel)} on {datetime}
+        SCHEDULED_REPEATED_MESSAGE: >-
+          ⏰ {userMention(author)} scheduled a message to be posted to
+          {channelMention(channel)} on {datetime}, repeated {repeatDetails}
+        REPEATED_MESSAGE: >-
+          ⏰ {userMention(author)} scheduled a message to be posted to
+          {channelMention(channel)} {repeatDetails}
+        POSTED_SCHEDULED_MESSAGE: "\U0001F4E8 Posted scheduled message (`{messageId}`) to {channelMention(channel)} as scheduled by {userMention(author)}"
+
+        BOT_ALERT: '⚠ **BOT ALERT:** {tmplEval(body)}'
+
+        DM_FAILED: "\U0001F6A7 Failed to send DM ({source}) to {userMention(user)}"
+
+        AUTOMOD_ACTION: |-
+            <:iconsearch:778925668536811520> **AUTOMOD ACTION**
+            ------------------
+            **RULE**
+            {rule}
+            ------------------
+            <:iconmembers:778932116024459275> **USER**
+            <@!{user.id}> | `{user.username}#{user.discriminator}` | `{user.id}`
+            ------------------
+            <:iconsettings:778931333459738626> **ACTION**
+            {actionsTaken}
+            ------------------
+            **MESSAGE**
+            {matchSummary}
+
+        SET_ANTIRAID_USER: |-
+            <:iconrole:826477127209320534> **ANTI-RAID**
+            ------------------
+            <:iconmembers:778932116024459275> **USER**
+            <@!{user.id}> | `{user.username}#{user.discriminator}` | `{user.id}`
+            ------------------
+            <:iconconnection:778931450451984395> **ANTI-RAID**
+            {level}
+        SET_ANTIRAID_AUTO: |-
+            <:iconrole:826477127209320534> **AUTO ANTI-RAID**
+            ------------------
+            <:iconconnection:778931450451984395> **ANTI-RAID**
+            {level}
+
+      ping_user: false
+      allow_user_mentions: false
+      #timestamp_format: string
+      include_embed_timestamp: true
+    overrides:
+      - level: '>=50'
+        config:
+          ping_user: false
+
+  counters:
+    config:
+      counters:
+        xp:
+          per_user: true
+          triggers:
+            role_1:
+              condition: ">=100"
+            role_2:
+              condition: ">=250"
+            role_3:
+              condition: ">=500"
+            role_4:
+              condition: ">=1000"
+
+        activity:
+          per_user: true
+          triggers:
+            grant_role:
+              condition: ">=5"
+              # We set a separate threshold for when the role should be removed. This is so the decay doesn't remove the activity role immediately.
+              # If this value isn't set, reverse_condition defaults to the opposite of the condition, i.e. "<100" in this case.
+              reverse_condition: "<1"
+          decay:
+            amount: 1
+            every: 72h
+
+        stars:
+          per_user: true
+          triggers:
+            grant_star:
+              condition: ">=7"
+              # We set a separate threshold for when the role should be removed. This is so the decay doesn't remove the star role immediately.
+              # If this value isn't set, reverse_condition defaults to the opposite of the condition, i.e. "<1" in this case.
+              reverse_condition: "<1"
+          decay:
+            amount: 1
+            every: 72h
+
+        badword_counter:
+          per_user: true
+          triggers:
+            silent:
+              condition: ">=1"
+            verbal:
+              condition: ">=2"
+            warning:
+              condition: ">=3"
+            mute:
+              condition: ">=4"
+          # Remove 1 automod infraction points per 20s
+          decay:
+            amount: 1
+            every: 20s
+
+        antiraid_decay:
+          triggers:
+            disable:
+              condition: "<1"
+          decay:
+            amount: 1
+            every: 1m
+      can_view: true
+      can_edit: false
+      can_reset_all: false
+    overrides:
+      - level: '>=50'
+        config:
+          can_view: true
+      - level: '>=100'
+        config:
+          can_edit: true
+
+  automod:
+    config:
+      rules:
+        badwords:
+          enabled: true
+          triggers:
+          - match_words:
+              words:
+              - retard
+              - e-girl
+              - boobs
+              - asshole
+              - dick
+              - cnut
+              - dick
+              - blowjob
+              - slut
+              - b1tch
+              - slut
+              - bitch
+              - c0ck
+              - pussy
+              - thot
+              - cunt
+              - fuk
+              - bitches
+              - penis
+              case_sensitive: true
+              only_full_words: true
+              normalize: true
+              loose_matching: false
+              loose_matching_threshold: 0
+              strip_markdown: true
+              match_messages: true
+              match_embeds: true
+              match_visible_names: false
+          - match_regex:
+              patterns:
+                - 'fuck'
+                - 'n[il1]+g{2,}(er|a)' #nigger
+                - "n[\\s.\\-]*[i1][\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*[e3][\\s.\\-]*r" #nigger
+                - "n[\\s.\\-]*[i1][\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*a" #nigga
+                - "f[\\s.\\-]*a[\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*o[\\s.\\-]*[t7]" #faggot
+              normalize: true
+              strip_markdown: true
+              match_messages: true
+              match_embeds: true
+              match_visible_names: false
+          actions:
+            clean: true
+            reply:
+              text: |-
+                <@{user.id}> sent a bad word (sample detection)
+            add_to_counter:
+              counter: "badword_counter"
+              amount: 1 # This infraction adds 1 automod infraction points
+        copypasta:
+          enabled: true
+          triggers:
+            - match_regex:
+                patterns:
+                  - "[⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿]"
+                  - "[░▐▌█▀▄]"
+                  - \# - "^(\\s*\\|\\|.+?\\|\\|\\s*)+$"
+                  - (?:[\u2500-\u25FF\u2800-\u28FF]\s*){4,}
+                  - '▐▀█▀▌'
+                  - ⠟⠑⡄⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⣤⣤⣤⣀⡀
+                  - ඞ
+                  - ████
+                  - ⣿⣿⣿
+                case_sensitive: false
+                normalize: true
+                strip_markdown: true
+                match_messages: true
+                match_embeds: true
+          actions:
+            log: true
+            alert:
+                channel: "831498216704049172" #dashboard
+                text: |-
+                  :bust_in_silhouette: **Mention:** <@!{user.id}>
+                  :credit_card: **ID:** `{user.id}`
+                  :construction: **Violation:** Copy Pasta detcted words in chat!
+                  :warning: **Action:** Nothing . Mod may take action in chat if needed
+
+                  :information_source: **Details:** {matchSummary}
+            add_to_counter:
+              counter: "automod"
+              amount: 2 # This infraction adds 1 automod infraction points
+        auto_nick:
+          enabled: false
+          triggers:
+          - match_words:
+              words:
+                - 'w̴̅́'
+                - 'ñ̷͝'
+                - '꧁'
+                - '𝓔'
+                - '𝓟'
+                - '𝓘'
+                - '𝓒'
+                - '𝓖'
+                - '𝓞'
+                - '𝓓'
+                - '꧂'
+                - '𝓮'
+                - '𝓻'
+                - '𝓲'
+                - '𝓴'
+                - '𝓪'
+                - '﷽'
+                - '𝖋'
+                - '𝖑'
+                - '𝖙'
+                - '𒐫'
+                - 'd̶̀̃'
+                - 'a̷͒̍'
+                - '𝖗'
+                - '𝖝'
+                - 'ȶ'
+                - 'ʊ'
+                - 'ȶ'
+                - '҉҉'
+                - '𝐓'
+                - '박'
+                - '의'
+                - '윤'
+                - '𝐇'
+                - '𝕿'
+                - '𝕺'
+                - '𝐄'
+                - 'ム'
+                - '✧'
+                - '▄'
+                - 'ㄒ'
+                - '乃'
+                - '卂'
+                - 'ᗪ'
+                - 'ℳ'
+                - 'Ⱡ'
+                - '₳'
+                - 'Ɽ'
+                - 'Ӿ'
+                - 'Ø'
+                - '𝒶'
+                - '𝓁'
+                - '𝒾'
+                - '𝓀'
+                - '乃'
+                - 'ㄖ'
+                - 'ㄚ'
+                - 'ᴇ'
+                - 'ᴠ'
+                - 'ɪ'
+                - 'ʟ'
+                - '𝕥'
+                - '𝕒'
+                - '𝕣'
+                - '𝕕'
+                - 'ᴇ'
+                - 'ᴠ'
+                - 'ᴇ'
+                - 'ʀ'
+                - 'ʏ'
+                - '𝐘'
+                - '𝓔'
+                - '𝓚'
+                - '🄲'
+                - '🄷'
+                - '🄴'
+                - '🅁'
+                - '🅁'
+                - '🅈'
+                - '𝓐'
+                - '𝓜'
+                - '╗'
+                - '╚'
+                - '𝐊'
+                - '𝐍'
+                - '𝐈'
+                - '𝓐'
+                - '𝔃'
+                - '𝓾'
+                - '𝓻'
+                - '𝓴'
+                - '𝓲'
+                - '𝓪'
+                - '𝐆'
+                - '𝐇'
+                - '𝓛'
+                - '𝓸'
+                - '˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞'
+                - '𝓵'
+                - 'お'
+                - 'み'
+                - 'わ'
+                - '𝐓'
+                - 'ペ'
+                - '』'
+                - '『'
+                - '╲'
+                - '⎝'
+                - '⧹'
+                - 'Ξ'
+                - 'ت'
+                - '☆'
+                - 'M̸'
+                - 'п'
+                - 'и'
+                - 'в'
+                - 'т'
+                - 'м'
+                - 'г'
+                - '𒅌'
+                - 'nigger'
+                - '𝓻'
+                - '𝓪'
+                - '𝓭'
+                - '𝓴'
+                - '𝓪'
+                - '𝓽'
+                - '🅔'
+                - '🅧'
+                - '🅘'
+                - '🅢'
+                - '🅣'
+                - '╾'
+                - '━'
+                - '╤'
+                - 'デ'
+                - '╦'
+                - '︻'
+                - '🅔'
+                - '🅝'
+                - '🅣'
+                - 'Ù̸͑'
+                - 'ň̸͂'
+                - 'ḱ̸͉'
+                - 'ń̷̃'
+                - 'ő̵̔'
+                - 'w̶̓͋'
+                - 'n̴̅̀'
+                - '🅗'
+                - '𝒮'
+                - '𝒦'
+                - '𝒴'
+                - '🅤'
+                - '🅝'
+                - 'ة'
+                - 'ا'
+                - 'ث'
+                - 'س'
+                - 'ؤ'
+                - '🅣'
+                - 'ᵃ'
+                - 'ᵉ'
+                - 'ʳ'
+                - 'ᵒ'
+                - '🅔'
+                - '🅡'
+                - '❼'
+                - '꧅'
+                - '𝕮'
+                - '𝖍'
+                - '𝖎'
+                - '𝖈'
+                - '𝖐'
+                - '𝖊'
+                - '𝖓'
+                - '𝕔'
+                - '𝕓'
+                - '𝕖'
+                - '𝕫'
+                - 'ȶ'
+                - 'ȶ'
+                - 'ʟ'
+                - 'ɛ'
+                - 'Ｌ'
+                - 'ｉ'
+                - 'ａ'
+                - 'ｍ'
+                - '҉҉'
+                - '𝓫'
+                - '𝓮'
+                - '𝓼'
+                - '𝓽'
+                - '𝓤'
+                - '𝓝'
+                - '𝓡'
+                - '𝓤'
+                - '𝓛'
+                - '𝓨'
+                - '𝕋'
+                - '𝔾'
+                - '𝔸'
+                - '𝕄'
+                - '𝔼'
+                - 'ℝ'
+              case_sensitive: false
+              match_messages: false
+              match_embeds: false
+              match_visible_names: true
+              only_full_words: false
+              loose_matching: true
+              loose_matching_threshold: 50
+          actions:
+            #clean: true
+            log: true
+            #alert:
+              #channel: "831498216704049172" #zep channel
+              #text: |-
+                #Unique nick detected
+            #warn:
+              #reason: >-
+                #Please ensure that your name does not contain any Zalgo text, racial slurs, or anything against the rules of the GTAO discord server.
+
+                #Your nickname has been automatically changed to an empty one. If you believe this action to be in error, please message Modmail (<@698237346537013338>) and explain your reasoning.
+            #change_nickname:
+              #name: >-
+                #Change Nickname | Auto
+        invites:
+          enabled: false
+          triggers:
+          - match_invites:
+              allow_group_dm_invites: true
+              exclude_guilds: []
+              match_messages: true
+              match_embeds: true
+              match_visible_names: false
+              exclude_invite_codes:
+                - rey #rey server
+                - tribegaming #tribegaming server
+          actions:
+            log: true
+            clean: true
+            reply:
+              text: |-
+                <@{user.id}> sent an invite (sample detection)
+            add_to_counter:
+              counter: "automod"
+              amount: 1 # This infraction adds 1 automod infraction points
+        non_latin_character_block:
+                  enabled: false
+                  affects_bots: false
+                  triggers:
+                  - match_regex:
+                      patterns:
+                        - "[\u0600-\u06FF]+" # Arabic
+                        - "(\u0196|\u0214|\u0220|\u0223|\u0228|\u0246|\u0252)+" # German
+                        - "(\u0192|\u0194|\u0196|\u0198|\u0199|[\u0200-\u0204]|\u0206|\u0207|\u0210|\u0212|\u0140|\u0217|\u0219|\u0220|\u0224|\u0226|\u0228|\u0230|\u0231|[\u0232-\u0236]|\u0238|\u0239|\u0244|\u0244|\u0156|\u0249|\u0251|\u0252)+" # French/Italian
+                        - "(\u0161|\u0191|\u0193|\u0201|\u0205|\u0209|\u0211|\u0218|\u0220|\u0225|\u0233|\u0237|\u0241|\u0243|\u0250|\u0252)+" #Spanish
+                        - "[\u4e00-\u9faf\u3400-\u4dbf]+" # Chinese
+                        - "[\u0400-\u04FF]+" # Cryllic (Russian)
+                        - "[\u0370-\u03FF]+" # Greek
+                        - "[\u1F00-\u1FFF]+" # Greek Extended
+                        - "[\u05BE-\u05F4]+" # Hebrew
+                        - "(?![ツ])[\u30A0-\u30FF]+" # Japanese (Hiragana)
+                        - "(?![ツ])[\u30A0-\u30FF]+" # Japanese (Kana)
+                  actions:
+                    clean: false
+                    add_to_counter:
+                      counter: "automod"
+                      amount: 1
+                    reply:
+                      text: |-
+                        Non latin detected
+        dex_ping:
+                  enabled: true
+                  affects_bots: false
+                  triggers:
+                  - match_regex:
+                      patterns:
+                        - '(?:<@!473868086773153793>)'
+                        - '<@473868086773153793>'
+
+                  actions:
+                    log: true
+                    alert:
+                      channel: "831498216704049172" #zep channel
+                      text: |-
+                        <@{user.id}> pinged zep (detected)
+                    reply:
+                      text:
+                        embed:
+                          title: "Sigh."
+                          description: "So you pinged me. What did that get you? No seriously, tf did u think was gonna happen. Did u expect me to magically KNOW what you want? Dont i do enough already that I have to take care of your bullshit pings? I am seriously at my limit Timothy."
+                          color: 0xFF0000
+        nitro_role_remove:
+          enabled: false
+          triggers:
+            - role_removed: ['797739346807226378'] #nitro role
+          actions:
+            remove_roles:
+              - '798505084132524043' #color of the month nitro
+            alert:
+              channel: "770256340639416320" #testing
+              text: >-
+                :red_circle: <@!{user.id}> One role removed so other gone as well!
+        new_joins:
+          enabled: true
+          triggers:
+          - member_join:
+              only_new: true
+              new_threshold: 1h
+          actions:
+              alert:
+                channel: "770256340639416320" #home
+                text: >-
+                  :red_circle: <@{user.id}> is a new account! Be vary
+        media:
+          enabled: false
+          triggers:
+          #- match_links:
+              #exclude_regex:
+                  #- ''
+            - match_regex:
+                patterns:
+                  - '^((?!https?:\/\/\S+\.(gif|jpe?g|png|webp|mov|m4a|mp4|webm)).)*$'
+            - match_attachment_type:
+                whitelist_enabled: true
+                filetype_whitelist:
+                  - png
+                  - jpg
+                  - jpeg
+                  - gif
+                  - mp4
+                  - avi
+                  - txt
+                  - PNG
+                  - JPG
+                  - JPEG
+                  - GIF
+                  - MP4
+                  - AVI
+                  - TXT
+          actions:
+            clean: false
+            #media only channel when used with override
+            alert:
+              channel: "831498216704049172" #zep channel
+              text: |-
+                  Media file detected at {messageLink}
+        autorole:
+          enabled: false
+          affects_bots: false
+          triggers:
+            - any_message: {}
+          actions:
+            log: true
+            add_roles:
+              - "832922355009060894" #dexians
+        booster_added_filter:
+          enabled: true
+          triggers:
+          - role_added: ['618663125016641537'] #booster role
+          actions:
+            alert:
+              channel: "808334772102234142" #misc channel
+              text: >-
+                :green_circle: <@!{user.id}> Just boosted Server! (alert)
+        booster_remove_filter:
+          enabled: true
+          triggers:
+          - role_removed: ['618663125016641537'] #booster role
+          actions:
+            remove_roles:
+              - '754619197358604389' #blue
+              - '753514538820698133' #red
+              - '762207737857703946' #green
+              - '762207748732747818' #yellow
+              - '762207747592028160' #purple
+              - '772424797719625749' #brown
+              - '772424620149833748' #white
+            alert:
+              channel: "572122519616749586" #mod chat
+              text: >-
+                :red_circle: <@!{user.id}> stopped boosting! Pls check if roles were removed (alert)
+        bad_name:
+          enabled: false
+          triggers:
+          - match_regex:
+              patterns:
+                - fuck
+                - retard
+                - e-girl
+                - boobs
+                - asshole
+                - dick
+                - cnut
+                - dick
+                - blowjob
+                - slut
+                - b1tch
+                - slut
+                - bitch
+                - c0ck
+                - pussy
+                - thot
+                - cunt
+                - fuk
+                - bitches
+                - penis
+                #- '[^a-zA-Z0-9\s\-_().!?$%*=#,:;\x27"éè$&°#@&øçàœëツï|öä:tm:ù\\/]' #stricter non-alphanumeric regex to make sure its ALWAYS readable. kinda doesnt allow any symbols even
+              match_messages: false
+              match_embeds: false
+              match_visible_names: true
+              match_usernames: false
+              match_nicknames: false
+          actions:
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :bust_in_silhouette: **Mention:** <@!{user.id}>
+                :credit_card: **ID:** `{user.id}`
+                :construction: **Violation:** Bad nickname!
+                :warning: **Action:** Warned & Changed name
+
+                :information_source: **Details:** {matchSummary}
+        delete_cmds:
+          enabled: false
+          triggers:
+          - match_regex:
+              patterns:
+                - ^!warn\b
+                - ^!mute\b
+                - ^!ban\b
+              case_sensitive: false
+              only_full_words: false
+          actions:
+            clean: true
+            log: false
+        role_remove_to_remove_other_roles:
+          enabled: false
+          triggers:
+          - role_removed: ['766917936995762216'] #3 is removed
+          actions:
+            remove_roles:
+              - '766917766699024425' #5
+              - '754619197358604389' #blue
+              - '753514538820698133' #red
+              - '762207737857703946' #green
+              - '762207748732747818' #yellow
+              - '762207747592028160' #purple
+              - '772424797719625749' #brown
+              - '772424620149833748' #white
+        phonenumber:
+          enabled: false
+          triggers:
+          - match_regex:
+              patterns:
+                - (?:^|[^0-9])(1[34578][0-9]{9})(?:$|[^0-9])
+          actions:
+            clean: true
+            reply:
+              text: >-
+                <@!{user.id}> Phone numbers are not allowed!
+              auto_delete: 7s
+            alert:
+              channel: "800887873200193536" #automod channel
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) sent a phone number!
+                {matchSummary}
+                *Automatically Cleaned*
+        irl_name_protection:
+          enabled: false
+          triggers:
+          - match_regex:
+              patterns:
+                - davis mathew|davis
+          actions:
+            clean: true
+            alert:
+              channel: "800887873200193536" #automod channel
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) said nats name!
+                {matchSummary}
+                *Automatically Cleaned*
+        blocked_links:
+          #THIS WILL REMAIN FALSE BECAUSE WE USE CROSSLINK FOR LINK MONITORING
+          enabled: false
+          triggers:
+            - match_words:
+                only_full_words: false
+                normalize: true
+                loose_matching: true
+                words:
+                  - Libra coin
+                  - libra-coin
+            - match_links:
+                include_subdomains: true
+                only_real_links: false # Also match links that don't get highlighted
+                include_domains:
+                  # Malware
+                  - selfbot.cc
+                  - catsnthing.com
+                  - catsnthings.fun
+                  - destyy.com
+                  - fortnight.space
+                  - särahah.pl
+                  - särahah.eu
+
+                  # Porn/NSFW sites
+                  - hanime.tv
+                  - pornhub.com
+                  - 997sexy.com
+                  - homefilm.com
+                  - 113girl.com
+                  - fuq.com
+
+                  #IP loggers/Grabify
+                  - stopify.co
+                  - iplogger.org
+                  - blasze.tk
+                  - iplo.ru
+                  - iplogger.com
+                  - iplogger.ru
+                  - yip.su
+                  - iplogger.co
+                  - iplogger.org
+                  - ipgrabber.ru
+                  - ipgraber.ru
+          actions:
+            clean: true
+            reply:
+              text: >-
+                <@!{user.id}> That was a banned link!
+            alert:
+              channel: "800887873200193536" #automod channel
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) sent a bad link!
+                {matchSummary}
+                *Automatically Cleaned*
+        Remove_owner_impersonation: #dont allow same name as owner
+          enabled: false
+          triggers:
+          - match_words:
+              words:
+                - 'nat ♡'
+              case_sensitive: false
+              match_messages: false
+              match_embeds: false
+              match_visible_names: true
+              only_full_words: true
+              loose_matching: false
+              loose_matching_threshold: 50
+          actions:
+            clean: true
+            log: true
+            change_nickname:
+              name: >-
+                Change your name
+        message:
+          enabled: false
+          triggers:
+          - message_spam:
+              amount: 16
+              within: 7s
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was spamming too fast!
+                {matchSummary}
+                *Automatically Cleaned*
+        attachment:
+          enabled: false
+          triggers:
+          - attachment_spam:
+              amount: 8
+              within: 8s
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many attachments!
+                {matchSummary}
+                *Automatically Cleaned*
+        mention:
+          enabled: false
+          triggers:
+          - mention_spam:
+              amount: 6
+              within: 7s
+              per_channel: false
+          actions:
+            clean: false
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many mentions!
+                {matchSummary}
+                *Automatically Cleaned*
+        link:
+          enabled: false
+          triggers:
+          - link_spam:
+              amount: 5
+              within: 30s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many links!
+                {matchSummary}
+                *Automatically Cleaned*
+        emoji:
+          enabled: false
+          triggers:
+          - emoji_spam:
+              amount: 15
+              within: 20s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many emojis!
+                {matchSummary}
+                *Automatically Cleaned*
+        line:
+          enabled: false
+          triggers:
+          - line_spam:
+              amount: 14
+              within: 26s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was flooding!
+                {matchSummary}
+                *Automatically Cleaned*
+        character:
+          enabled: false
+          triggers:
+          - character_spam:
+              amount: 2000
+              within: 10s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many characters!
+                {matchSummary}
+                *Automatically Cleaned*
+        message_med:
+          enabled: false
+          triggers:
+          - message_spam:
+              amount: 7
+              within: 12s
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was spamming messages!
+                {matchSummary}
+                *Automatically Cleaned*
+        attachment_med:
+          enabled: false
+          triggers:
+          - attachment_spam:
+              amount: 5
+              within: 20s
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many attachments!
+                {matchSummary}
+                *Automatically Cleaned*
+        mention_med:
+          enabled: false
+          triggers:
+          - mention_spam:
+              amount: 4
+              within: 7s
+              per_channel: false
+          actions:
+            clean: false
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many mentions!
+                {matchSummary}
+                *Automatically Cleaned*
+        link_med:
+          enabled: false
+          triggers:
+          - link_spam:
+              amount: 4
+              within: 10s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many links!
+                {matchSummary}
+                *Automatically Cleaned*
+        emoji_med:
+          enabled: false
+          triggers:
+          - emoji_spam:
+              amount: 10
+              within: 15s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many emojis!
+                {matchSummary}
+                *Automatically Cleaned*
+        line_med:
+          enabled: false
+          triggers:
+          - line_spam:
+              amount: 10
+              within: 7s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was flooding!
+                {matchSummary}
+                *Automatically Cleaned*
+        character_med:
+          enabled: false
+          triggers:
+          - character_spam:
+              amount: 1000
+              within: 10s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many characters!
+                {matchSummary}
+                *Automatically Cleaned*
+        message_high:
+          enabled: false
+          triggers:
+          - message_spam:
+              amount: 9
+              within: 7s
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was spamming too fast!
+                {matchSummary}
+                *Automatically Cleaned*
+        attachment_high:
+          enabled: false
+          triggers:
+          - attachment_spam:
+              amount: 3
+              within: 10s
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many attachments!
+                {matchSummary}
+                *Automatically Cleaned*
+        mention_high:
+          enabled: false
+          triggers:
+          - mention_spam:
+              amount: 3
+              within: 7s
+              per_channel: false
+          actions:
+            clean: false
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many mentions!
+                {matchSummary}
+                *Automatically Cleaned*
+        link_high:
+          enabled: false
+          triggers:
+          - link_spam:
+              amount: 2
+              within: 10s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many links!
+                {matchSummary}
+                *Automatically Cleaned*
+        emoji_high:
+          enabled: false
+          triggers:
+          - emoji_spam:
+              amount: 5
+              within: 12s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many emojis!
+                {matchSummary}
+                *Automatically Cleaned*
+        line_high:
+          enabled: false
+          triggers:
+          - line_spam:
+              amount: 7
+              within: 15s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was flooding!
+
+                {matchSummary}
+        character_high:
+          enabled: false
+          triggers:
+          - character_spam:
+              amount: 200
+              within: 15s
+              per_channel: false
+          actions:
+            clean: true
+            log: true
+            alert:
+              channel: "800887873200193536" #dashboard
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) was sending too many characters!
+
+                {matchSummary}
+        auto_kick:
+          enabled: false
+          triggers:
+          - member_join:
+              only_new: true
+              new_threshold: 6h
+          actions:
+            kick:
+              reason: "Your account is very new and is marked as suspcious so it got kicked, If you think this is a mistake. Please try joining again in some time (like 30 minutes or so?) at discord.gg/nat"
+        high_trigger:
+          enabled: true
+          triggers:
+          - member_join_spam:
+              amount: 10
+              within: 18s
+          actions:
+            set_antiraid_level: "high"
+            alert:
+              channel: "572122519616749586" #modchat
+              text: |-
+                Dear <@&572104727077322763> It seems like 10 people joined within 18 seconds
+                Please watch the chat cuz we might be getting raided. I have increased security (you can see in <#774961064646934578>)
+                If this was a mistake . Please turn it back to low by doing `!antiraid low`
+        badwordc1:
+          # COUNTERS BUT AUTOMOD-----------------------------
+          triggers:
+            - counter_trigger:
+                counter: "badword_counter"
+                trigger: "silent"
+          actions:
+            log: true
+        badwordc2:
+          triggers:
+            - counter_trigger:
+                counter: "badword_counter"
+                trigger: "verbal"
+          actions:
+            alert:
+              channel: "831498216704049172" #zep channel
+              text: |-
+                <:iconlink:778925231506587668> **Badword** <:singleplayer:831585796409786439> **<@{user.id}>** <:iconid:778924898176466944> `{user.id}` <:iconbuildoverride:815459629869826048> Verbal Warning (Sample)
+        badwordc3:
+          triggers:
+            - counter_trigger:
+                counter: "badword_counter"
+                trigger: "warning"
+          actions:
+            alert:
+              channel: "831498216704049172" #zep channel
+              text: |-
+                <:iconlink:778925231506587668> **Badword** <:singleplayer:831585796409786439> **<@{user.id}>** <:iconid:778924898176466944> `{user.id}` <:iconbuildoverride:815459629869826048> Warning Logged! (Test)
+            #warn:
+              #reason: "**Badwords detected**. Continuing will result in a mute"
+        badwordc4:
+          triggers:
+            - counter_trigger:
+                counter: "badword_counter"
+                trigger: "mute"
+          actions:
+            log: true
+            clean: true
+            #mute:
+              #reason: "**Badwords violation**"
+              #duration: 10s
+              #remove_roles_on_mute: true
+              #restore_roles_on_mute: true
+            set_counter:
+              counter: "badword_counter"
+              value: 0
+            alert:
+              channel: "831498216704049172" #zep channel
+              text: |-
+                <:iconlink:778925231506587668> **Badword** <:singleplayer:831585796409786439> **<@{user.id}>** <:iconid:778924898176466944> `{user.id}` <:iconbuildoverride:815459629869826048> Mute! (10s test)
+        accumulate_xp:
+          # XP START----------------------------------------------------------------------
+          enabled: true
+          triggers:
+            - any_message: {}
+
+          actions:
+            log: false # Don't spam logs with XP changes
+            add_to_counter:
+              counter: "xp"
+              amount: 1 # Each message adds 1 XP
+
+          cooldown: 1m # Only count 1 message per minute
+        add_xp_role_1:
+          triggers:
+            - counter_trigger:
+                counter: "xp"
+                trigger: "role_1"
+
+          actions:
+            add_roles: ["827840992111099935"] # Role ID for xp role 1 bronze
+        add_xp_role_2:
+          triggers:
+            - counter_trigger:
+                counter: "xp"
+                trigger: "role_2"
+
+          actions:
+            add_roles: ["827841264489725983"] # Role ID for xp role 2 silver
+        add_xp_role_3:
+          triggers:
+            - counter_trigger:
+                counter: "xp"
+                trigger: "role_3"
+
+          actions:
+            add_roles: ["827841321716678698"] # Role ID for xp role 3 gold
+        add_xp_role_4:
+          triggers:
+            - counter_trigger:
+                counter: "xp"
+                trigger: "role_4"
+
+          actions:
+            add_roles: ["827841368374247454"] # Role ID for xp role 4 platinum
+        accumulate_activity:
+          # ACTIVITY START----------------------------------------------------------------------
+          triggers:
+            - any_message: {}
+
+          actions:
+            log: false # Don't spam logs with activity changes
+            add_to_counter:
+              counter: "activity"
+              amount: 1 # Each message adds 1 to the counter
+
+          cooldown: 1m # Only count 1 message per minute
+        grant_activity_role:
+          triggers:
+            - counter_trigger:
+                counter: "activity"
+                trigger: "grant_role"
+
+          actions:
+            add_roles: ["828659945158737931"] # Role ID for activity role
+        remove_activity_role:
+          triggers:
+            - counter_trigger:
+                counter: "activity"
+                trigger: "grant_role"
+                reverse: true # This indicates we want to use the *reverse* of the specified trigger, see reverse_condition in counters above
+
+          actions:
+            remove_roles: ["828659945158737931"] # Role ID for activity role
+        accumulate_stars:
+          # DEX STARS (ATTENDENCE)----------------------------------------------------------------------
+          triggers:
+            - match_words:
+                words:
+                - present
+                case_sensitive: false
+          actions:
+            log: true # Don't spam logs with activity changes
+            add_to_counter:
+              counter: "stars"
+              amount: 1 # Each message adds 1 to the counter
+
+          #cooldown: 30s # Only count 1 message per 30s
+        grant_star_role:
+          triggers:
+            - counter_trigger:
+                counter: "stars"
+                trigger: "grant_star"
+
+          actions:
+            add_roles: ["808718941785554985"] # Role ID for star role
+        remove_star_role:
+          triggers:
+            - counter_trigger:
+                counter: "stars"
+                trigger: "grant_star"
+                reverse: true # This indicates we want to use the *reverse* of the specified trigger, see reverse_condition in counters above
+
+          actions:
+            remove_roles: ["808718941785554985"] # Role ID for star role
+
+    overrides:
+    - extra:
+        antiraid_level: "off"
+      config:
+        rules:
+          invites:
+            enabled: false
+    - extra:
+        antiraid_level: "low"
+      config:
+        rules:
+          message:
+            enabled: false
+          attachment:
+            enabled: false
+          mention:
+            enabled: false
+          link:
+            enabled: false
+          emoji:
+            enabled: false
+          line:
+            enabled: false
+          character:
+            enabled: false
+          badwords:
+            enabled: false
+    - level: '>=50'
+      config:
+        can_view_antiraid: true
+        can_set_antiraid: true
+        rules:
+          delete_cmds:
+            enabled: true
+    - any:
+      - all:
+        - level: '<=30'
+          #role: "172950000412655616"
+        - extra:
+            antiraid_level: "low"
+        - not:
+            level: '100'
+      config:
+        rules:
+          invites:
+            enabled: true
+            actions:
+              warn:
+                reason: 'Sending server invite. Continuing will result in mute/ban'
+              reply:
+                text: >-
+                  <@!{user.id}> No server invites pls
+                auto_delete: 70s
+            alert:
+              channel: "800887873200193536" #dashboard channel
+              text: |-
+                :bust_in_silhouette: **Mention:** <@!{user.id}>
+                :credit_card: **ID:** `{user.id}`
+                :warning: **Action:** Auto-Warn
+
+                :information_source: **Details:** {matchSummary}
+
+          badwords:
+            enabled: false
+
+          bad_name:
+            enabled: true
+            actions:
+              warn:
+                reason: "Please change your nickname in the server"
+              change_nickname:
+                name: "Nickname cleared"
+              reply:
+                text: >-
+                  <@!{user.id}> Your name has been changed. Please check your dms.
+                auto_delete: 70s
+
+          phonenumber:
+            enabled: false
+            actions:
+              warn:
+                reason: 'Phone numbers are not allowed on server'
+              reply:
+                text: >-
+                  <@!{user.id}> Phone numbers are not allowed!
+                auto_delete: 70s
+
+          blocked_links:
+            enabled: false
+            actions:
+              warn:
+                reason: 'Blocked Link Detected'
+              reply:
+                text: >-
+                  <@!{user.id}> That link is blocked.
+                auto_delete: 70s
+
+          message:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Oh no! You were spamming too fast!
+              mute:
+                duration: 5m
+                reason: 'Auto-muted for spam'
+
+          attachment:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images at once!
+              mute:
+                duration: 5m
+                reason: 'Auto-muted for attachment spam'
+
+          mention:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Auto-muted for mass ping
+                duration: 10m
+
+          link:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont spam links!
+              mute:
+                reason: >-
+                  Auto-muted for link spam
+                duration: 10m
+
+          emoji:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Antispam Triggered
+                duration: 10m
+
+          line:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Antispam Triggered
+                duration: 10m
+
+          character:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Antispam Triggered
+                duration: 10m
+    - any:
+      - all:
+        - level: '<=30'
+          #role: "172950000412655616"
+        - extra:
+            antiraid_level: "medium"
+        - not:
+            level: '100'
+      config:
+        rules:
+          message_med:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Oh no! You were spamming too fast!
+              mute:
+                duration: 5m
+                reason: 'Auto-muted for spam'
+          attachment_med:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                duration: 5m
+                reason: 'Auto-muted for attachment spam'
+          mention_med:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Antispam Triggered
+                duration: 10m
+          link_med:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Antispam Triggered
+                duration: 10m
+          emoji_med:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Antispam Triggered
+                duration: 10m
+          line_med:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Antispam Triggered
+                duration: 10m
+          character_med:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Antispam Triggered
+                duration: 10m
+    - any:
+      - all:
+        - level: '<=30'
+          #role: "172950000412655616"
+        - extra:
+            antiraid_level: "high"
+        - not:
+            level: '100'
+      config:
+        rules:
+          message_high:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Oh no! You were spamming too fast!
+              mute:
+                duration: 5m
+                reason: 'Auto-muted for spam'
+
+          attachment_high:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                duration: 5m
+                reason: 'Auto-muted for attachment spam'
+
+          mention_high:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont mass ping people
+              mute:
+                reason: >-
+                  Mention Spam
+                duration: 10m
+
+          link_high:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Link Spam
+                duration: 10m
+
+          emoji_high:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Emoji Spam
+                duration: 10m
+
+          line_high:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Mutiple Line Spam
+                duration: 10m
+
+          character_high:
+            enabled: false
+            actions:
+              reply:
+                text: >-
+                  <@!{user.id}> Please dont send so many images!
+              mute:
+                reason: >-
+                  Character Spam
+                duration: 10m
