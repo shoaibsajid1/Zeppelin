@@ -1,3 +1,52 @@
+# TAGS
+
+
+💡 **TAG TIP**
+
+
+`user_tag_cooldown`is the cooldown per user per tag
+
+`global_tag_cooldown` is the global cooldown (server wide) per tag
+
+`user_cooldown` is the cooldown per user (not tag specific)
+
+`global_cooldown` is the global cooldown (server wide) (not tag specific)
+
+
+
+🌡 **TEMPERATURE TAG**
+
+**CtoF** `{if(args.0, if(or(eq(args.0, "0"), not(eq(add(args.0, 1), 1))), concat(add(mul(args.0, div(9, 5)), 32), "**°F**"), ":warning: Temperature must be a number"),":warning: Please provide a temperature to convert")}`
+
+**FtoC** `{if(args.0, if(or(eq(args.0, "0"), not(eq(add(args.0, 1), 1))), concat(mul(sub(args.0, 32), div(5, 9)), "**°C**"), "⚠️ Temperature must be a number"),"⚠️ Please provide a temperature to convert")}`
+
+
+
+**TAGS RESOURCES**
+
+
+`member / user` here:
+https://github.com/Dragory/ZeppelinBot/blob/master/backend/src/plugins/Tags/util/renderTagFromString.ts#L30
+
+base template functions (also available in other places with variables) here:
+https://github.com/Dragory/ZeppelinBot/blob/master/backend/src/templateFormatter.ts#L261
+
+tag functions here:
+https://github.com/Dragory/ZeppelinBot/blob/master/backend/src/plugins/Tags/TagsPlugin.ts#L116
+
+and a few extra tag things here:
+https://github.com/Dragory/ZeppelinBot/blob/master/backend/src/plugins/Tags/util/renderTagBody.ts#L20
+
+useful doc
+https://gist.github.com/vcokltfre/8cff17725485f70992c44970f53977fd
+
+
+
+
+
+**PLUGIN CODE**
+
+```yaml
   tags:
     replaceDefaultOverrides: true #replaces default settings if true
     config:
@@ -90,3 +139,4 @@
           can_list: true
           #only level 50 and up will a tag ping
           allow_mentions: false
+```

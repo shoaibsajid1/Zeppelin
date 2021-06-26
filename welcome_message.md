@@ -1,3 +1,20 @@
+# WELCOME MESSAGE
+
+
+**WELCOME PLUGIN VARIABLES**
+
+
+`member`, `user`, and `guild`
+
+Usage:
+welcome `{user.username}` to `{guild.name}!`
+welcome `<@!{user.id}>!`
+
+
+
+**PLUGIN CODE**
+
+```yaml
   welcome_message:
     replaceDefaultOverrides: true #replaces default settings if true
     config:
@@ -9,3 +26,4 @@
 
               Invite others with
               https://discord.gg/JCZf3sHYpE
+```

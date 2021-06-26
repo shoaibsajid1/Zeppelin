@@ -1,3 +1,13 @@
+# LOGS
+
+
+**COMMAND LOG VARIABLE**
+
+This log type is not functional unfortunately. So just skip it!
+
+**PLUGIN CODE**
+
+```yaml
   logs:
     config:
       channels:
@@ -318,3 +328,4 @@
       - level: '>=50'
         config:
           ping_user: false
+```

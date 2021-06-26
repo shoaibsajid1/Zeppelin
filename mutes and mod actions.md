@@ -1,3 +1,41 @@
+# MOD ACTIONS & MUTES
+
+
+**HOW TO USE AGE AND EXPORT FLAGS IN MUTE COMMAND**
+
+
+`-export` simply exports the result to an archive link
+e.g: `!mutes -e` would give you a link rather than show it all on the channel
+
+`-age` allows you to restrict the command to only show mutes older than X period
+e.g: `!mutes -age 2h` would only show mutes that have been active for 2h or longer
+
+
+🔇 **HOW TO HARDMUTE**
+
+`remove_roles_on_mute: true` removes roles on mute
+
+`restore_roles_on_mute:true`gives back the roles upon unmute
+
+`kick_from_voice_channel: true` muted users are also immediately kicked from their current voice channel
+
+Bonus!
+`remove_roles_on_mute: ["role 1", "role 2"]` those specific roles are removed upon mute
+
+**MOD ACTION TIP**
+
+`can_act_as_other` allows you to use the `-mod` option for commands such as `!ban` - this will set the case's moderator as the user you specify, and also mention your name below theirs if you view the case
+
+**MOD ACTION TIP**
+`create_cases_for_manual_actions` - Manual actions wouls be stuff like right click ban, right click kick
+
+Zepp will take the reason you put and make a case for that action with that reason
+
+
+
+**PLUGIN CODE**
+
+```yaml
   mutes:
     replaceDefaultOverrides: true #replaces default settings if true
     config:
@@ -88,3 +126,4 @@
           can_massmute: true
           can_hidecase: true
           can_act_as_other: true
+```

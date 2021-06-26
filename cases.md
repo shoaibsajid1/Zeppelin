@@ -1,3 +1,17 @@
+# CASES
+
+⏲️ **RELATIVE TIME**
+
+`relative_time_cutoff: 7d`
+
+`relative_time_cutoff` is the amount of time after which `!cases` will show the full date, not a relative time (e.g. "5 hours ago")
+
+so if you set relative time cutoff to 24h, any cases older than 24h would show the full date, e.g. "2021-01-30", rather than e.g. "1 day ago"
+
+
+**PLUGIN CODE**
+
+```yaml
   cases:
     replaceDefaultOverrides: false #replaces default settings if true
     config:
@@ -28,3 +42,4 @@
         deleted: ":no_entry:"
         softban: ":boot:"
         #for custom emoji "<:do_not_disturb:841799310797832244>"
+```
