@@ -246,10 +246,23 @@ you can also do this manually with `!reaction_roles refresh MESSAGE_ID`
 
 **AUTOMOD TIP**
 
-setting up an automod config that insta-bans people if they mention more than 15 people in the same message
-
+>setting up an automod config that insta-bans people if they mention more than 15 people in the same message
 use `mention_spam` with amount 15, within 0s
 as the trigger
+
+
+`only_full_words`
+      - if `true`: if it needs to filter `banana` in a message it'll delete `I am a banana` but not `I am a banananan`
+      - if `false`: if it needs to filter `banana` in a message it'll delete both `banana` and `bananana`
+
+`normalize`
+When enabled, the matched text is normalized (converted to alphanumeric) before matching
+        - Allows matching text even when some letters have been replaced by similar looking letters from other alphabets
+
+`loose_matching` and `loose_matching_threshold`
+        - When `loose_matching` is enabled, words are matched even when there are other letters or spaces between the letters
+
+        - `loose_matching_threshold` controls how many extra letters, at most, can be between the letters (spaces are unlimited). Defaults to 4.
 
 ###  MISCELLANEOUS
 
@@ -407,21 +420,6 @@ Massbans are logged as cases but not automatically posted on your case log chann
 You *should* be able to see those cases if you do `!cases <userid>` for one of the banned users however
 
 
-**MATCH WORDS TIP IN AUTOMOD**
-
-`only_full_words`
-      - if `true`: if it needs to filter `banana` in a message it'll delete `I am a banana` but not `I am a banananan`
-      - if `false`: if it needs to filter `banana` in a message it'll delete both `banana` and `bananana`
-
-`normalize`
-When enabled, the matched text is normalized (converted to alphanumeric) before matching
-        - Allows matching text even when some letters have been replaced by similar looking letters from other alphabets
-
-`loose_matching` and `loose_matching_threshold`
-        - When `loose_matching` is enabled, words are matched even when there are other letters or spaces between the letters
-
-        - `loose_matching_threshold` controls how many extra letters, at most, can be between the letters (spaces are unlimited). Defaults to 4.
------------------------------------------
 
 <:peepo_ping:714656171763695617> **ALERT TIP** by <@!108552944961454080>
 `replieduser` is whether or not to ping the user you are replying to
@@ -435,7 +433,6 @@ Many errors in quick succession
 Fatal error (instant crash)
 Someone restarts it manually
 Drag pushes an update
-
 
 
 **BAN TIP**
