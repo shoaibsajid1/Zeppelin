@@ -6,7 +6,10 @@ This is my repo for tips and tricks for Dragorys Bot
 ## Plugins Tips
 
 ### Follow User
-**HOW TO GET ALERTED WHEN SOMEONE JOINS VC USING FOLLOW COMMAND**
+  **HOW TO GET ALERTED WHEN SOMEONE JOINS VC USING FOLLOW COMMAND**
+  <details>
+    <summary>Click to view</summary>
+
 
 `!f @DEX#5006 -d 9999h reminder message` everytime user joins/leaves vc, zep will ping u
 
@@ -20,22 +23,37 @@ example output:
 `!fs d 1` deletes the first alert from the list
 
 ![Follow User](https://media.discordapp.net/attachments/770256340639416320/834398760854618122/Screen_Shot_2021-04-21_at_5.02.26_PM.png)
+</details>
 
------------------------------------------
 
 ### Reminder
+<details>
+  <summary>Click to see reminder usage</summary>
+
 ![reminder](https://media.discordapp.net/attachments/799195773408903188/830389173210972160/Screen_Shot_2021-04-10_at_3.29.45_PM.png)
+</details>
 
 ### Utility
 
 #### Avatar
+
+<details>
+  <summary>Click to view</summary>
+
 ![avatar](https://media.discordapp.net/attachments/770256340639416320/830444957654843413/Screen_Shot_2021-04-10_at_7.11.36_PM.png)
+</details>
 
 #### Jumbo
+<details>
+  <summary>Click to view</summary>
+
 ![jumbo](https://cdn.discordapp.com/attachments/832964085976530964/834393774426816552/Screen_Shot_2021-04-21_at_4.40.37_PM.png)
+</details>
 
 #### Search
 🚩 **SEARCH FLAGS**
+<details>
+  <summary>Click to view</summary>
 
 `!s -sort id dex` sort all dex results by ID
 
@@ -54,51 +72,84 @@ example output:
 Examples:
 `!s -ids -e dex` exports all ids of users named dex on server
 Note: *the results can be used for `!massban` command afterwards*
+</details>
 
------------------------------------------
 #### Clear
 🗒️ **CLEAN MESSAGES FROM USER AND ADD TO CASE**
+<details>
+  <summary>Click to view</summary>
+
 `!clear <count> -u userid -c #channel -update`
 
 Note: the `-update` at the end is if you want to add it to their mod log case
------------------------------------------
+</details>
 
 ### Mutes
 **HOW TO USE AGE AND EXPORT FLAGS IN MUTE COMMAND**
+<details>
+  <summary>Click to view</summary>
+
 `-export` simply exports the result to an archive link
 e.g: `!mutes -e` would give you a link rather than show it all on the channel
 
 `-age` allows you to restrict the command to only show mutes older than X period
 e.g: `!mutes -age 2h` would only show mutes that have been active for 2h or longer
------------------------------------------
+</details>
+
+🔇 **HOW TO HARDMUTE**
+<details>
+  <summary>Click to view</summary>
+
+`remove_roles_on_mute: true` removes roles on mute
+
+`restore_roles_on_mute:true`gives back the roles upon unmute
+
+`kick_from_voice_channel: true` muted users are also immediately kicked from their current voice channel
+
+Bonus!
+`remove_roles_on_mute: ["role 1", "role 2"]` those specific roles are removed upon mute
+</details>
+------------------------------------------
 
 ### Welcome
 **WELCOME PLUGIN VARIABLES**
+<details>
+  <summary>Click to view</summary>
+
 `member`, `user`, and `guild`
 
 Usage:
 welcome `{user.username}` to `{guild.name}!`
 welcome `<@!{user.id}>!`
+</details>
 
 ### Counters
 COUNTER TIP
+<details>
+  <summary>Click to view</summary>
 
 Counter decays are currently processed every 5 minutes. They are, however, still applied according to the decay time, even if it's lower than 5 minutes, so "1 every 30s" would decay 10 points at once every 5 minutes.
+</details>
 
 -----------------------------------------
 
 ### Cases
 ⏲️ **RELATIVE TIME**
+<details>
+  <summary>Click to view</summary>
+
 `relative_time_cutoff: 7d`
 
 `relative_time_cutoff` is the amount of time after which `!cases` will show the full date, not a relative time (e.g. "5 hours ago")
 
 so if you set relative time cutoff to 24h, any cases older than 24h would show the full date, e.g. "2021-01-30", rather than e.g. "1 day ago"
+</details>
 
 -----------------------------------------
 
 ### Logs
 **COMMAND LOG VARIABLE**
+
 This log type is not functional unfortunately. So just skip it!
 
 -----------------------------------------
@@ -106,15 +157,19 @@ This log type is not functional unfortunately. So just skip it!
 ### Tags
 
 💡 **TAG TIP**
+<details>
+  <summary>Click to view</summary>
 
 `user_tag_cooldown`is the cooldown per user per tag
 `global_tag_cooldown` is the global cooldown (server wide) per tag
 `user_cooldown` is the cooldown per user (not tag specific)
 `global_cooldown` is the global cooldown (server wide) (not tag specific)
-
+</details>
 
 
 **TAGS RESOURCES**
+<details>
+  <summary>Click to view</summary>
 
 `member / user` here:
 https://github.com/Dragory/ZeppelinBot/blob/master/backend/src/plugins/Tags/util/renderTagFromString.ts#L30
@@ -130,12 +185,15 @@ https://github.com/Dragory/ZeppelinBot/blob/master/backend/src/plugins/Tags/util
 
 useful doc
 https://gist.github.com/vcokltfre/8cff17725485f70992c44970f53977fd
+</details>
 
 -----------------------------------------
 
 ### Others
 
 **Override Tip**
+<details>
+  <summary>Click to view</summary>
 
 Overrides are always calculated top down
 
@@ -164,6 +222,7 @@ If you have it the other way round it'll delete everything, even from mods.
           copypasta:
             enabled: false
 ```
+</details>
 -----------------------------------------
 
 ### Example Shots
