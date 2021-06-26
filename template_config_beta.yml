@@ -1,0 +1,1404 @@
+#This is a template config created by DEX#0001 (ID:347727875266576395)
+#to help old and new users
+
+prefix: '!' #server prefix
+success_emoji: <:tick:743132094892605451> #custom emoji
+error_emoji: <:cross:743132137586294856>
+
+levels:
+#by default, many zep features consider lvl 50 as mod and lvl 100 as admin
+#to remove them, I use replaceDefaultOverrides: true in plugins to allow full customization
+  "714751430615105556": 100 #admin
+  "572104727077322763": 50  #moderator
+  "733209400717869136": 40  #trial mod
+
+plugins:
+  utility:
+    config:
+      can_jumbo: false #false everywhere
+    overrides:
+      - role: "733209400717869136" #trial mod
+        config:
+          can_info: true
+          can_clean: true
+      - category: "711898471267041290" #bots
+        config:
+          can_jumbo: true
+          can_info: true
+          can_userinfo: true
+          can_server: true
+          can_avatar: true
+      - channel: "763256641902346280" #media
+        config:
+          can_jumbo: true
+
+
+  automod:
+    config:
+      rules:
+        badwords: #badwords
+          enabled: true
+          triggers:
+          - match_words:
+              words:
+              - retard
+              - e-girl
+              - boobs
+              - asshole
+              - dick
+              - cnut
+              - dick
+              - blowjob
+              - slut
+              - b1tch
+              - slut
+              - bitch
+              - c0ck
+              - pussy
+              - thot
+              - cunt
+              - fuk
+              - bitches
+              - penis
+              - shit
+              - stfu
+              - ass
+              - porn
+              - hentai
+              - cock
+              - cock-sucker
+              - cockface
+              - cockhead
+              - cocks
+              - cocksuck
+              - cocksucked
+              - cocksucker
+              - cocksucking
+              - cocksucks
+              - penis
+
+              case_sensitive: true
+              only_full_words: true
+              normalize: true
+              loose_matching: false
+              loose_matching_threshold: 0
+              strip_markdown: true
+              match_messages: true
+              match_embeds: true
+              match_visible_names: false
+          - match_words:
+              words:
+              - 'fuck'
+              case_sensitive: true
+              only_full_words: false
+              normalize: true
+              loose_matching: false
+              loose_matching_threshold: 0
+              strip_markdown: true
+              match_messages: true
+              match_embeds: true
+              match_visible_names: false
+          - match_regex:
+              patterns:
+                - 'n[il1]+g{2,}(er|a)' #nigger
+                - "n[\\s.\\-]*[i1][\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*[e3][\\s.\\-]*r" #nigger
+                - "n[\\s.\\-]*[i1][\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*a" #nigga
+                - "f[\\s.\\-]*a[\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*o[\\s.\\-]*[t7]" #faggot
+              normalize: true
+              strip_markdown: true
+              match_messages: true
+              match_embeds: true
+              match_visible_names: false
+          actions:
+            clean: true
+            reply:
+              text:
+                content: "<@{user.id}> Watch your language"
+              auto_delete: 5s
+            add_to_counter:
+              counter: "badword"
+              amount: 1 # This infraction adds 1 automod infraction points
+
+        copypasta: #copy paste spam
+          enabled: true
+          triggers:
+            - match_regex:
+                patterns:
+                  - "[⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿]"
+                  - "[░▐▌█▀▄]"
+                  - \# - "^(\\s*\\|\\|.+?\\|\\|\\s*)+$"
+                  - (?:[\u2500-\u25FF\u2800-\u28FF]\s*){4,}
+                  - '▐▀█▀▌'
+                  - ⠟⠑⡄⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⣤⣤⣤⣀⡀
+                  - ඞ
+                  - ████
+                  - ⣿⣿⣿
+                case_sensitive: false
+                normalize: true
+                strip_markdown: true
+                match_messages: true
+                match_embeds: true
+          actions:
+            log: true
+            reply:
+              text:
+                content: "<@{user.id}> No copypasta please"
+              auto_delete: 10s
+            add_to_counter:
+              counter: "spam"
+              amount: 1 # This infraction adds 1 automod infraction points
+
+        invites:
+          enabled: true
+          triggers:
+          - match_invites:
+              allow_group_dm_invites: true
+              exclude_guilds: []
+              match_messages: true
+              match_embeds: true
+              match_visible_names: false
+              exclude_invite_codes:
+                - rey #rey server
+                - tribegaming #tribegaming server
+          actions:
+            log: true
+            clean: true
+            reply:
+              text:
+                content: "<@{user.id}> Server invites are not allowed"
+              auto_delete: 6s
+            add_to_counter:
+              counter: "spam"
+              amount: 1 # This infraction adds 1 automod infraction points
+
+        spam:
+          enabled: true
+          triggers:
+          - message_spam:
+              amount: 10
+              within: 7s
+          - mention_spam:
+              amount: 7
+              within: 10s
+          - link_spam:
+              amount: 6
+              within: 20s
+              per_channel: false
+          - attachment_spam:
+              amount: 5
+              within: 10s
+          - emoji_spam:
+              amount: 8
+              within: 10s
+          - line_spam:
+              amount: 7
+              within: 8s
+          - character_spam:
+              amount: 4000
+              within: 10s
+          - sticker_spam:
+              amount: 5
+              within: 10s
+          actions:
+            log: true
+            clean: false
+            reply:
+              text:
+                content: "<@{user.id}> Spam Detected"
+              auto_delete: 6s
+            add_to_counter:
+              counter: "spam"
+              amount: 1 # This infraction adds 1 automod infraction points
+
+        owner:
+          enabled: true
+          triggers:
+          - match_words:
+              words:
+                - 'nat ♡'
+              case_sensitive: false
+              match_messages: false
+              match_embeds: false
+              match_visible_names: true
+              only_full_words: true
+              loose_matching: false
+              loose_matching_threshold: 50
+          actions:
+            clean: false
+            log: true
+            reply:
+              text:
+                content: "<@{user.id}> You can't have the same name as Server Owner"
+              auto_delete: 10s
+            change_nickname:
+              name: >-
+                Change your name
+
+        name:
+          enabled: true
+          triggers:
+          - match_regex:
+              patterns:
+                - 'natalie caceres|caceres'
+          actions:
+            clean: true
+            alert:
+              channel: "572122519616749586" #mod chat
+              text: |-
+                :link: <@!{user.id}>(`{user.id}`) said nats name!
+                {matchSummary}
+                *Automatically Cleaned*
+
+        natping:
+          enabled: true
+          triggers:
+          - match_regex:
+              patterns:
+                - '(?:<@!237661249335328768>)'
+                - '<@237661249335328768>'
+          actions:
+            clean: false
+            log: true
+            reply:
+              text:
+                content: "<@{user.id}> One nat ping is fine, continued pings will result in action"
+              auto_delete: 10s
+            add_to_counter:
+              counter: "natping_c"
+              amount: 1 # This infraction adds 1 automod infraction points
+
+        nonenglish: #non english filter
+          enabled: true
+          affects_bots: false
+          triggers:
+          - match_regex:
+              patterns:
+                - "[\u0600-\u06FF]+" # Arabic
+                - "(\u0196|\u0214|\u0220|\u0223|\u0228|\u0246|\u0252)+" # German
+                - "(\u0192|\u0194|\u0196|\u0198|\u0199|[\u0200-\u0204]|\u0206|\u0207|\u0210|\u0212|\u0140|\u0217|\u0219|\u0220|\u0224|\u0226|\u0228|\u0230|\u0231|[\u0232-\u0236]|\u0238|\u0239|\u0244|\u0244|\u0156|\u0249|\u0251|\u0252)+" # French/Italian
+                - "(\u0161|\u0191|\u0193|\u0201|\u0205|\u0209|\u0211|\u0218|\u0220|\u0225|\u0233|\u0237|\u0241|\u0243|\u0250|\u0252)+" #Spanish
+                - "[\u4e00-\u9faf\u3400-\u4dbf]+" # Chinese
+                - "[\u0400-\u04FF]+" # Cryllic (Russian)
+                - "[\u0370-\u03FF]+" # Greek
+                - "[\u1F00-\u1FFF]+" # Greek Extended
+                - "[\u05BE-\u05F4]+" # Hebrew
+                - "(?![ツ])[\u30A0-\u30FF]+" # Japanese (Hiragana)
+                - "(?![ツ])[\u30A0-\u30FF]+" # Japanese (Kana)
+          actions:
+            clean: false
+            reply:
+              text:
+                content: "<@{user.id}> Lets try to keep it english only"
+
+        boostadded:
+          enabled: true
+          triggers:
+          - role_added: ['618663125016641537'] #booster role
+          actions:
+            alert:
+              channel: "808334772102234142" #misc channel
+              text: >-
+                :green_circle: <@!{user.id}> Just boosted Server! (alert)
+
+        boostremoved:
+          enabled: true
+          triggers:
+          - role_removed: ['618663125016641537'] #booster role
+          actions:
+            remove_roles:
+              - '754619197358604389' #blue
+              - '753514538820698133' #red
+              - '762207737857703946' #green
+              - '762207748732747818' #yellow
+              - '762207747592028160' #purple
+              - '772424797719625749' #brown
+              - '772424620149833748' #white
+            alert:
+              channel: "572122519616749586" #mod chat
+              text: >-
+                :red_circle: <@!{user.id}> stopped boosting! Pls check if roles were removed (alert)
+
+        off:
+          enabled: false
+          triggers:
+          - match_regex:
+              patterns:
+                - '^\!off\b'
+          actions:
+            log: true
+            set_antiraid_level: "off"
+            reply:
+              text:
+                content: "<@{user.id}> Antiraid is off!"
+
+        low:
+          enabled: false
+          triggers:
+          - match_regex:
+              patterns:
+                - '^\!low\b'
+          actions:
+            log: true
+            set_antiraid_level: "low"
+            reply:
+              text:
+                content: "<@{user.id}> Antiraid is now set to low (default)"
+            set_counter:
+              counter: "antiraid_decay"
+              value: 0 # "Reset!"
+
+        high:
+          enabled: false
+          triggers:
+          - match_regex:
+              patterns:
+                - '^\!high\b'
+          actions:
+            log: true
+            set_antiraid_level: "high"
+            reply:
+              text:
+                content: "<@{user.id}> Antiraid is set to high, it will go back to low in 20m automatically"
+            set_counter:
+              counter: "antiraid_decay"
+              value: 2 # "Disable after 20min"
+
+        disable_antiraid_after_timer:
+          triggers:
+            - counter_trigger:
+                counter: "antiraid_decay"
+                trigger: "disable"
+          actions:
+            set_antiraid_level: "low"
+
+        newalert:
+          enabled: true
+          triggers:
+          - member_join:
+              only_new: true
+              new_threshold: 3h
+          actions:
+            alert:
+              channel: "857908693567930398" #joins
+              text: |-
+                :eyes: {user.username} (`{user.id}`) is a brand new account.
+                <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        high_trigger:
+          enabled: true
+          triggers:
+          - member_join_spam:
+              amount: 10
+              within: 18s
+          actions:
+            set_antiraid_level: "high"
+            alert:
+              channel: "572122519616749586" #modchat
+              text: |-
+                Dear <@&572104727077322763> MASS JOIN ALERT
+                10 people joined within 18 seconds , Could be a raid
+                Antiraid is now set to **high**
+              allowed_mentions:
+                everyone: false
+                users: true
+                roles: true
+                repliedUser: false
+
+        highspam:
+          enabled: false
+          triggers:
+          - message_spam:
+              amount: 10
+              within: 7s
+          - mention_spam:
+              amount: 7
+              within: 10s
+          - link_spam:
+              amount: 6
+              within: 20s
+              per_channel: false
+          - attachment_spam:
+              amount: 5
+              within: 10s
+          - emoji_spam:
+              amount: 8
+              within: 10s
+          - line_spam:
+              amount: 7
+              within: 8s
+          - character_spam:
+              amount: 4000
+              within: 10s
+          - sticker_spam:
+              amount: 5
+              within: 10s
+          actions:
+            log: true
+            reply:
+              text:
+                content: "<@{user.id}> Spam Detected!!!!"
+              auto_delete: 6s
+            add_to_counter:
+              counter: "spam"
+              amount: 1 # This infraction adds 1 automod infraction points
+
+        autokick:
+          enabled: false
+          triggers:
+          - member_join:
+              only_new: true
+              new_threshold: 3h
+          actions:
+            kick:
+              reason: "Your account is very new and is marked as suspcious so it got kicked, If you think this is a mistake. Please try joining again in some time (like 30 minutes or so?) at discord.gg/nat"
+
+        autorole: #adds member role upon first message on server
+          enabled: true
+          affects_bots: false
+          triggers:
+            - any_message: {} #any message sent triggers this
+          actions:
+            log: true
+            add_roles:
+              - "766285827612999752" #member
+
+        badwordc1:
+          triggers:
+            - counter_trigger:
+                counter: "badword"
+                trigger: "silent"
+          actions:
+            log: false
+
+        badwordc2:
+          triggers:
+            - counter_trigger:
+                counter: "badword"
+                trigger: "warning"
+          actions:
+            alert:
+              channel: "855843592417050624" #punishments
+              text: |-
+                **BAD WORD**
+                <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+                <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+                <:iconbuildoverride:815459629869826048> User was warned automatically after 2 violations!
+                <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+            warn:
+              reason: |-
+                **Badwords detected , Continuing will result in a mute**
+
+              notify: dm
+              postInCaseLog: false
+              hide_case: true
+
+        badwordc3:
+          triggers:
+            - counter_trigger:
+                counter: "badword"
+                trigger: "mute"
+          actions:
+            mute:
+              reason: |-
+                **Badwords detected** , Already Warned Before
+              duration: 5m
+              remove_roles_on_mute: true
+              restore_roles_on_mute: true
+              postInCaseLog: false
+              hide_case: true
+            alert:
+              channel: "855843592417050624" #punishments
+              text: |-
+                **BAD WORD**
+                <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+                <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+                <:iconbuildoverride:815459629869826048> User muted automatically (For 5m) after 3 violations
+                <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+            set_counter:
+              counter: "badword"
+              value: 0
+
+        spamc1:
+          triggers:
+            - counter_trigger:
+                counter: "spam"
+                trigger: "silent"
+          actions:
+            log: false
+
+        spamc2:
+          triggers:
+            - counter_trigger:
+                counter: "spam"
+                trigger: "silent2"
+          actions:
+            log: false
+            clean: true
+
+        spamc3:
+          triggers:
+            - counter_trigger:
+                counter: "spam"
+                trigger: "warning"
+          actions:
+            alert:
+              channel: "855843592417050624" #punishments
+              text: |-
+                **BAD WORD**
+                <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+                <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+                <:iconbuildoverride:815459629869826048> User was warned automatically after 2 violations!
+                <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+            warn:
+              reason: |-
+                **Spam detected , Continuing will result in a mute**
+
+              postInCaseLog: false
+              hide_case: true
+
+        spamc4:
+          triggers:
+            - counter_trigger:
+                counter: "spam"
+                trigger: "mute"
+          actions:
+            mute:
+              reason: |-
+                **Spam detected** , Already Warned Before
+              duration: 5m
+              remove_roles_on_mute: true
+              restore_roles_on_mute: true
+              postInCaseLog: false
+              hide_case: true
+            alert:
+              channel: "855843592417050624" #punishments
+              text: |-
+                **SPAM DETECTED**
+                <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+                <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+                <:iconbuildoverride:815459629869826048> User muted automatically (For 5m) after 3 violations
+                <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+            set_counter:
+              counter: "spam"
+              value: 0
+
+        natpingc1:
+          triggers:
+            - counter_trigger:
+                counter: "natping_c"
+                trigger: "silent"
+          actions:
+            log: false
+
+        natpingc2:
+          triggers:
+            - counter_trigger:
+                counter: "natping_c"
+                trigger: "warning"
+          actions:
+            alert:
+              channel: "855843592417050624" #punishments
+              text: |-
+                **PINGED NAT 2nd TIME**
+                <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+                <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+                <:iconbuildoverride:815459629869826048> User was warned automatically after 2nd Ping!
+                <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+            warn:
+              reason: |-
+                **Pinging nat 2x in one min , Continuing will result in a mute**
+              postInCaseLog: false
+              hide_case: true
+
+        natpingc3:
+          triggers:
+            - counter_trigger:
+                counter: "natping_c"
+                trigger: "mute"
+          actions:
+            mute:
+              reason: |-
+                **Pinged nat 3x in one min , Already Warned Before**
+              duration: 5m
+              remove_roles_on_mute: true
+              restore_roles_on_mute: true
+              postInCaseLog: false
+              hide_case: true
+            alert:
+              channel: "855843592417050624" #punishments
+              text: |-
+                **PINGED NAT 3rd TIME**
+                <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+                <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+                <:iconbuildoverride:815459629869826048> User muted automatically (For 5m) after 3 Pings in 1m
+                <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+            set_counter:
+              counter: "natping_c"
+              value: 0
+
+        accumulate_activity:
+          triggers:
+            - any_message: {} #triggers on every message
+          actions:
+            log: false # Don't spam logs with activity changes
+            add_to_counter:
+              counter: "activity"
+              amount: 1 # Each message adds 1 to the counter
+          cooldown: 1m # Only count 1 message per minute
+
+        grant_activity_role: #give regulars role
+          triggers:
+            - counter_trigger:
+                counter: "activity"
+                trigger: "grant_role"
+          actions:
+            add_roles: ["766917973885059082"] # Role ID for activity role
+
+        remove_activity_role: #remove role when irregular
+          triggers:
+            - counter_trigger:
+                counter: "activity"
+                trigger: "grant_role"
+                reverse: true # This indicates we want to use the *reverse* of the specified trigger, see reverse_condition in counters above
+          actions:
+            remove_roles: ["766917973885059082"] # Role ID for activity role
+
+    overrides:
+    - role: "766285827612999752" #disable rule once role is given
+      config:
+        rules:
+          autorole:
+            enabled: false
+
+    - extra:
+        antiraid_level: "off"
+      config:
+        rules:
+          spam:
+            enabled: false
+          copypasta:
+            enabled: false
+          highspam:
+            enabled: false
+          autokick:
+            enabled: false
+
+    - extra:
+        antiraid_level: "low"
+      config:
+        rules:
+          highspam:
+            enabled: false
+
+    - extra:
+        antiraid_level: "high"
+      config:
+        rules:
+          high_trigger:
+            enabled: false
+          autokick:
+            enabled: true
+
+    - level: '>=50'
+      config:
+        can_view_antiraid: true
+        can_set_antiraid: true
+        rules:
+          badwords:
+            enabled: false
+          copypasta:
+            enabled: false
+          owner:
+            enabled: false
+          name:
+            enabled: false
+          highspam:
+            enabled: false
+          spam:
+            enabled: false
+          autokick:
+            enabled: false
+          invites:
+            enabled: false
+          nonenglish:
+            enabled: false
+          natping:
+            enabled: false
+          off:
+            enabled: true
+          low:
+            enabled: true
+          high:
+            enabled: true
+
+  counters:
+    config:
+      counters:
+        badword:
+          per_user: true
+          triggers:
+            silent:
+              condition: ">=1"
+            warning:
+              condition: ">=3"
+            mute:
+              condition: ">=4"
+          # Remove 1 automod infraction points per 20s
+          decay:
+            amount: 1
+            every: 2m
+
+        spam:
+          per_user: true
+          triggers:
+            silent:
+              condition: ">=1"
+            silent2:
+              condition: ">=2"
+            warning:
+              condition: ">=3"
+            mute:
+              condition: ">=4"
+          # Remove 1 automod infraction points per 20s
+          decay:
+            amount: 1
+            every: 2m
+
+        natping_c:
+          per_user: true
+          triggers:
+            silent:
+              condition: ">=1"
+            warning:
+              condition: ">=2"
+            mute:
+              condition: ">=3"
+          # Remove 1 automod infraction points per 20s
+          decay:
+            amount: 1
+            every: 3m
+
+        activity:
+          per_user: true
+          triggers:
+            grant_role:
+              condition: ">=20"
+              # We set a separate threshold for when the role should be removed. This is so the decay doesn't remove the activity role immediately.
+              # If this value isn't set, reverse_condition defaults to the opposite of the condition, i.e. "<100" in this case.
+              reverse_condition: "<5"
+          decay:
+            amount: 1
+            every: 24h
+
+        antiraid_decay:
+          triggers:
+            disable:
+              condition: "<1"
+          decay:
+            amount: 1
+            every: 1m
+
+  cases:
+    config:
+      log_automatic_actions: true
+      case_log_channel: "788060857124257792" #cases channel
+      show_relative_times: true
+      #relative_time_cutoff is the amount of time after which !cases will show the full date, not a relative time (e.g. "5 hours ago")
+      #if you set relative time cutoff to 24h, any cases older than 24h would show the full date, e.g. "2021-01-30", rather than e.g. "1 day ago"
+      relative_time_cutoff: 7d
+      case_icons:
+        warn: ":warning:"
+        ban: ":hammer:"
+        unban: ":green_circle:"
+        note: ":pencil:"
+        kick: ":boot:"
+        mute: ":mute:"
+        unmute: ":green_circle:"
+        deleted: ":no_entry:"
+        softban: ":boot:"
+        #for custom emoji "<:do_not_disturb:841799310797832244>"
+
+  mod_actions:
+    config:
+      dm_on_kick: true
+      dm_on_ban: true
+      message_on_warn: false
+      message_on_kick: false
+      message_on_ban: false
+      message_channel: '855843592417050624' #punishment channel
+      warn_message: |-
+        :warning: **WARNING**
+        You have been warned on the {guildName} server
+        <:iconsupport:778924718153662495><:dash:855062799659171850>{reason}
+        <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+      kick_message: |-
+        :boot: **KICKED**
+        You have been kicked from the {guildName} server. Reason given: {reason}.
+        Please join ONLY after a day at discord.gg/nat
+        <:iconsupport:778924718153662495><:dash:855062799659171850>{reason}
+        <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+      ban_message: |-
+        **BANNED**
+        You have been banned from the {guildName} server
+        <:iconsupport:778924718153662495><:dash:855062799659171850>{reason}
+        https://images-ext-1.discordapp.net/external/ca4NEXYwFeI_9-iPkqo747gF5Hlz1iyuXFis1UDhYfM/https/i.imgur.com/V4TVpbC.mp4
+        <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+      alert_on_rejoin: true
+      alert_channel: '800887873200193536' #dashboard channel
+      warn_notify_enabled: true
+      warn_notify_threshold: 2
+      ban_delete_message_days: 0
+    overrides:
+      - level: '>=100'
+        config:
+          can_deletecase: true
+      - level: '>=50'
+        config:
+          can_massban: true
+          can_massmute: true
+      - level: '>=40'
+        config:
+          can_warn: true
+          can_mute: true
+          can_view: true
+          can_hidecase: true
+
+  mutes:
+    config:
+      mute_role: "584193253809586227" #@muted role
+      dm_on_mute: true
+      dm_on_update: true
+      message_on_mute: true
+      message_on_update: true
+      message_channel: "855843592417050624" #punishment channel
+      mute_message: |-
+        **MUTED FOREVER**
+        <:iconmuted:837072273978294283><:dash:855062799659171850>{guildName}
+        <:iconsupport:778924718153662495><:dash:855062799659171850>{reason}
+        <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+      timed_mute_message: |-
+        **MUTED**
+        <:iconmuted:837072273978294283><:dash:855062799659171850>{guildName}
+        <:iconclock:811925897036038165><:dash:855062799659171850>{time}
+        <:iconsupport:778924718153662495><:dash:855062799659171850>{reason}
+        <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+      remove_roles_on_mute: true
+      restore_roles_on_mute: true
+
+  post: {}
+
+  reaction_roles:
+    config:
+      remove_user_reactions: true
+
+  reminders:
+    config:
+      can_use: true
+
+  slowmode: {}
+
+  starboard:
+    config:
+      boards:
+        staff_highlights: #starboard no1, u can name anything
+          channel_id: "855774757769576448" #staff highlights
+          stars_required: 3
+          copy_full_embed: true
+          enabled: false # The starboard is disabled for all
+          show_star_count: true #show the star-count in starboard
+
+
+        home: #starboard no2, u can name anything
+          channel_id: "855800026685243422" #staff pins
+          stars_required: 0
+          copy_full_embed: true
+          enabled: false # The starboard is disabled for all
+          show_star_count: true #show the star-count in starboard
+          #color: 0x000080
+      can_migrate: false
+
+    overrides:
+      - channel:
+        - "572122519616749586" #staff chat
+        - "800887873200193536" #off topic
+        config:
+          boards:
+            staff_highlights:
+              enabled: true
+      - role: "714751430615105556" #admin role
+        channel:
+          - "572122519616749586" #staff chat
+          - "800887873200193536" #off topic
+        config:
+          boards:
+            staff_highlights:
+              enabled: true #only for level 100 (admin react = starboard)
+              stars_required: 0
+      - level: ">=100"
+        config:
+          boards:
+            home:
+              enabled: true #only for level 100 (admin react = starboard)
+          can_migrate: true
+
+  welcome_message:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      send_dm: true
+      message: |-
+        Welcome to the official natwithaheart server!
+
+        Check out <#766184247726833665> to get roles
+        Invite your friends! https://discord.gg/nat
+
+  logs:
+    config:
+      channels:
+        '808334772102234142': #misc
+          exclude:
+           - MEMBER_JOIN
+           - MEMBER_LEAVE
+           - AUTOMOD_ACTION
+
+          excluded_categories:
+            - "855775275228987403" #manager category
+          exclude_bots: true
+
+        '857908693567930398': #joins/leaves
+          include:
+           - MEMBER_JOIN
+           - MEMBER_LEAVE
+          excluded_categories:
+            - "855775275228987403" #manager category
+          exclude_bots: true
+
+        '858001035360862218': #automod
+          include:
+           - AUTOMOD_ACTION
+
+          excluded_categories:
+            - "855775275228987403" #manager category
+          exclude_bots: true
+      format:
+        timestamp: ""
+        MEMBER_NOTE: |-
+          :notepad_spiral: **NOTE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_WARN: |-
+          :warning: **MEMBER WARNED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconsupport:778924718153662495><:dash:855062799659171850>{reason}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_MUTE: |-
+          <:iconmuted:837072273978294283> **MEMBER MUTED INDEFINITELY**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconsupport:778924718153662495><:dash:855062799659171850>{reason}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_TIMED_MUTE: |-
+          <:iconmuted:837072273978294283> **MEMBER MUTED** ({time})
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconsupport:778924718153662495><:dash:855062799659171850>{reason}
+          <:iconclock:811925897036038165><:dash:855062799659171850>{time}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_UNMUTE: |-
+          <:iconunmuted:837072274766823456> **MEMBER UNMUTED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_TIMED_UNMUTE: |-
+          <:iconunmuted:837072274766823456> **MEMBER TIMED UNMUTED** ({time})
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconclock:811925897036038165><:dash:855062799659171850>{time}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_MUTE_EXPIRED: |-
+          <:iconunmuted:837072274766823456> **MEMBER EXPIRED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_KICK: |-
+          :boot: **MEMBER KICKED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_BAN: |-
+          <:leave:754438854961922069> **MEMBER BANNED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_UNBAN: |-
+          <:statusonline:714853868420202529> **MEMBER UNBANNED**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_FORCEBAN: |-
+          <:leave:754438854961922069> **MEMBER FORCEBANNED**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_SOFTBAN: |-
+          <:leave:754438854961922069> **MEMBER SOFTBANNED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+        MEMBER_JOIN: |-
+          <:join:754438854487965807> **MEMBER JOINED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:iconclock:811925897036038165><:dash:855062799659171850>created {account_age} ago
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_LEAVE: |-
+          <:leave:754438854961922069> **MEMBER LEFT**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+        MEMBER_ROLE_ADD: |-
+          <:statusonline:714853868420202529> **ROLE ADDED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconrole:826477127209320534>`{roles}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_ROLE_REMOVE: |-
+          <:statusdnd:714833495524114464> **ROLE REMOVED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconrole:826477127209320534>`{roles}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_ROLE_CHANGES: |-
+          :pencil: **ROLE CHANGES**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconrole:826477127209320534><:join:754438854487965807><:dash:855062799659171850>{addedRoles}
+          <:iconrole:826477127209320534><:leave:754438854961922069><:dash:855062799659171850>{addedRoles}{removedRoles}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_NICK_CHANGE: |-
+          ✏ **NICKNAME CHANGE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          `{oldNick}` to `{newNick}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_USERNAME_CHANGE: |-
+          ✏ **USERNAME CHANGE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          ------------------
+          `{oldName}` to `{newName}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_RESTORE: |-
+          <:downloadupdate:758794223176384512> **MEMBER RE-JOIN**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          {restoredData}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_TIMED_BAN: |-
+          :hammer: **TEMP BAN**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconclock:811925897036038165><:dash:855062799659171850>{banTime}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_TIMED_UNBAN: |-
+          <:statusonline:714853868420202529> **TEMP UNBAN** ({banTime})
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconclock:811925897036038165><:dash:855062799659171850>{banTime}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+        CHANNEL_CREATE: |-
+          <:statusonline:714853868420202529> **CHANNEL CREATED**
+          <:channeltext:779036156175188001><:dash:855062799659171850>**{channel.name}**<:dot:855062799607529472>`{channel.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        CHANNEL_DELETE: |-
+          :x: **CHANNEL DELETED**
+          <:channeltext:779036156175188001><:dash:855062799659171850>**{channel.name}**<:dot:855062799607529472>`{channel.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        CHANNEL_EDIT: |-
+          :pencil: **CHANNEL EDITED**
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>**{channel.name}**<:dot:855062799607529472>`{channel.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        #roles
+        ROLE_CREATE: |-
+          <:statusonline:714853868420202529> **ROLE CREATED**
+          {role.name}<:dot:855062799607529472>`{role.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        ROLE_DELETE: |-
+          <:statusdnd:714833495524114464> **ROLE DELETED**
+          {role.name}<:dot:855062799607529472>`{role.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        ROLE_EDIT: |-
+          :pencil: **ROLE EDITED**
+          {role.name}<:dot:855062799607529472>`{role.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        #Messages
+
+        MESSAGE_EDIT: |-
+          :pencil: **MESSAGE EDITED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232>
+          <https://discord.com/channels/736198286813167669/{channel.id}/{after.id}>
+          **Before:**{messageSummary(before)}**After:**{messageSummary(after)}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MESSAGE_DELETE: |-
+          <:iconsystemx:842172192418693173> **MESSAGE DELETED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>`{message.id}`
+          {messageSummary(message)}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MESSAGE_DELETE_BULK: |-
+          <:iconsystemx:842172192418693173> **{count} BULK DELETED**
+          <:profile:841364699958607894><:dash:855062799659171850>{authorIds}
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>{archiveUrl}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MESSAGE_DELETE_BARE: |-
+          <:iconsystemx:842172192418693173> **MESSAGE DELETED BARE**
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>{messageId}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MESSAGE_DELETE_AUTO: |-
+          <:trashcan:750152850310561853> **AUTO DELETE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>`{message.id}`
+          {messageSummary(message)}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        VOICE_CHANNEL_JOIN: |-
+          <:join:754438854487965807> **VC JOIN**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>**{channel.name}**<:dot:855062799607529472>`{channel.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        VOICE_CHANNEL_MOVE: |-
+          <:iconundeafened:837072274527485983> **VC MOVE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:leave:754438854961922069><:dash:855062799659171850>**{oldChannel.name}**<:dot:855062799607529472>`{oldChannel.id}`
+          <:join:754438854487965807><:dash:855062799659171850>**{newChannel.name}**<:dot:855062799607529472>`{newChannel.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        VOICE_CHANNEL_LEAVE: |-
+          <:leave:754438854961922069> **VC LEAVE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>**{channel.name}**<:dot:855062799607529472>`{channel.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+        VOICE_CHANNEL_FORCE_MOVE: |-
+          <:iconundeafened:837072274527485983> **VC FORCE MOVE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{oldchannel.id}><:dot:855062799607529472>**{oldChannel.name}**<:dot:855062799607529472>`{oldChannel.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{newldchannel.id}><:dot:855062799607529472>**{newChannel.name}**<:dot:855062799607529472>`{newChannel.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        VOICE_CHANNEL_FORCE_DISCONNECT: |-
+          <:icondeafened:837072274086953000> **VC FORCE DISCONNECT**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+
+          <:channeltext:779036156175188001><:dash:855062799659171850>**{oldChannel.name}**<:dot:855062799607529472>`{oldChannel.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+
+        #COMMAND: "\U0001F916 {userMention(member)} used command in {channelMention(channel)}:\n`{command}`"
+        #unused in zep atm
+
+
+        MESSAGE_SPAM_DETECTED: "\U0001F6D1 {userMention(member)} spam detected in {channelMention(channel)}: {description} (more than {limit} in {interval}s)\n{archiveUrl}"
+
+        OTHER_SPAM_DETECTED: "\U0001F6D1 {userMention(member)} spam detected: {description} (more than {limit} in {interval}s)"
+
+        CLEAN: |-
+          :soap: **{count} MESSAGES CLEANED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**<:dot:855062799607529472>`{mod.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>{archiveUrl}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+        CASE_CREATE: >-
+          ✏ {userMention(mod)} manually created new **{caseType}** case
+          (#{caseNum})
+
+        CASE_DELETE: |-
+          <:statusdnd:714833495524114464> **CASE DELETED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>`{mod.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850>**Case#{case.case_number}**
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+        MASSUNBAN: '⚒ {userMention(mod)} mass-unbanned {count} users'
+
+        MASSBAN: '⚒ {userMention(mod)} massbanned {count} users'
+
+        MASSMUTE: "\U0001F4E2\U0001F6AB {userMention(mod)} massmuted {count} users"
+
+        MEMBER_JOIN_WITH_PRIOR_RECORDS: |-
+          ⚠ {userMention(member)} joined with prior records. Recent cases:
+          {recentCaseSummary}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        CASE_UPDATE: |-
+          ✏ {userMention(mod)} updated case #{caseNumber} ({caseType}) with note:
+          ```{note}```
+
+        MEMBER_MUTE_REJOIN: |-
+          <:icondeafened:837072274086953000> **MEMBER MUTE RE-JOIN**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        SCHEDULED_MESSAGE: >-
+          ⏰ {userMention(author)} scheduled a message to be posted to
+          {channelMention(channel)} on {datetime}
+
+        SCHEDULED_REPEATED_MESSAGE: >-
+          ⏰ {userMention(author)} scheduled a message to be posted to
+          {channelMention(channel)} on {datetime}, repeated {repeatDetails}
+
+        REPEATED_MESSAGE: >-
+          ⏰ {userMention(author)} scheduled a message to be posted to
+          {channelMention(channel)} {repeatDetails}
+
+        POSTED_SCHEDULED_MESSAGE: "\U0001F4E8 Posted scheduled message (`{messageId}`) to {channelMention(channel)} as scheduled by {userMention(author)}"
+
+        BOT_ALERT: |-
+          :warning: **BOT ALERT**
+          {tmplEval(body)}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        DM_FAILED: "\U0001F6A7 Failed to send DM ({source}) to {userMention(user)}"
+
+        AUTOMOD_ACTION: |-
+          <:iconsearch:778925668536811520> **AUTOMOD ACTION**
+          <:iconprivacysettings:845090111976636446><:dash:855062799659171850>{rule}
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          <:iconsettings:778931333459738626><:dash:855062799659171850>{actionsTaken}
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>{matchSummary}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        SET_ANTIRAID_USER: |-
+          <:iconrole:826477127209320534> **ANTI-RAID**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          <:iconconnection:778931450451984395><:dash:855062799659171850>**{level}**
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        SET_ANTIRAID_AUTO: |-
+          <:iconrole:826477127209320534> **AUTO ANTI-RAID**
+          <:iconconnection:778931450451984395> **ANTI-RAID**
+          {level}
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+      ping_user: false
+      allow_user_mentions: false
+      #timestamp_format: string
+      include_embed_timestamp: true
+    overrides:
+      - level: '>=50'
+        config:
+          ping_user: false
