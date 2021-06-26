@@ -9,29 +9,53 @@ This is my repo for tips and tricks for Dragorys Bot
 To follow updates you can join my server and keep an eye on the github channel for updates on the changes i make
 on https://discord.gg/JCZf3sHYpE
 
-[Locate User](locate.md)
+[Autodelete](autodelete.md) (incomplete)
 
-[Reminders](reminder.md)
+[Automod & Counters](automod+counters.md) (incomplete)
 
-[Utility](utility.md)
+[Automod Rules](rules.md) (incomplete)
 
-[Mutes & Mod actions](mutes&modactions.md.md)
+[Autoreactions](autoreactions.md) (incomplete)
 
-[Companion Channels](companion_channels.md)
+[Cases](cases.md) (incomplete)
 
-[Post](post.md)
+[Companion Channels](companion_channels.md) (incomplete)
 
-[Logs](logs.md)
+[Locate User](locate.md) (incomplete)
 
-[Tags](tags.md)
+[Logs](logs.md) (incomplete)
 
-[Automod & Counters](automod+counters.md)
+[Miscellaneous](miscellaneous.md) (incomplete)
 
-[Automod Rules](rules.md)
+[Mutes & Mod actions](mutes&modactions.md.md) (incomplete)
 
-[Reaction Roles](reaction_roles.md)
+[Persist](persist.md) (incomplete)
 
-[miscellaneous](miscellaneous.md)
+[Pingable roles](pingable_roles.md) (incomplete)
+
+[Post](post.md) (incomplete)
+
+[Reaction Roles](reaction_roles.md) (incomplete)
+
+[Reminders](reminder.md) (incomplete)
+
+[Roles](roles.md) (incomplete)
+
+[Self grantable roles](self_grantable_roles.md) (incomplete)
+
+[Slowmode](slowmode.md) (incomplete)
+
+[Starboard](starboard.md) (incomplete)
+
+[Tags](tags.md) (incomplete)
+
+[Time and Date](time_and_date.md) (incomplete)
+
+[Utility](utility.md) (incomplete)
+
+[Welcome Message](welcome_message.md) (incomplete)
+
+
 
 ### Example Shots
 
