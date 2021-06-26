@@ -64,14 +64,7 @@ welcome `<@!{user.id}>!`
 
 ### POST
 
-📮 **SCHEDULED POSTS**
-
-<details>
-  <summary>Click to view</summary>
-scheduled posts are messages that are scheduled to be posted later, using the `-schedule` option for `!post`,
-
- e.g. `!post -schedule="2021-02-01 12:00" Some message that is posted on Feb 1 at 12pm`
-</details>
+[Post](post.md)
 
 ### CASES
 ⏲️ **RELATIVE TIME**
