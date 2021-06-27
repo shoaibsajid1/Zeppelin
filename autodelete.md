@@ -1,7 +1,14 @@
 # AUTO DELETE
 
+Allows Zeppelin to auto-delete messages from a channel after a delay
 
-**PLUGIN CODE**
+**TIP**
+
+- Maximum deletion delay is 5 minutes
+
+- Time can be in **s** (seconds) or **m** (minutes)
+
+#### PLUGIN CODE
 
 ```yaml
   auto_delete:

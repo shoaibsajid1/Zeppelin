@@ -9,15 +9,15 @@ This is my repo for tips and tricks for Dragorys Bot
 To follow updates you can join my server and keep an eye on the github channel for updates on the changes i make
 on https://discord.gg/JCZf3sHYpE
 
-[Autodelete](autodelete.md) (incomplete)
+[Autodelete](autodelete.md)
 
 [Automod & Counters](automod+counters.md) (incomplete)
 
 [Automod Rules](rules.md) (incomplete)
 
-[Autoreactions](autoreactions.md) (incomplete)
+[Autoreactions](autoreactions.md)
 
-[Cases](cases.md) (incomplete)
+[Cases](cases.md)
 
 [Companion Channels](companion_channels.md) (incomplete)
 
