@@ -13,7 +13,7 @@ on https://discord.gg/JCZf3sHYpE
 
 [Autodelete](autodelete.md)
 
-[Automod & Counters](automod+counters.md) (Coming Soon)
+[Automod & Counters](automod+counters.md)
 
 [Automod Rules](rules.md)
 

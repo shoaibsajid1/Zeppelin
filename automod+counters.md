@@ -57,3 +57,8 @@ the default modifier, if not specified, is `>=`
 **REGEX TIP**
 
 `((<a?:[\w~]{2,32}:\d{17,19}>)[\S\s]*?){5,}` - Detect 5 or more emoji's in a message. You can replace 5 with whatever you want.
+
+
+WANT RULES ?
+
+YOU CAN FIND THEM AT [Rules](rules.md)
