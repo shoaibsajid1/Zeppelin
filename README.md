@@ -37,9 +37,9 @@ on https://discord.gg/JCZf3sHYpE
 
 [Post](post.md) (incomplete)
 
-[Reaction Roles](reaction_roles.md) (incomplete)
+[Reaction Roles](reaction_roles.md)
 
-[Reminders](reminder.md) (incomplete)
+[Reminders](reminder.md)
 
 [Roles](roles.md) (incomplete)
 
@@ -53,7 +53,7 @@ on https://discord.gg/JCZf3sHYpE
 
 [Time and Date](time_and_date.md)
 
-[Utility](utility.md) (incomplete)
+[Utility](utility.md)
 
 [Welcome Message](welcome_message.md)
 

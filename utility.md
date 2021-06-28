@@ -1,4 +1,4 @@
-**UTILITY**
+# UTILITY
 
 **AVATAR**
 ![avatar](https://media.discordapp.net/attachments/770256340639416320/830444957654843413/Screen_Shot_2021-04-10_at_7.11.36_PM.png)
@@ -39,7 +39,7 @@ Deletes everything but image attachments
 
 ![clean](https://media.discordapp.net/attachments/846691383280009216/856783756232359946/unknown.png?width=581&height=518)
 
-**PLUGIN CODE**
+#### PLUGIN CODE
 
 ```yaml
 utility: #https://zeppelin.gg/docs/plugins/utility/usage
