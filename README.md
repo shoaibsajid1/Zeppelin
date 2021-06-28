@@ -55,7 +55,7 @@ on https://discord.gg/JCZf3sHYpE
 
 [Utility](utility.md) (incomplete)
 
-[Welcome Message](welcome_message.md) (incomplete)
+[Welcome Message](welcome_message.md)
 
 
 

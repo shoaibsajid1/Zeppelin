@@ -10,9 +10,9 @@ Usage:
 welcome `{user.username}` to `{guild.name}!`
 welcome `<@!{user.id}>!`
 
+![welcome message](assets/welcome.png)
 
-
-**PLUGIN CODE**
+#### PLUGIN CODE
 
 ```yaml
   welcome_message:
