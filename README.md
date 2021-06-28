@@ -8,6 +8,7 @@ This is my repo for tips and tricks for Dragorys Bot
 ## PLUGINS:
 
 **CURRENTLY UNDER CONSTRUCTION**
+
 To follow updates you can join my server and keep an eye on the github channel for updates on the changes i make on https://discord.gg/JCZf3sHYpE
 ---
 
