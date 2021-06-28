@@ -49,7 +49,7 @@ on https://discord.gg/JCZf3sHYpE
 
 [Tags](tags.md) (incomplete)
 
-[Time and Date](time_and_date.md) (incomplete)
+[Time and Date](time_and_date.md)
 
 [Utility](utility.md) (incomplete)
 
