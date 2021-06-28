@@ -5,7 +5,7 @@
 
 This log type is not functional unfortunately. So just skip it!
 
-**PLUGIN CODE**
+#### PLUGIN CODE
 
 ```yaml
   logs:

@@ -1,3 +1,11 @@
+# STARBOARD
+
+Allows you to pin memories with a reaction!
+
+#### PLUGIN CODE
+
+```yaml
+
   starboard:
     replaceDefaultOverrides: true #replaces default settings if true
     config:
@@ -26,3 +34,4 @@
           boards:
             levelonly:
               enabled: true #only for level 100 (admin react = starboard)
+```

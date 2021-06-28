@@ -15,7 +15,6 @@ on https://discord.gg/JCZf3sHYpE
 
 [Automod & Counters](automod+counters.md) (incomplete)
 
-[Automod Rules](rules.md) (incomplete)
 
 [Autoreactions](autoreactions.md)
 
@@ -25,17 +24,17 @@ on https://discord.gg/JCZf3sHYpE
 
 [Locate User](locate.md)
 
-[Logs](logs.md) (incomplete)
+[Logs](logs.md)
 
-[Miscellaneous](miscellaneous.md) (incomplete)
+[Miscellaneous](miscellaneous.md)
 
-[Mutes & Mod actions](mutes&modactions.md.md) (incomplete)
+[Mutes & Mod actions](mutes&modactions.md.md)
 
 [Persist](persist.md)
 
-[Pingable roles](pingable_roles.md) (incomplete)
+[Pingable roles](pingable_roles.md)
 
-[Post](post.md) (incomplete)
+[Post](post.md)
 
 [Reaction Roles](reaction_roles.md)
 
@@ -43,13 +42,13 @@ on https://discord.gg/JCZf3sHYpE
 
 [Roles](roles.md) (incomplete)
 
-[Self grantable roles](self_grantable_roles.md) (incomplete)
+[Self grantable roles](self_grantable_roles.md)
 
-[Slowmode](slowmode.md) (incomplete)
+[Slowmode](slowmode.md)
 
-[Starboard](starboard.md) (incomplete)
+[Starboard](starboard.md)
 
-[Tags](tags.md) (incomplete)
+[Tags](tags.md)
 
 [Time and Date](time_and_date.md)
 
@@ -62,7 +61,6 @@ on https://discord.gg/JCZf3sHYpE
 ### Example Shots
 
 ![Example 1](assets/example1.png)
-
 
 
 

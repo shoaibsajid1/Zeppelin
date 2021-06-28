@@ -50,8 +50,7 @@ if using channel, `-notify-channel` is also required to be set!
 
 
 
-
-**PLUGIN CODE**
+#### PLUGIN CODE
 
 ```yaml
   mutes:
