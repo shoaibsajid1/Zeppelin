@@ -20,6 +20,49 @@
 
 **FtoC** `{if(args.0, if(or(eq(args.0, "0"), not(eq(add(args.0, 1), 1))), concat(mul(sub(args.0, 32), div(5, 9)), "**°C**"), "⚠️ Temperature must be a number"),"⚠️ Please provide a temperature to convert")}`
 
+**HEALTH TAG**
+
+A useful tag for users on your server.
+
+![Health Tag](/assets/health.png)
+
+<details>
+  <summary>Click to view code!</summary>
+
+```yaml
+tags:
+  replaceDefaultOverrides: true #replaces default settings if true
+  config:
+    prefix: '!'
+    categories:
+      "mental":
+        tags:
+          "health":
+            embed:
+              title: "Mental Health Resources"
+              color: 0xFF0000
+              footer:
+                text: "Remember, You Matter <3, created by DEX#0001"
+                icon_url: https://media.discordapp.net/attachments/770256340639416320/854689949193076737/Medical_31-60_974.jpg?width=523&height=523
+              #image:
+                #url: https://i.pinimg.com/originals/f6/f6/e6/f6f6e629e0bb1ab4ef763c12b5457074.png
+              thumbnail:
+                url: https://media.discordapp.net/attachments/770256340639416320/854690141279748096/PngItem_4479310.png?width=523&height=523
+              fields:
+              -  name: "**National Suicide Prevention Hotline (U.S.):**"
+                 value: |
+                  **Call:** 1-800-273-8255, available 24/7 for emotional support
+                  **Text: HOME** to 741741
+                  https://suicidepreventionlifeline.org/chat/
+
+                  Outside the U.S: Find a supportive resource on [this Wikipedia list of worldwide crisis hotlines](https://en.wikipedia.org/wiki/List_of_suicide_crisis_lines)
+                 inline: false
+              -  name: "**More Support**"
+                 value: |
+                  For Substance Abuse Support, Eating Disorder Support & Child Abuse and Domestic Violence:
+                  [Click to go to Discord's Health & Safety Page](https://discord.com/safety/360044103771-Mental-health-on-Discord#h_01EGRGT08QSZ5BNCH2E9HN0NYV)
+```
+</details>
 
 
 **TAGS RESOURCES**
