@@ -22,12 +22,6 @@ Allows controlling the displayed time/date formats and timezones
 
 `!timezone reset`
 
-For example
-
-`!auto_reactions disable 629990160477585428`
-
-To set `timezone` You can refer this link https://en.wikipedia.org/wiki/List_of_tz_database_time_zones for list of all the various time zones
-
 
 #### PLUGIN CODE
 
