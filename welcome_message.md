@@ -7,7 +7,9 @@
 `member`, `user`, and `guild`
 
 Usage:
+
 welcome `{user.username}` to `{guild.name}!`
+
 welcome `<@!{user.id}>!`
 
 ![welcome message](assets/welcome.png)
