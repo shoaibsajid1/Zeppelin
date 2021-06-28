@@ -21,9 +21,9 @@ on https://discord.gg/JCZf3sHYpE
 
 [Cases](cases.md)
 
-[Companion Channels](companion_channels.md) (incomplete)
+[Companion Channels](companion_channels.md)
 
-[Locate User](locate.md) (incomplete)
+[Locate User](locate.md)
 
 [Logs](logs.md) (incomplete)
 
