@@ -31,7 +31,7 @@ on https://discord.gg/JCZf3sHYpE
 
 [Mutes & Mod actions](mutes&modactions.md.md) (incomplete)
 
-[Persist](persist.md) (incomplete)
+[Persist](persist.md)
 
 [Pingable roles](pingable_roles.md) (incomplete)
 
