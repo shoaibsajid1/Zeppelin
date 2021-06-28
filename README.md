@@ -15,6 +15,8 @@ on https://discord.gg/JCZf3sHYpE
 
 [Automod & Counters](automod+counters.md) (Coming Soon)
 
+[Automod Rules](rules.md)
+
 [Autoreactions](autoreactions.md)
 
 [Cases](cases.md)

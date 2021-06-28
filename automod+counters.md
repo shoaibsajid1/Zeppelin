@@ -49,53 +49,10 @@ When enabled, the matched text is normalized (converted to alphanumeric) before 
 
 
 📣 **GOOD TO KNOW**
-         the default modifier, if not specified, is `>=`
+the default modifier, if not specified, is `>=`
 
 
 
-**LOOKING FOR GROUP**
-
- ```yml
- plugins:
-   automod:
-     config:
-       rules:
-         # Rule that does not do anything when it matches the *allowed* format.
-         # This stops automod from processing further rules.
-         allowed_lfg:
-           enabled: false
-           triggers:
-             match_regex:
-               patterns: ["^\\?lfg"]
-           actions:
-             log: false
-
-         # Rule that is run for *every message* that does not match the allowed format above
-         disallowed_lfg:
-           enabled: false
-           triggers:
-             match_regex:
-               patterns: [".*"] # Match anything
-           actions:
-             clean: true
-             reply: "Please use ?lfg"
-
-     overrides:
-       - channel: "1234123412341234" # LFG channel ID here
-         config:
-           rules:
-             allowed_lfg:
-               enabled: true
-             disallowed_lfg:
-               enabled: true
- ```
-
-It's a bit of a hack but it works and is clean to tweak. The idea is that anything that does *not* match the `allowed_lfg` rule on the LFG channel gets the actions from the `disallowed_lfg` rule (i.e. clean + reply).
-
-This works because automod only applies one rule per message, so when the `allowed_lfg` rule matches (and does nothing), it doesn't continue matching the other rules anymore.
-I also used regex for matching ?lfg only at the beginning of the message
-This will be cleaner in the future when you'll be able to do negations in triggers (i.e. `not:`)
-and combine them etc.
 
 **REGEX TIP**
 
