@@ -6,6 +6,10 @@ Set up 'companion channels' between text and voice channels. Once set up, any ti
 `permissions` This number can be calculated using  https://discordapi.com/permissions.html which allows you to set the behaviour of the linked channel (e.g read only channel, visible only on vc join etc.)
 
 
+**NOTE**
+
+> The companion channels plugin doesn't currently look at member-related information for overrides, so level overrides don't work
+
 #### PLUGIN CODE
 
 ```yaml
@@ -22,10 +26,4 @@ Set up 'companion channels' between text and voice channels. Once set up, any ti
             #- *text1
           permissions: 52224
           enabled: true
-    overrides:
-      - level: '>=50'
-        config:
-          entries:
-            public_vcs:
-              enabled: false #disabled for level 50 and up because they likely have perms already so not needed
 ```
