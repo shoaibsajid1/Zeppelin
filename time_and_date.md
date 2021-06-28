@@ -19,9 +19,7 @@ This affects the output of several commands when ran by that moderator
 
 `!timezone <timezone>`
 
-For example
-
-`!timezone Europe/Helsinki`
+> For example `!timezone Europe/Helsinki`
 
 **To reset**
 
