@@ -3,13 +3,15 @@
 
 Zeppelin is a moderation bot for Discord, and I am DEX....
 
-This is my repo for tips and tricks for Zeppelin
+This is my repo for tips and tricks for Zeppelin bot
 
 **CONSIDER PUTTING A ⭐️ ON THIS REPO**
 
 ## PLUGINS:
 
-You can join my server on https://discord.gg/JCZf3sHYpE and follow github channel for updates or to play with Zeppelin
+[![Join our Discord server!](https://invidget.switchblade.xyz/JCZf3sHYpE)](http://discord.gg/JCZf3sHYpE)
+
+You can join my server and follow github channel for updates or to play with Zeppelin
 
 ---
 
@@ -24,11 +26,14 @@ You can join my server on https://discord.gg/JCZf3sHYpE and follow github channe
 |          [Starboard](starboard.md)         	|                 [Tags](tags.md)                 	|      [Time and Date](time_and_date.md)      	|
 |            [Utility](utility.md)           	|      [Welcome Message](welcome_message.md)      	|                                             	|
 
+Note: The following plugins are not omitted:
 
+- Autodelete (No use case)
+- Spam protection (Legacy Plugin)
+- Censor (Legacy Plugin)
 ### Example Shots
 
 ![Example 1](assets/example1.png)
-
 
 
 See https://zeppelin.gg/ for more details.
