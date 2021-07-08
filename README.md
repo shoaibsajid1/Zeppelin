@@ -42,4 +42,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## More Info
 
 You can also find me on the zeppelin support server
+
 [![Join our Discord server!](https://invidget.switchblade.xyz/9bCGvGw5rT)](http://discord.gg/9bCGvGw5rT)
