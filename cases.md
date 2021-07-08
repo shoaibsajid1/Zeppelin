@@ -1,10 +1,14 @@
-# CASES
+## CASES
 
-This plugin contains basic configuration for cases created by other plugins
+**This plugin contains basic configuration for cases created by other plugins**
 
-`log_automatic_actions: true` Enabling this logs all manually created actions as well , such as when u right click and ban manually instead of using bot commands.
+`log_automatic_actions: true` 
 
-`case_log_channel: "1234"` This setting allows you to set the channel for logging all your cases, in this instance, `1234` is the channel ID
+Enabling this logs all manually created actions as well , such as when u right click and ban manually instead of using bot commands.
+
+`case_log_channel: "1234"` 
+
+This setting allows you to set the channel for logging all your cases, in this instance, `1234` is the channel ID
 
 ⏲️  **RELATIVE TIME**
 
