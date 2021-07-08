@@ -1,5 +1,5 @@
 # ZEP by DEX
-
+![Zep banner](assets/zepbanner.png)
 Zeppelin is a moderation bot for Discord, and I am DEX....I dont know where I am going with this....Anyways
 
 This is my repo for tips and tricks for Dragorys Bot
