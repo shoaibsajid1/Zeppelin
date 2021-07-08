@@ -26,9 +26,8 @@ You can join my server and follow github channel for updates or to play with Zep
 |          [Starboard](starboard.md)         	|                 [Tags](tags.md)                 	|      [Time and Date](time_and_date.md)      	|
 |            [Utility](utility.md)           	|      [Welcome Message](welcome_message.md)      	|                                             	|
 
-Note: The following plugins are not omitted:
+Note: The following plugins are omitted:
 
-- Autodelete (No use case)
 - Spam protection (Legacy Plugin)
 - Censor (Legacy Plugin)
 ### Example Shots
