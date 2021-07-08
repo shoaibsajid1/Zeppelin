@@ -19,7 +19,8 @@ so e.g. if you wanted to match "hello" and enabled `loose_matching`, it would al
 **ALERT TIP**
 `replieduser` is whether or not to ping the user you are replying to
 
-
+#### USAGE
+![Image](assets/counters.png)
 
 **AUTOMOD TIP**
 

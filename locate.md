@@ -25,7 +25,7 @@ example output:
 
 `!fs d 1` deletes the first alert from the list
 
-![Follow User](https://media.discordapp.net/attachments/770256340639416320/834398760854618122/Screen_Shot_2021-04-21_at_5.02.26_PM.png)
+![Follow User](assets/follow.png)
 
 #### PLUGIN CODE
 

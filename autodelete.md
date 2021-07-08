@@ -8,6 +8,9 @@ Allows Zeppelin to auto-delete messages from a channel after a delay
 
 - Time can be in **s** (seconds) or **m** (minutes)
 
+#### USAGE
+![Image](assets/autodelete.gif)
+
 #### PLUGIN CODE
 
 ```yaml

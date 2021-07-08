@@ -6,7 +6,7 @@
 
 `member`, `user`, and `guild`
 
-Usage:
+#### USAGE
 
 welcome `{user.username}` to `{guild.name}!`
 
