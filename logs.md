@@ -5,7 +5,10 @@
 
 This log type is not functional unfortunately. So just skip it!
 
-#### PLUGIN CODE
+#### PRETTY LOGS VERSION 1.0 (PLAIN EDITION)
+
+<details>
+  <summary>Click to view code!</summary>
 
 ```yaml
   logs:
@@ -329,3 +332,1082 @@ This log type is not functional unfortunately. So just skip it!
         config:
           ping_user: false
 ```
+</details>
+
+---
+
+#### PRETTY LOGS VERSION 3.0 (PLAIN EDITION)
+
+<details>
+  <summary>Click to view code!</summary>
+
+```yaml
+  logs:
+    config:
+      channels:
+        '808334772102234142': #misc
+          exclude:
+           - MEMBER_JOIN
+           - MEMBER_LEAVE
+           - AUTOMOD_ACTION
+          excluded_categories:
+            - "855775275228987403" #manager category
+          exclude_bots: true
+
+        '857908693567930398': #joins/leaves
+          include:
+           - MEMBER_JOIN
+           - MEMBER_LEAVE
+           - MEMBER_RESTORE
+          excluded_categories:
+            - "855775275228987403" #manager category
+          exclude_bots: true
+
+        '858001035360862218': #automod
+          include:
+           - AUTOMOD_ACTION
+
+          excluded_categories:
+            - "855775275228987403" #manager category
+          exclude_bots: true
+      format:
+        timestamp: ""
+        MEMBER_NOTE: |-
+          :notepad_spiral: **NOTE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_WARN: |-
+          :warning: **MEMBER WARNED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconsupport:778924718153662495><:dash:855062799659171850>{reason}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_MUTE: |-
+          <:iconmuted:837072273978294283> **MEMBER MUTED INDEFINITELY**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconsupport:778924718153662495><:dash:855062799659171850>{reason}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_TIMED_MUTE: |-
+          <:iconmuted:837072273978294283> **MEMBER MUTED** ({time})
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconsupport:778924718153662495><:dash:855062799659171850>{reason}
+          <:iconclock:811925897036038165><:dash:855062799659171850>{time}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_UNMUTE: |-
+          <:iconunmuted:837072274766823456> **MEMBER UNMUTED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_TIMED_UNMUTE: |-
+          <:iconunmuted:837072274766823456> **MEMBER TIMED UNMUTED** ({time})
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconclock:811925897036038165><:dash:855062799659171850>{time}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_MUTE_EXPIRED: |-
+          <:iconunmuted:837072274766823456> **MEMBER EXPIRED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_KICK: |-
+          :boot: **MEMBER KICKED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_BAN: |-
+          <:leave:754438854961922069> **MEMBER BANNED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_UNBAN: |-
+          <:statusonline:714853868420202529> **MEMBER UNBANNED**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_FORCEBAN: |-
+          <:leave:754438854961922069> **MEMBER FORCEBANNED**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_SOFTBAN: |-
+          <:leave:754438854961922069> **MEMBER SOFTBANNED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+        MEMBER_JOIN: |-
+          <:join:754438854487965807> **MEMBER JOINED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:iconclock:811925897036038165><:dash:855062799659171850>created {account_age} ago
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_LEAVE: |-
+          <:leave:754438854961922069> **MEMBER LEFT**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:join:754438854487965807><:dash:855062799659171850><t:{rand(div(member.joinedAt, 1000), div(member.joinedAt, 1000))}> (<t:{rand(div(member.joinedAt, 1000), div(member.joinedAt, 1000))}:R>)
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+        MEMBER_ROLE_ADD: |-
+          <:statusonline:714853868420202529> **ROLE ADDED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconrole:826477127209320534>`{roles}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_ROLE_REMOVE: |-
+          <:statusdnd:714833495524114464> **ROLE REMOVED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconrole:826477127209320534>`{roles}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_ROLE_CHANGES: |-
+          :pencil: **ROLE CHANGES**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconrole:826477127209320534><:join:754438854487965807><:dash:855062799659171850>{addedRoles}
+          <:iconrole:826477127209320534><:leave:754438854961922069><:dash:855062799659171850>{addedRoles}{removedRoles}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_NICK_CHANGE: |-
+          ✏ **NICKNAME CHANGE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          `{oldNick}` to `{newNick}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_USERNAME_CHANGE: |-
+          ✏ **USERNAME CHANGE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          ------------------
+          `{oldName}` to `{newName}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_RESTORE: |-
+          <:downloadupdate:758794223176384512> **MEMBER RE-JOIN**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          {restoredData}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_TIMED_BAN: |-
+          :hammer: **TEMP BAN**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconclock:811925897036038165><:dash:855062799659171850>{banTime}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MEMBER_TIMED_UNBAN: |-
+          <:statusonline:714853868420202529> **TEMP UNBAN** ({banTime})
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+          <:iconclock:811925897036038165><:dash:855062799659171850>{banTime}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+        CHANNEL_CREATE: |-
+          <:statusonline:714853868420202529> **CHANNEL CREATED**
+          <:channeltext:779036156175188001><:dash:855062799659171850>**{channel.name}**<:dot:855062799607529472>`{channel.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        CHANNEL_DELETE: |-
+          :x: **CHANNEL DELETED**
+          <:channeltext:779036156175188001><:dash:855062799659171850>**{channel.name}**<:dot:855062799607529472>`{channel.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        CHANNEL_EDIT: |-
+          :pencil: **CHANNEL EDITED**
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>**{channel.name}**<:dot:855062799607529472>`{channel.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        #roles
+        ROLE_CREATE: |-
+          <:statusonline:714853868420202529> **ROLE CREATED**
+          {role.name}<:dot:855062799607529472>`{role.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        ROLE_DELETE: |-
+          <:statusdnd:714833495524114464> **ROLE DELETED**
+          {role.name}<:dot:855062799607529472>`{role.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        ROLE_EDIT: |-
+          :pencil: **ROLE EDITED**
+          {role.name}<:dot:855062799607529472>`{role.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        #Messages
+
+        MESSAGE_EDIT: |-
+          :pencil: **MESSAGE EDITED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232>
+          <https://discord.com/channels/736198286813167669/{channel.id}/{after.id}>
+          **Before:**{messageSummary(before)}**After:**{messageSummary(after)}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MESSAGE_DELETE: |-
+          <:iconsystemx:842172192418693173> **MESSAGE DELETED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>`{message.id}`
+          {messageSummary(message)}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MESSAGE_DELETE_BULK: |-
+          <:iconsystemx:842172192418693173> **{count} BULK DELETED**
+          <:profile:841364699958607894><:dash:855062799659171850>{authorIds}
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>{archiveUrl}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MESSAGE_DELETE_BARE: |-
+          <:iconsystemx:842172192418693173> **MESSAGE DELETED BARE**
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>{messageId}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        MESSAGE_DELETE_AUTO: |-
+          <:trashcan:750152850310561853> **AUTO DELETE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>`{message.id}`
+          {messageSummary(message)}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        VOICE_CHANNEL_JOIN: |-
+          <:join:754438854487965807> **VC JOIN**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>**{channel.name}**<:dot:855062799607529472>`{channel.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        VOICE_CHANNEL_MOVE: |-
+          <:iconundeafened:837072274527485983> **VC MOVE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:leave:754438854961922069><:dash:855062799659171850>**{oldChannel.name}**<:dot:855062799607529472>`{oldChannel.id}`
+          <:join:754438854487965807><:dash:855062799659171850>**{newChannel.name}**<:dot:855062799607529472>`{newChannel.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        VOICE_CHANNEL_LEAVE: |-
+          <:leave:754438854961922069> **VC LEAVE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>**{channel.name}**<:dot:855062799607529472>`{channel.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+        VOICE_CHANNEL_FORCE_MOVE: |-
+          <:iconundeafened:837072274527485983> **VC FORCE MOVE**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{oldchannel.id}><:dot:855062799607529472>**{oldChannel.name}**<:dot:855062799607529472>`{oldChannel.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{newldchannel.id}><:dot:855062799607529472>**{newChannel.name}**<:dot:855062799607529472>`{newChannel.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        VOICE_CHANNEL_FORCE_DISCONNECT: |-
+          <:icondeafened:837072274086953000> **VC FORCE DISCONNECT**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+
+          <:mod:855081145788006460><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{mod.id}`
+
+          <:channeltext:779036156175188001><:dash:855062799659171850>**{oldChannel.name}**<:dot:855062799607529472>`{oldChannel.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+
+        #COMMAND: "\U0001F916 {userMention(member)} used command in {channelMention(channel)}:\n`{command}`"
+        #unused in zep atm
+
+
+        MESSAGE_SPAM_DETECTED: "\U0001F6D1 {userMention(member)} spam detected in {channelMention(channel)}: {description} (more than {limit} in {interval}s)\n{archiveUrl}"
+
+        OTHER_SPAM_DETECTED: "\U0001F6D1 {userMention(member)} spam detected: {description} (more than {limit} in {interval}s)"
+
+        CLEAN: |-
+          :soap: **{count} MESSAGES CLEANED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>**{mod.username}#{mod.discriminator}**<:dot:855062799607529472>`{mod.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850><#{channel.id}><:dot:855062799607529472>`{channel.id}`
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>{archiveUrl}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+        CASE_CREATE: >-
+          ✏ {userMention(mod)} manually created new **{caseType}** case
+          (#{caseNum})
+
+        CASE_DELETE: |-
+          <:statusdnd:714833495524114464> **CASE DELETED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>`{mod.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850>**Case#{case.case_number}**
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+
+        MASSUNBAN: '⚒ {userMention(mod)} mass-unbanned {count} users'
+
+        MASSBAN: '⚒ {userMention(mod)} massbanned {count} users'
+
+        MASSMUTE: "\U0001F4E2\U0001F6AB {userMention(mod)} massmuted {count} users"
+
+        MEMBER_JOIN_WITH_PRIOR_RECORDS: |-
+          ⚠ {userMention(member)} joined with prior records. Recent cases:
+          {recentCaseSummary}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        CASE_UPDATE: |-
+          ✏ {userMention(mod)} updated case #{caseNumber} ({caseType}) with note:
+          ```{note}```
+
+        MEMBER_MUTE_REJOIN: |-
+          <:icondeafened:837072274086953000> **MEMBER MUTE RE-JOIN**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{member.id}><:dot:855062799607529472>**{member.user.username}#{member.user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{member.id}`
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        SCHEDULED_MESSAGE: >-
+          ⏰ {userMention(author)} scheduled a message to be posted to
+          {channelMention(channel)} on {datetime}
+
+        SCHEDULED_REPEATED_MESSAGE: >-
+          ⏰ {userMention(author)} scheduled a message to be posted to
+          {channelMention(channel)} on {datetime}, repeated {repeatDetails}
+
+        REPEATED_MESSAGE: >-
+          ⏰ {userMention(author)} scheduled a message to be posted to
+          {channelMention(channel)} {repeatDetails}
+
+        POSTED_SCHEDULED_MESSAGE: "\U0001F4E8 Posted scheduled message (`{messageId}`) to {channelMention(channel)} as scheduled by {userMention(author)}"
+
+        BOT_ALERT: |-
+          :warning: **BOT ALERT**
+          {tmplEval(body)}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        DM_FAILED: "\U0001F6A7 Failed to send DM ({source}) to {userMention(user)}"
+
+        AUTOMOD_ACTION: |-
+          <:iconsearch:778925668536811520> **AUTOMOD ACTION**
+          <:iconprivacysettings:845090111976636446><:dash:855062799659171850>{rule}
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          <:iconsettings:778931333459738626><:dash:855062799659171850>{actionsTaken}
+          <:iconrichpresence:842328614883295232><:dash:855062799659171850>{matchSummary}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        SET_ANTIRAID_USER: |-
+          <:iconrole:826477127209320534> **ANTI-RAID**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{user.id}><:dot:855062799607529472>**{user.username}#{user.discriminator}**
+          <:iconid:778924898176466944><:dash:855062799659171850>`{user.id}`
+          <:iconconnection:778931450451984395><:dash:855062799659171850>**{level}**
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        SET_ANTIRAID_AUTO: |-
+          <:iconrole:826477127209320534> **AUTO ANTI-RAID**
+          <:iconconnection:778931450451984395> **ANTI-RAID**
+          {level}
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+      ping_user: false
+      allow_user_mentions: false
+      #timestamp_format: string
+      include_embed_timestamp: true
+    overrides:
+      - level: '>=50'
+        config:
+          ping_user: false
+
+```
+</details>
+
+---
+
+#### PRETTY LOGS (EMBED EDITION)
+
+<details>
+  <summary>Click to view code!</summary>
+
+```yaml
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+      format:
+        timestamp: 'DD-MM-YYYY HH:mm:ss'
+        # welcome-log
+        MEMBER_JOIN:
+          embed:
+            author:
+              name: '{member.user.username}#{member.user.discriminator}'
+              url: Null
+            title: 'MEMBER JOINED'
+            description: |-
+              **User:** <@{member.id}> 
+              **Created:** {account_age} ago
+            image:
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer:
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0x2EFF27 #green
+            thumbnail:
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808292686691172392/inbox_tray.png'
+        
+        MEMBER_LEAVE:
+          embed:
+            author:
+              name: '{member.user.username}#{member.user.discriminator}'
+              url: Null
+            title: 'MEMBER LEFT'
+            description: |-
+              **User:** <@{member.id}> left the server
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer:
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0xFFA027 #orange
+            thumbnail:
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808292702202363954/outbox_tray.png'
+        
+        MEMBER_KICK:
+          embed:
+            author:
+              name: '{user.username}#{user.discriminator}'
+            title: 'MEMBER KICKED'
+            description: |-
+              User: <@{user.id}> 
+              By: <@{mod.id}>
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer:
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+        
+        MEMBER_JOIN_WITH_PRIOR_RECORDS:
+          embed:
+            author:
+              name: '{member.user.username}#{member.user.discriminator}'
+            title: 'JOIN WITH PRIOR RECORDS'
+            description: |-
+              **User:** {new} <@{member.id}>
+              **Created:** {account_age}
+              **Recent cases:**
+              {recentCaseSummary}
+            image:
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer:
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+            thumbnail:
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808292686691172392/inbox_tray.png'
+        
+        MEMBER_BAN:
+          embed:
+            author:
+              name: '{user.username}#{user.discriminator}'
+            title: 'MEMBER BANNED'
+            description: |-
+              **User:** <@{user.id}>
+              **By:** <@{mod.id}>
+            image:
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer:
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+        
+        MEMBER_FORCEBAN:
+          embed:
+            author:
+              name: '{user.username}#{user.discriminator}'
+            title: 'MEMBER FORCE BANNED'
+            description: |-
+              **User:** <@{user.id}>
+              **By:** <@{mod.id}>
+            image:
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer:
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+        
+        MASSBAN:
+          embed:
+            title: 'MASSBAN'
+            description: |-
+              {count} users were massbanned
+              **By:** <@{mod.id}>
+            image:
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer:
+              text: 'Time: {timestamp}UTC'
+            color: 0x000000 #black
+        
+        MEMBER_SOFTBAN:
+          embed:
+            author:
+              name: '{user.username}#{user.discriminator}'
+            title: 'MEMBER SOFT BANNED'
+            description: |-
+              **User:** <@{user.id}>
+              **By:** <@{mod.id}>
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer:
+              text: 'UserID: {user.id} • Time: {timestamp}UTC'
+            color: 0xFFA027 #orange
+        
+        MEMBER_MUTE_REJOIN:
+          embed:
+            author:
+              name: '{member.user.username}#{member.user.discriminator}'
+            title: 'MUTED MEMBER REJOIN'
+            description: |-
+              Reapplied active mute on rejoin
+              **User:** <@{member.id}>
+            image:
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer:
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        # auto-log
+        AUTOMOD_ACTION:
+          embed:
+            title: '{user.username}#{user.discriminator}'
+            fields:
+            -  name : '**Type:**'
+               value : '{rule}'
+               inline : true
+            -  name : '**Mention:**'
+               value : '<@{user.id}>'
+               inline : true
+            -  name : '**Action:**'
+               value : '{actionsTaken}'
+               inline : true
+            -  name: '**Match:**'
+               value: '{matchSummary}'
+               inline : false
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer:
+              text: 'UserID: {user.id} • Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        # msg-log
+        DM_FAILED:
+          embed:
+            author:
+              name: '{user.username}#{user.discriminator}'
+            title: 'DM FAILED'
+            description: |-
+              Failed to send DM ({source})
+              **To:** <@{user.id}>
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer:
+              text: 'UserID: {user.id} • Time: {timestamp}UTC'
+            color: 0xFFA027 #orange
+        
+        MESSAGE_DELETE:
+          embed:
+            title: '{user.username}#{user.discriminator}'
+            description: |-
+              :wastebasket: **Message sent by <@{user.id}>  deleted in <#{channel.id}>**
+              {messageSummary(message)} 
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            color: 0xFF2727 #red
+            footer: 
+              text: 'UserID: {user.id} • Time: {timestamp}UTC'
+        
+        MESSAGE_DELETE_BARE:
+          embed:
+            title: '{user.username}#{user.discriminator}'
+            description: |-
+              :wastebasket: **Message deleted in <#{channel.id}>**
+              (no more info available)
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            color: 0xFF2727 #red
+            footer: 
+              text: 'MessageID: {message.id} • Time: {timestamp}UTC'
+        
+        MESSAGE_EDIT: 
+          embed:
+            author:
+              name: '{user.username}#{user.discriminator}'
+            description: |-
+              :pencil: **[message](https://canary.discord.com/channels/261157716792311818/{channel.id}/{after.id}) sent by <@{user.id}> edited in <#{channel.id}>**
+              **Old Message:**
+              {messageSummary(before)}
+              **New Message:**
+              {messageSummary(after)}
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            color: 0xFFA027 #orange
+            footer: 
+              text: 'UserID: {user.id} • Time: {timestamp}UTC'
+        
+        MESSAGE_SPAM_DETECTED:
+          embed:
+            author:
+              name: '{user.username}#{user.discriminator}'
+            title: 'MESSAGE SPAM DETECTED'
+            description: |-
+              Message spam in <#{message.id}> by <@{member.id}>
+              {description}
+              (more than {limit} in {interval}s)
+              {archiveUrl}
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'UserID: {user.id} • Time: {timestamp}UTC'
+            color: 0xFFA027 #orange
+        
+        CLEAN:
+          embed:
+            title: 'MESSAGES CLEANED'
+            fields:
+            -  name : '**User:**'
+               value : '<@{mod.id}>'
+               inline : true
+            -  name : '**Cleaned:**'
+               value : '{count} message(s)'
+               inline : true
+            -  name : '**In:**'
+               value : '<#{channel.id}>'
+               inline : true
+            -  name: '**Messages:**'
+               value: '[Archive]({archiveUrl})'
+               inline : true
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+        
+        MESSAGE_DELETE_BULK:
+          embed:
+            title: '{count} MESSAGES DELETED'
+            fields:
+            -  name : '**By:**'
+               value : '{authorIds}'
+               inline : true
+            -  name : '**In:**'
+               value : '<#{channel.id}>'
+               inline : true
+            -  name : '**Messages:**'
+               value : '[Archive]({archiveUrl})'
+               inline : true
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+        
+        POSTED_SCHEDULED_MESSAGE:
+          embed:
+            title: 'POSTED SCHEDULED MESSAGE'
+            description: |-
+              **Posted scheduled message:** (`{messageId}`)
+              **To:** {channelMention(channel)}
+              **Scheduled by:** {userMention(author)}
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'Time: {timestamp}UTC'
+            color: 0x000000 #black
+        
+        SCHEDULED_MESSAGE:
+          embed:
+            title: 'SCHEDULED MESSAGE'
+            description: |-
+              {userMention(author)} scheduled a message
+              **To be posted to:** {channelMention(channel)}
+              **On: {datetime}
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'Time: {timestamp}UTC'
+            color: 0x000000 #black
+        
+        SCHEDULED_REPEATED_MESSAGE:
+          embed:
+            title: 'SCHEDULED REPEATED MESSAGE'
+            description: |-
+              {userMention(author)} scheduled a message
+              **To be posted to:** {channelMention(channel)}
+              **On:** {datetime}
+              **Repeated:** {repeatDetails}
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'Time: {timestamp}UTC'
+            color: 0x000000 #black
+        
+        REPEATED_MESSAGE:
+          embed:
+            title: 'REPEATED MESSAGE'
+            description: |-
+              {userMention(author)} scheduled a message
+              **To be posted to:** {channelMention(channel)}
+              **Repeated:** {repeatDetails}
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'Time: {timestamp}UTC'
+            color: 0x000000 #black
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        # rank-log
+        MESSAGE_DELETE_AUTO:
+          embed:
+            author: 
+              name: '{user.username}#{user.discriminator}'
+            title: 'MESSAGE AUTO-DELETED'
+            fields:
+            -  name : '**From:**'
+               value : '<@{user.id}>'
+               inline : true
+            -  name : '**In:**'
+               value : '<#{channel.id}>'
+               inline : true
+            -  name : '**Message:**'
+               value : '{messageSummary(message)}'
+               inline : false
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'UserID: {user.id} • Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        # name-log
+        MEMBER_NICK_CHANGE:
+          embed:
+            author:
+              name: '{member.user.username}#{member.user.discriminator}'
+              url: '{user.member.avatarURL}'
+            description: ':pencil: <@{member.id}> **nickname edited**'
+            fields:
+            -  name : '**Old Nickname**'
+               value : '`{oldNick}`'
+               inline : true
+            -  name : '**New Nickname**'
+               value : '`{newNick}`'
+               inline : true
+            color: 0x2744FF #blue
+            footer: 
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+        
+        MEMBER_USERNAME_CHANGE:
+          embed:
+            author:
+              name: '{member.user.username}#{member.user.discriminator}'
+              url: '{user.member.avatarURL}'
+            description: ':pencil: <@{member.id}> **username edited**'
+            fields:
+            -  name : '**Old Username**'
+               value : '`{oldName}`'
+               inline : true
+            -  name : '**New Username**'
+               value : '`{newName}`'
+               inline : true
+            color: 0x2744FF #blue
+            footer: 
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        # voice-log
+        VOICE_CHANNEL_JOIN:
+          embed:
+            title: 'Voice Join'
+            description: |-
+              🎙 <@{member.id}>
+              **Joined:** {channel.name}
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0x2EFF27 #green
+        
+        VOICE_CHANNEL_MOVE:
+          embed:
+            title: 'Voice Move'
+            description: |-
+              🎙 <@{member.id}>
+              **From:** {oldChannel.name}
+              **To:** {newChannel.name}
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0x2744FF #blue
+        
+        VOICE_CHANNEL_LEAVE:
+          embed:
+            title: 'Voice Leave'
+            description: |-
+              🎙 <@{member.id}>
+              **Left:** {channel.name}
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+        
+        VOICE_CHANNEL_FORCE_MOVE:
+          embed:
+            title: 'Voice Forced Move'
+            description: |-
+              🎙 <@{member.id}>
+              **From:** {oldChannel.name}
+              **To:** {newChannel.name}
+              **By:** <@{mod.id}>
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0xFFA027 #orange
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        # other-log
+        MEMBER_ROLE_ADD:
+          embed:
+            author:
+              name: '{member.user.username}#{member.user.discriminator}'
+            title: 'ROLE(S) ADDED'
+            fields:
+            -  name : '**User:**'
+               value : '<@{member.id}>'
+               inline : true
+            -  name : '**Role(s) Added:**'
+               value : '{roles}'
+               inline : true
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0x2EFF27 #green
+        
+        MEMBER_ROLE_REMOVE:
+          embed:
+            author:
+              name: '{member.user.username}#{member.user.discriminator}'
+            title: 'ROLE(S) REMOVED'
+            fields:
+            -  name : '**User:**'
+               value : '<@{member.id}>'
+               inline : true
+            -  name : '**Role(s) Removed:**'
+               value : '{roles}'
+               inline : true
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+        
+        MEMBER_ROLE_CHANGES:
+          embed:
+            author:
+              name: '{member.user.username}#{member.user.discriminator}'
+            title: 'ROLE(S) CHANGED'
+            fields:
+            -  name : '**User:**'
+               value : '<@{member.id}>'
+               inline : true
+            -  name : '**Role(s) Added:**'
+               value : '{addedRoles}'
+               inline : true
+            -  name : '**Role(s) Removed:**'
+               value : '{removedRoles}'
+               inline : true
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'UserID: {member.id} • Time: {timestamp}UTC'
+            color: 0x2744FF #blue
+        
+        CASE_DELETE:
+          embed:
+            title: 'CASE DELETED'
+            fields:
+            -  name : '**Case:**'
+               value : '#{caseNumber}'
+               inline : true
+            -  name : '**By:**'
+               value : '<@{mod.id}>'
+               inline : true
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'Time: {timestamp}UTC'
+            color: 0xFF2727 #red
+        
+        CASE_UPDATE:
+          embed:
+            title: 'CASE UPDATED'
+            fields:
+            -  name : '**By:**'
+               value : '<@{mod.id}>'
+               inline : true
+            -  name : '**Case:**'
+               value : '#{caseNumber}({caseType})'
+               inline : true
+            -  name : '**Note:**'
+               value : '```{note}```'
+               inline : false
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'Time: {timestamp}UTC'
+            color: 0xFFA027 #orange
+        
+        SET_ANTIRAID_USER:
+          embed:
+            title: 'ANTI-RAID SET'
+            description: |-
+              '⚔ <@{user.ID}> set anti-raid to **{level}**'
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'Time: {timestamp}UTC'
+            color: 0x2EFF27 #green
+        
+        SET_ANTIRAID_AUTO:
+          embed:
+            title: 'AUTO ANTI-RAID'
+            description: |-
+              '⚔ Anti-raid automatically set to **{level}**'
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'Time: {timestamp}UTC'
+            color: 0x2EFF27 #green
+        
+        BOT_ALERT:
+          embed:
+            title: 'BOT ALERT'
+            description: |-
+              <@90031537206099968>
+              {tmplEval(body)}
+            image: 
+              url: 'https://cdn.discordapp.com/attachments/670339348956446772/808055881966813234/embed_width.png'
+            footer: 
+              text: 'Time: {timestamp}UTC'
+            color: 0xFFFFFF #black
+```
+</details>
+
+---
