@@ -1,16 +1,16 @@
-# ZEP by DEX
+# ZEP BY DEX
 ![Zep banner](assets/zepbanner.png)
-Zeppelin is a moderation bot for Discord, and I am DEX....I dont know where I am going with this....Anyways
 
-This is my repo for tips and tricks for Dragorys Bot
+Zeppelin is a moderation bot for Discord, and I am DEX....
+
+This is my repo for tips and tricks for Zeppelin
 
 **CONSIDER PUTTING A ⭐️ ON THIS REPO**
 
 ## PLUGINS:
 
-**CURRENTLY UNDER CONSTRUCTION**
+You can join my server on https://discord.gg/JCZf3sHYpE and follow github channel for updates or to play with Zeppelin
 
-To follow updates you can join my server and keep an eye on the github channel for updates on the changes i make on https://discord.gg/JCZf3sHYpE
 ---
 
 |                                            	|                   **PLUGINS**                   	|                                             	|
@@ -37,5 +37,5 @@ See https://zeppelin.gg/ for more details.
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 ## More Info
 
-You can find me on the zeppelin support server!
+You can also find me on the zeppelin support server!
 at https://discord.gg/9bCGvGw5rT
