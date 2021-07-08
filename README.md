@@ -41,5 +41,5 @@ See https://zeppelin.gg/ for more details.
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 ## More Info
 
-You can also find me on the zeppelin support server!
-at https://discord.gg/9bCGvGw5rT
+You can also find me on the zeppelin support server
+[![Join our Discord server!](https://invidget.switchblade.xyz/9bCGvGw5rT)](http://discord.gg/9bCGvGw5rT)
