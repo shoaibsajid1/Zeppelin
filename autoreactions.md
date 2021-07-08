@@ -22,6 +22,8 @@ For example
 
 `!auto_reactions disable 629990160477585428`
 
+![Image](assets/autoreactions.png)
+
 #### DEFAULT PLUGIN
 
 In the default settings only level 100 can run the auto reaction commands, if you would like to use the default settings, just copy paste below, otherwise you the version below it for customization
