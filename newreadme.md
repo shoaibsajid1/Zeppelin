@@ -101,6 +101,7 @@ WANT RULES ?
 
 YOU CAN FIND THEM AT [Rules](rules.md)
 
+---
 
 ### Cases
 This plugin  shows all the cases in a set channel
@@ -124,7 +125,7 @@ This setting allows you to set the channel for logging all your cases, in this i
 
 so if you set relative time cutoff to 24h, any cases older than 24h would show the full date, e.g. "2021-01-30", rather than e.g. "1 day ago"
 
----
+
 
 `case_colors` [Optional] This setting allows you to customize the embed strip color for various actions such as warn,mute etc. You can either type color names like `yellow` `green` or use hex values such as `2EFF27` which is green.
 If you would like to use the default setting, u may delete this part of the code
@@ -162,6 +163,7 @@ If you would like to use the default setting, u may delete this part of the code
         deleted: ":no_entry:"
         softban: ":boot:"
 ```
+
 
 ### Companion Channels
 
@@ -270,7 +272,7 @@ To view default setting: https://zeppelin.gg/docs/plugins/persist#:~:text=Config
 
 `can_post`is what allows users to use this plugin and its commands
 
-## COMMANDS
+COMMANDS
 
 `!edit <message> <content>`
 
@@ -297,19 +299,18 @@ scheduled posts are messages that are scheduled to be posted later, using the `-
         config:
           can_post: true #only level 100 can post (use this plugin)
 ```
-
+---
 
 ### Reaction Roles
 
-
 Allows you to add reaction roles to a given message.
 
-## PERMISSIONS
+PERMISSIONS
 
 `can_manage` is needed to use this plugin and its commands
 
 
-## USAGE
+USAGE
 
 **ADDING REACTION ROLES**
 
@@ -377,7 +378,7 @@ STEPS:
 
 `can_use`
 
-## USAGE
+USAGE
 ![reminder](https://media.discordapp.net/attachments/799195773408903188/830389173210972160/Screen_Shot_2021-04-10_at_3.29.45_PM.png)
 
 #### PLUGIN CODE
@@ -394,7 +395,7 @@ STEPS:
 
 Enables authorised users to add and remove whitelisted roles with a command.
 
-## PERMISSIONS
+PERMISSIONS
 
 `can_assign` allows you to use this plugin and its commands
 
@@ -420,7 +421,7 @@ Enables authorised users to add and remove whitelisted roles with a command.
 
 ### Self Grantable Roles
 
-## PERMISSIONS
+PERMISSIONS
 
 `can_use` allows you to use this plugin and its commands
 
@@ -445,13 +446,13 @@ Enables authorised users to add and remove whitelisted roles with a command.
 
 ### Slowmode
 
-## PERMISSIONS
+PERMISSIONS
 
 `can_manage` allows you to use the plugin and its commands
 
 `is_affected` if `true`, you are affected by slowmode
 
-## USAGE
+USAGE
 
 `use_native_slowmode` uses discord built in slowmode instead of Zeppelins own slowmode. Note that maxmium time is `6h` before bot switches the slowmode from native to Zeppelins version
 
@@ -712,11 +713,11 @@ https://gist.github.com/vcokltfre/8cff17725485f70992c44970f53977fd
 
 Allows controlling the displayed time/date formats and timezones
 
-## PERMISSIONS
+PERMISSIONS
 
 `can_set_timezone`
 
-## USAGE
+USAGE
 
 Moderators can also set their own timezone with the `!timezone` command.
 This affects the output of several commands when ran by that moderator
@@ -969,10 +970,6 @@ Send a welcome message in dm or in a channel
 For more info on this plugin [Click Here](welcome_message.md)
 
 ---
-
-
-
-
 
 
 ### Others
