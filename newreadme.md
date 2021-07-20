@@ -36,6 +36,8 @@ Whoa!, you here already? What a pro. There are many plugins which I cover in det
 
 ### Auto Reactions
 
+<details>
+  <summary>Click to view</summary>
 Often used for suggestion channel, adds reactions to every message on set channel
 
 > ![image](assets/suggestions.png)
@@ -43,8 +45,12 @@ Often used for suggestion channel, adds reactions to every message on set channe
 > *An example of auto reactions being used for a suggestions channel, in this case 👍 👎*
 
 ---
+</details>
 
 ### Automod
+
+<details>
+  <summary>Click to view</summary>
 
 **LOOSE MATCHING**
 
@@ -100,10 +106,16 @@ the default modifier, if not specified, is `>=`
 WANT RULES ?
 
 YOU CAN FIND THEM AT [Rules](rules.md)
+</details>
 
 ---
+</details>
 
 ### Cases
+
+<details>
+  <summary>Click to view</summary>
+  
 This plugin  shows all the cases in a set channel
 >![image](assets/cases.png)
 > 
@@ -163,10 +175,15 @@ If you would like to use the default setting, u may delete this part of the code
         deleted: ":no_entry:"
         softban: ":boot:"
 ```
+</details>
 
+---
 
 ### Companion Channels
 
+<details>
+  <summary>Click to view</summary>
+  
 Set up 'companion channels' between text and voice channels. Once set up, any time a user joins one of the specified voice channels, they'll get channel permissions applied to them for the text channels.
 
 
@@ -195,9 +212,16 @@ Set up 'companion channels' between text and voice channels. Once set up, any ti
           enabled: true
 ```
 
+</details>
+
+---
+
 
 ### Counters
 
+<details>
+  <summary>Click to view</summary>
+  
 **COUNTER TIP**
 
 >Counter decays are currently processed every 5 minutes. They are, however, still applied according to the decay time, even if it's lower than 5 minutes, so "1 every 30s" would decay 10 points at once every 5 minutes.
@@ -207,24 +231,50 @@ Set up 'companion channels' between text and voice channels. Once set up, any ti
 
 > Counter decays are currently processed every 5 minutes. They are, however, still applied according to the decay time, even if it's lower than 5 minutes, so "1 every 30s" would decay 10 points at once every 5 minutes.
 
+</details>
+
+---
 
 
 ### Locate User
 
+---
+
 ### Logs
+
+---
 
 ### Mod Actions
 
+<details>
+  <summary>Click to view</summary>
+  
  Use this to set messages for what happens when you warn, ban etc. Who can warn, ban, how many messages to delete on ban. You set all of that in this plugin
+
+
+</details>
+
+---
+
 
 ### Mutes
 
+<details>
+  <summary>Click to view</summary>
+  
  Same as above but for mutes
 
+
+</details>
+
+---
 
 
 ### Persist
 
+<details>
+  <summary>Click to view</summary>
+  
 >  This plugin allows you to restore the roles back to the user when they join the server back. Please note that you need to add every role one by one on the config and if you delete role that was on config, the plugin will break so i recommend you use YAGPDB or carlbot for this instead. 
 
 ```yaml
@@ -248,11 +298,18 @@ Set up 'companion channels' between text and voice channels. Once set up, any ti
 ```
 To view default setting: https://zeppelin.gg/docs/plugins/persist#:~:text=Config%20schema-,Click,-to%20expand
 
+
+</details>
+
 ---
+
 
 
 ### Pingable Roles
 
+<details>
+  <summary>Click to view</summary>
+  
 `can_manage` allows you to use this plugin and its commands
 
 #### PLUGIN CODE
@@ -268,8 +325,16 @@ To view default setting: https://zeppelin.gg/docs/plugins/persist#:~:text=Config
           can_manage: true #only level 100 can run that ^
 ```
 
+</details>
+
+---
+
+
 ### Post
 
+<details>
+  <summary>Click to view</summary>
+  
 `can_post`is what allows users to use this plugin and its commands
 
 COMMANDS
@@ -299,10 +364,17 @@ scheduled posts are messages that are scheduled to be posted later, using the `-
         config:
           can_post: true #only level 100 can post (use this plugin)
 ```
+
+</details>
+
 ---
+
 
 ### Reaction Roles
 
+<details>
+  <summary>Click to view</summary>
+  
 Allows you to add reaction roles to a given message.
 
 PERMISSIONS
@@ -372,9 +444,16 @@ STEPS:
           can_manage: true #only level 100 can manage
 ```
 
+</details>
+
+---
+
 
 ### Reminder
 
+<details>
+  <summary>Click to view</summary>
+  
 
 `can_use`
 
@@ -390,9 +469,16 @@ USAGE
       can_use: true
 ```
 
+</details>
+
+---
+
 
 ### Roles
 
+<details>
+  <summary>Click to view</summary>
+  
 Enables authorised users to add and remove whitelisted roles with a command.
 
 PERMISSIONS
@@ -418,9 +504,16 @@ PERMISSIONS
           can_mass_assign: true # level 100 can mass assign and remove roles
 ```
 
+</details>
+
+---
+
 
 ### Self Grantable Roles
 
+<details>
+  <summary>Click to view</summary>
+  
 PERMISSIONS
 
 `can_use` allows you to use this plugin and its commands
@@ -443,9 +536,16 @@ PERMISSIONS
       mention_roles: true #mentions the role itself (but no ping)
 ```
 
+</details>
+
+---
+
 
 ### Slowmode
 
+<details>
+  <summary>Click to view</summary>
+  
 PERMISSIONS
 
 `can_manage` allows you to use the plugin and its commands
@@ -483,9 +583,16 @@ USAGE
           is_affected: false #level 50 and up arent affected by slowmode
 ```
 
+</details>
+
+---
+
 
 ### Starboard
 
+<details>
+  <summary>Click to view</summary>
+  
 Allows you to pin memories with a reaction!
 
 #### PLUGIN CODE
@@ -522,9 +629,16 @@ Allows you to pin memories with a reaction!
               enabled: true #only for level 100 (admin react = starboard)
 ```
 
+</details>
+
+---
+
 
 ### Tags
 
+<details>
+  <summary>Click to view</summary>
+  
 
 
 💡 **TAG TIP**
@@ -708,9 +822,16 @@ https://gist.github.com/vcokltfre/8cff17725485f70992c44970f53977fd
           allow_mentions: false
 ```
 
+</details>
+
+---
+
 
 ### Time & Date
 
+<details>
+  <summary>Click to view</summary>
+  
 Allows controlling the displayed time/date formats and timezones
 
 PERMISSIONS
@@ -771,9 +892,16 @@ See <https://momentjs.com/docs/#/displaying/format/> for a list of values you ca
           can_set_timezone: true
 ```
 
+</details>
+
+---
+
 
 ### Utility
 
+<details>
+  <summary>Click to view</summary>
+  
 
 **AVATAR**
 ![avatar](https://media.discordapp.net/attachments/770256340639416320/830444957654843413/Screen_Shot_2021-04-10_at_7.11.36_PM.png)
@@ -957,9 +1085,15 @@ utility: #https://zeppelin.gg/docs/plugins/utility/usage
         can_about: true
 ```
 
+</details>
+
+---
 
 ### Welcome Message
 
+<details>
+  <summary>Click to view</summary>
+  
 Send a welcome message in dm or in a channel
 
 > ![image](assets/welcome.png)
@@ -968,6 +1102,8 @@ Send a welcome message in dm or in a channel
  
 
 For more info on this plugin [Click Here](welcome_message.md)
+
+</details>
 
 ---
 
@@ -1003,6 +1139,7 @@ The following plugins are very old and outdated now so I will not cover them but
 [Time and Date](time_and_date.md)
 [Utility](utility.md)
 
+</details>
 
 --- 
 
