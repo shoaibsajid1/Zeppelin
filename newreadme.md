@@ -1153,43 +1153,22 @@ For more info on this plugin [Click Here](welcome_message.md)
 ### Others
 The following plugins are very old and outdated now so I will not cover them but those are:
 
-- [Autodelete](autodelete.md) (deletes everything in channel after x seconds)
+- `autodelete` (deletes everything in channel after x seconds)
 
 - `spam_protection` (Use `automod` instead)
 
 - `censor` (Use `automod` instead)
 
-[Automod & Counters](automod+counters.md)
-[Click here](autoreactions.md)
-[Automod Rules](rules.md)
-
-[Companion Channels](companion_channels.md)
-[Locate User](locate.md) 
-[Click here](logs.md)
-[Miscellaneous](miscellaneous.md) 
-[Mutes & Mod actions](mutes&modactions.md) 
-[Persist](persist.md) 
-[Pingable roles](pingable_roles.md)
-[Post](post.md) 
-[Reaction Roles](reaction_roles.md)
-[Reminders](reminder.md)
-[Roles](roles.md)
-[Self grantable roles](self_grantable_roles.md)
-[Slowmode](slowmode.md)
-[Starboard](starboard.md)
-[Tags](tags.md)
-[Time and Date](time_and_date.md)
-[Utility](utility.md)
 
 </details>
 
 --- 
 
 
-See https://zeppelin.gg/ for more details.
 
 
-### DEX'S CONFIG
+
+## DEX'S CONFIG
 
 Coming soon
 
