@@ -18,11 +18,11 @@ The bot works as follows, you can have levels from 1 to 100. By default, zeppeli
 
 **Step 1:** Set the prefix
 
-**Step 2:** Insert role ID for level 50 and 100
+**Step 2:** Insert role IDs for level 50 and 100
 
 **Step 3:** Type plugins
 
-> This is where you will start enabling modules later on
+ This is where you will start enabling modules later on
 
 **EXAMPLE SETUP**
 
@@ -40,28 +40,85 @@ This plugin  shows all the cases in a set channel
 > 
 > *An example of cases channel*
 
+
+<details>
+  <summary>To see more about cases plugin, click to expand</summary>
+
+`log_automatic_actions: true` 
+
+Enabling this logs all manually created actions as well , such as when u right click and ban manually instead of using bot commands.
+
+`case_log_channel: "1234"` 
+
+This setting allows you to set the channel for logging all your cases, in this instance, `1234` is the channel ID
+
+⏲️  **RELATIVE TIME**
+
+`show_relative_times: true` This enables the relative time setting
+
+`relative_time_cutoff: 7d` is the amount of time after which `!cases` will show the full date, not a relative time (e.g. "5 hours ago")
+
+so if you set relative time cutoff to 24h, any cases older than 24h would show the full date, e.g. "2021-01-30", rather than e.g. "1 day ago"
+
 ---
+
+`case_colors` [Optional] This setting allows you to customize the embed strip color for various actions such as warn,mute etc. You can either type color names like `yellow` `green` or use hex values such as `2EFF27` which is green.
+If you would like to use the default setting, u may delete this part of the code
+
+`case_icons` [Optional] This setting allows you to customize the case icons, you can either use custom emoji like `<:do_not_disturb:841799310797832244>` but note that zeppelin needs to be in the same server as the emote or it wont work or you can use default unicode emojis such as `:boot:`.  If you would like to use the default setting, u may delete this part of the code
+
+
+```yaml
+  cases:
+    replaceDefaultOverrides: true #replaces default settings if true
+    config:
+      log_automatic_actions: true
+      case_log_channel: "851837989545050162" #cases channel
+      #case_log_channel: *cases
+      show_relative_times: true
+      relative_time_cutoff: 7d
+      case_colors:
+        warn: yellow
+        ban: red
+        unban: 2EFF27 #green
+        note: FEE9E9 #whitish
+        kick: F34B80 #pinkish
+        mute: yellow
+        unmute: 2EFF27 #green
+        deleted: orange
+        softban: F73C4F #Lighter shade of red
+      case_icons:
+        warn: ":warning:"
+        ban: ":hammer:"
+        unban: ":green_circle:"
+        note: ":pencil:"
+        kick: ":boot:"
+        mute: ":mute:"
+        unmute: ":green_circle:"
+        deleted: ":no_entry:"
+        softban: ":boot:"
+```
+
+</details>
+---
+
+### Mod Actions
+
+ Use this to set messages for what happens when you warn, ban etc. Who can warn, ban, how many messages to delete on ban. You set all of that in this plugin
+
+### Mutes
+
+ Same as above but for mutes
 
 ### Auto Reactions
 
 Often used for suggestion channel, adds reactions to every message on set channel
 
-> ![image](assets/autoreactions.png)
+> ![image](assets/suggestions.png)
 > 
-> *An example of auto reactions being used for a suggestions channel*
+> *An example of auto reactions being used for a suggestions channel, in this case 👍 👎*
 
 ---
-
-**Moderation based plugins**
-
-- `mod_actions` Use this to set messages for what happens when you warn, ban etc. Who can warn, ban, how many messages to delete on ban. You set all of that in this plugin
-
-- `mutes` Same as above but for mutes
-
----
-
-
-
 
 ### Persist
 
@@ -97,6 +154,7 @@ Send a welcome message in dm or in a channel
 > ![image](assets/welcome.png)
 >
 >*Example of message sent to dm*
+ 
 
 For more info on this plugin [Click Here](welcome_message.md)
 
@@ -113,7 +171,7 @@ The following plugins are very old and outdated now so I will not cover them but
 [Automod & Counters](automod+counters.md)
 [Click here](autoreactions.md)
 [Automod Rules](rules.md)
-[Click here](cases.md)
+
 [Companion Channels](companion_channels.md)
 [Locate User](locate.md) 
 [Click here](logs.md)
