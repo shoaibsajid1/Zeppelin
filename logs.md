@@ -1411,3 +1411,493 @@ This log type is not functional unfortunately. So just skip it!
 </details>
 
 ---
+
+
+#### LATEST PRETTY EMBED LOGS, COMPACT EDITON (highly recommended)
+
+<details>
+  <summary>Click to view code!</summary>
+
+```yaml
+        '846039475897106432': #simpler zep
+          exclude: [] # Exclude nothing = include everything
+          exclude_bots: false
+      format:
+        timestamp: ""
+
+        CASE_CREATE: >-
+          ✏ {userMention(mod)} manually created new **{caseType}** case
+          (#{caseNum})
+
+        CASE_DELETE: |-
+          <:statusdnd:714833495524114464> **CASE DELETED**
+          <:profile:841364699958607894><:dash:855062799659171850><@!{mod.id}><:dot:855062799607529472>`{mod.id}`
+          <:channeltext:779036156175188001><:dash:855062799659171850>**Case#{case.case_number}**
+          
+          <:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460><:line:855055669824061460>
+
+        CASE_UPDATE: |-
+          ✏ {userMention(mod)} updated case #{caseNumber} ({caseType}) with note:
+          ```{note}```
+
+        BOT_ALERT:
+          embed: 
+            description: |-
+              :warning: **BOT ALERT** 
+              {tmplEval(body)}
+
+        DM_FAILED:
+          embed: 
+            description: |-
+              :construction: **DM FAILED** Failed to send DM to <@{user.id}>
+              Source: {source}
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        # MODERATION
+        MEMBER_NOTE:
+          embed: 
+            description: |-
+              :notepad_spiral: `[{caseNumber}]` **note** on <@{user.id}> by <@{mod.id}>
+            color: 0xffb347 #pastel orange
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+
+        MEMBER_WARN:
+          embed: 
+            description: |-
+              :warning: `[{caseNumber}]` **<@{member.id}> warned** by <@{mod.id}>```{reason}```
+            color: 0xfdfd96 #pastel yellow
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+
+        MEMBER_MUTE:
+          embed: 
+            description: |-
+              <:iconmuted:837072273978294283> `[{caseNumber}]` **<@{user.id}> muted forever** by <@{mod.id}>```{reason}```
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        MEMBER_TIMED_MUTE:
+          embed: 
+            description: |-
+              <:iconmuted:837072273978294283> `[{caseNumber}]` **<@{user.id}> muted** for {time} by <@{mod.id}>```{reason}```
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+        
+        MASSMUTE: "\U0001F4E2\U0001F6AB {userMention(mod)} massmuted {count} users"
+
+        MEMBER_UNMUTE:
+          embed: 
+            description: |-
+              <:iconunmuted:837072274766823456> `[{caseNumber}]` **<@{user.id}> was unmuted** by <@{mod.id}>```{reason}```
+            color: 0x77dd77 #pastel green
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        MEMBER_TIMED_UNMUTE:
+          embed: 
+            description: |-
+              <:iconunmuted:837072274766823456> **<@{user.id}> TIMED UNMUTED** by <@{mod.id}>. Time for mute was {time}
+            color: 0x77dd77 #pastel green
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        MEMBER_MUTE_EXPIRED:
+          embed: 
+            description: |-
+              <:iconunmuted:837072274766823456> <@{member.id}> mute expired
+            color: 0xfdfd96 #pastel yellow
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+
+        MEMBER_KICK:
+          embed: 
+            description: |-
+              :boot: `[{caseNumber}]` **<@{user.id}> KICKED** by <@{mod.id}>```{reason}```
+            color: 0xffb347 #pastel orange
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        MEMBER_BAN:
+          embed: 
+            description: |-
+              <:ban:863367110339330099> `[{caseNumber}]` **<@{user.id}> was banned** by <@{mod.id}>```{reason}```
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        MEMBER_TIMED_BAN:
+          embed: 
+            description: |-
+              <:ban:863367110339330099> `[{caseNumber}]` **<@{user.id}> TEMP BANNED** for {banTime} by <@{mod.id}> for {reason}
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        MEMBER_FORCEBAN:
+          embed: 
+            description: |-
+              <:ban:863367110339330099> `[{caseNumber}]` **{userId} was force banned** by <@{mod.id}>```{reason}```
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+        
+        MASSBAN:
+          embed: 
+            description: |-
+              <:ban:863367110339330099> **<@{mod.id}> massbanned {count} users**
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{mod.id}'
+              icon_url: https://cdn.discordapp.com/{if(mod.avatar, concat("avatars/", mod.id, "/", mod.avatar, ".",if(eq(slice(concat(mod.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,mod.id), ".png"))}
+        
+        MEMBER_SOFTBAN:
+          embed: 
+            description: |-
+              <:ban:863367110339330099> `[{caseNumber}]` **<@{member.id}>** (created {account_age} ago) **softbanned** by <@{mod.id}>
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+ 
+        MEMBER_UNBAN:
+          embed: 
+            description: |-
+              <:statusonline:714853868420202529> `[{caseNumber}]` **{userId} was unbanned** by <@{mod.id}>```{reason}```              
+            color: 0x77dd77 #pastel green
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        MEMBER_TIMED_UNBAN:
+          embed: 
+            description: |-
+              <:ban:863367110339330099> `[{caseNumber}]` **<@{user.id}> UNBANNED** by <@{mod.id}>. The orignal ban time was {bantime}
+            color: 0x77dd77 #pastel green
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        MASSUNBAN:
+          embed: 
+            description: |-
+              <:ban:863367110339330099> **<@{mod.id}> mass unbanned {count} users**
+            color: 0x77dd77 #pastel green
+            footer: 
+              text: '{mod.id}'
+              icon_url: https://cdn.discordapp.com/{if(mod.avatar, concat("avatars/", mod.id, "/", mod.avatar, ".",if(eq(slice(concat(mod.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,mod.id), ".png"))}
+        
+        MEMBER_JOIN: 
+          embed: 
+            description: |-
+              <:join:754438854487965807> **MEMBER JOIN**
+              <@{member.id}> | {member.user.username} created {account_age} ago
+            color: 0x77dd77 #pastel green
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+        
+        MEMBER_JOIN_WITH_PRIOR_RECORDS:
+          embed: 
+            description: |-
+              :warning: **<@{member.id}>** joined with prior records
+              Summary:{recentCaseSummary}
+            color: 0xfdfd96 #pastel yellow
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+        
+        MEMBER_MUTE_REJOIN:
+          embed: 
+            description: |-
+              <:icondeafened:837072274086953000> **<{member.id}> mute rejoin**
+            color: 0xfdfd96 #pastel yellow
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+        
+        MEMBER_RESTORE:
+          embed: 
+            description: |-
+              <:downloadupdate:758794223176384512> **MEMBER RESTORE** for <@{member.id}>
+              Data Restored: {restoredData}
+            color: 0x77dd77 #pastel green
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+
+        MEMBER_LEAVE:
+          embed: 
+            description: |-
+              <:leave:754438854961922069> **<@{member.id}> ({member.user.username}) left the server**
+              <:join:754438854487965807> <t:{rand(div(member.joinedAt, 1000), div(member.joinedAt, 1000))}> (<t:{rand(div(member.joinedAt, 1000), div(member.joinedAt, 1000))}:R>)
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+
+        MEMBER_ROLE_ADD:
+          embed: 
+            description: |-
+              <:statusonline:714853868420202529> **{roles}** added to <@{member.id}> by <@{mod.id}>
+            color: 0x77dd77 #pastel green
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+
+        MEMBER_ROLE_REMOVE:
+          embed: 
+            description: |-
+              <:statusdnd:714833495524114464> **{roles}** removed from <@{member.id}> by <@{mod.id}>
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+
+        MEMBER_ROLE_CHANGES:
+          embed: 
+            description: |-
+              :pencil: **ROLE CHANGES**
+              <:leave:754438854961922069> **{removedRoles}** <:join:754438854487965807> **{addedRoles}** for <@{member.id}> by <@{mod.id}>
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+
+        MEMBER_NICK_CHANGE:
+          embed: 
+            description: |-
+              :pencil: **NICKNAME CHANGE** for <@{member.id}>
+              `{oldNick}` to **{newNick}**
+            color: 0xffb347 #pastel orange
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+
+        MEMBER_USERNAME_CHANGE:
+          embed: 
+            description: |-
+              :pencil: **USER CHANGE** by <@{user.id}>
+              `{oldName}` to `{newName}`
+            color: 0xffb347 #pastel orange
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+
+        CHANNEL_CREATE:
+          embed: 
+            description: |-
+              <:statusonline:714853868420202529> **CHANNEL CREATE** <#{channel.id}>
+            color: 0x77dd77 #pastel green
+              
+        CHANNEL_DELETE:
+          embed: 
+            description: |-
+              :x: **CHANNEL DELETE** {channel.name}
+            color: 0xff6666 #pastel red
+
+        #channel     
+        CHANNEL_EDIT:
+          embed: 
+            description: |-
+              :pencil: **CHANNEL EDIT** <#{channel.id}>
+            color: 0xffb347 #pastel orange
+            
+        #roles
+        ROLE_CREATE:
+          embed: 
+            description: |-
+              <:statusonline:714853868420202529> **ROLE CREATE** 
+              <@&{role.id}> **{role.name}**
+            color: 0x77dd77 #pastel green
+            
+        ROLE_DELETE:  
+          embed: 
+            description: |-
+              :x: **ROLE DELETE**
+              **{role.name}** `{role.id}`
+            color: 0xff6666 #pastel red
+        ROLE_EDIT:
+          embed: 
+            description: |-
+              :pencil: **ROLE EDITED** 
+              <@&{role.id}> **{role.name}**
+
+        #Messages
+        MESSAGE_EDIT: 
+          embed: 
+            # UPDATE THE SERVER ID IN THE LINK BELOW!
+            description: |-
+              :pencil: **[MESSAGE EDITED](https://discord.com/channels/572102445921075210/{channel.id}/{after.id})** by <@{user.id}> in <#{channel.id}>
+              **Before:**{messageSummary(before)}**After:**{messageSummary(after)}
+            color: 0xffb347 #pastel orange
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        MESSAGE_DELETE:
+          embed: 
+            description: |-
+              :x: **MESSAGE DELETE** by <@{user.id}> in <#{channel.id}>
+              {messageSummary(message)}
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+        MESSAGE_DELETE_BULK:
+          embed: 
+            description: |-
+              :x: **[{count} MESSAGE DELETE]({archiveUrl})** by {authorIds} in <#{channel.id}>
+              {messageSummary(message)}
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        MESSAGE_DELETE_BARE:
+          embed: 
+            description: |-
+              <:iconsystemx:842172192418693173> **MESSAGE DELETE BARE** `{message.id}`
+              in <#{channel.id}> {messageSummary(message)}
+            color: 0xff6666 #pastel red
+
+        MESSAGE_DELETE_AUTO:
+          embed: 
+            description: |-
+              <:trashcan:750152850310561853> **AUTO DELETE** `{message.id}`
+              by <@{user.id}> in <#{channel.id}> {messageSummary(message)}
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+        CLEAN:
+          embed: 
+            description: |-
+              :soap: **[{count} MESSAGE CLEAN]({archiveUrl})** by <@{mod.id}> in <#{channel.id}>
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{mod.id}'
+              icon_url: https://cdn.discordapp.com/{if(mod.avatar, concat("avatars/", mod.id, "/", mod.avatar, ".",if(eq(slice(concat(mod.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,mod.id), ".png"))}
+        
+        VOICE_CHANNEL_JOIN:
+          embed: 
+            description: |-
+              <:join:754438854487965807> **VC JOIN** by <@{member.id}> in <#{channel.id}>
+            color: 0x77dd77 #pastel green
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+
+        VOICE_CHANNEL_MOVE:
+          embed: 
+            description: |-
+              <:iconundeafened:837072274527485983> **VC MOVE** <#{oldChannel.id}> to <#{newChannel.id}> by <@{member.id}>
+            color: 0xffb347 #pastel orange
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+        VOICE_CHANNEL_FORCE_MOVE:
+          embed: 
+            description: |-
+              <:iconundeafened:837072274527485983> **VC FORCE MOVE** <@{member.id}> moved by <@{mod.id}>
+              <#{oldChannel.id}> to <#{newChannel.id}>
+
+        VOICE_CHANNEL_LEAVE:
+          embed: 
+            description: |-
+              <:leave:754438854961922069> **VC LEAVE** by <@{member.id}> in <#{channel.id}>
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+        VOICE_CHANNEL_FORCE_DISCONNECT:
+          embed: 
+            description: |-
+              <:icondeafened:837072274086953000> **VC FORCE DISCONNECT**
+              for <@{member.id}> from <#{oldChannel.id}> by <@{mod.id}>
+            color: 0xff6666 #pastel red
+            footer: 
+              text: '{member.id}'
+              icon_url: https://cdn.discordapp.com/{if(member.user.avatar, concat("avatars/", member.user.id, "/", member.user.avatar, ".",if(eq(slice(concat(member.user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,member.user.id), ".png"))}
+
+
+        #COMMAND: "\U0001F916 {userMention(member)} used command in {channelMention(channel)}:\n`{command}`"
+        #unused in zep atm
+
+        #legacy not included
+        #MESSAGE_SPAM_DETECTED: "\U0001F6D1 {userMention(member)} spam detected in {channelMention(channel)}: {description} (more than {limit} in {interval}s)\n{archiveUrl}"
+        #legacy not included
+        #OTHER_SPAM_DETECTED: "\U0001F6D1 {userMention(member)} spam detected: {description} (more than {limit} in {interval}s)"
+
+        SCHEDULED_MESSAGE:
+          embed: 
+            description: |-
+              ⏰ {userMention(author)} scheduled a message to be posted to
+              {channelMention(channel)} on {datetime}
+            color: 0xffb347 #pastel orange
+            
+        SCHEDULED_REPEATED_MESSAGE:
+          embed: 
+            description: |-
+              ⏰ {userMention(author)} scheduled a message to be posted to
+              {channelMention(channel)} on {datetime}, repeated {repeatDetails}
+            color: 0xffb347 #pastel orange
+
+        REPEATED_MESSAGE:
+          embed: 
+            description: |-
+              ⏰ {userMention(author)} scheduled a message to be posted to
+              {channelMention(channel)} {repeatDetails}
+            color: 0xffb347 #pastel orange
+
+        POSTED_SCHEDULED_MESSAGE:
+          embed: 
+            description: |-
+              Posted scheduled message (`{messageId}`) to {channelMention(channel)} as scheduled by {userMention(author)}
+            color: 0xffb347 #pastel orange
+
+        AUTOMOD_ACTION:
+          embed: 
+            description: |-
+              <:iconsearch:778925668536811520> **AUTOMOD ACTION**
+              <@{user.id}> triggered {rule}, Actions taken: **{actionsTaken}** {matchSummary}
+            color: 0xffb347 #pastel orange
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        SET_ANTIRAID_USER:
+          embed: 
+            description: |-
+              <:iconrole:826477127209320534> **ANTI-RAID**
+              Antiraid level: **{level}**
+            color: 0xffb347 #pastel orange
+            footer: 
+              text: '{user.id}'
+              icon_url: https://cdn.discordapp.com/{if(user.avatar, concat("avatars/", user.id, "/", user.avatar, ".",if(eq(slice(concat(user.avatar),0,2),"a_"),"gif","png")),concat("embed/avatars/", rand(1, 4,user.id), ".png"))}
+
+        SET_ANTIRAID_AUTO:
+          embed: 
+            description: |-
+              <:iconrole:826477127209320534> **AUTO ANTI-RAID**
+              Antiraid level: **{level}**
+            color: 0xffb347 #pastel orange
+```
+</details>
+
+---

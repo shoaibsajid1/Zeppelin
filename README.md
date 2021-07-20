@@ -5,13 +5,13 @@ Zeppelin is a moderation bot for Discord, and I am DEX....
 
 This is my repo for tips and tricks for Zeppelin bot
 
-**CONSIDER PUTTING A ⭐️ ON THIS REPO**
+> This repo is up to date as of July 14, 2021
+Things might break after the d.js rewrite. If this repo helped you in anyway. I am glad. Happy Zepping ^~^
+
+
 
 ## PLUGINS:
 
-[![Join our Discord server!](https://invidget.switchblade.xyz/JCZf3sHYpE)](http://discord.gg/JCZf3sHYpE)
-
-You can join my server and follow github channel for updates or to play with Zeppelin
 
 ---
 
