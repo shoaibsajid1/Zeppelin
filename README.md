@@ -40,6 +40,8 @@ For total new beginners
 
 ## CONFIG FOR NEW USERS
 
+> Note: This excludes Counters, companion_channels, persist, pingable_roles, roles, self_grantable_roles, starboard & tags plugins as they are not often used by starters. But this should get you off to a good start with default settings on zep!
+
 <details>
   <summary>Click to view code!</summary>
 
