@@ -38,7 +38,7 @@ For advanced users: Coming soon as well lmao
 
 For total new beginners
 
-Just copy paste this code below and edit the values
+## CONFIG FOR NEW USERS
 
 <details>
   <summary>Click to view code!</summary>
