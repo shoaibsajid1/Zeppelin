@@ -106,7 +106,7 @@ the default modifier, if not specified, is `>=`
 
 WANT RULES ?
 
-YOU CAN FIND THEM AT [Rules](rules.md)
+YOU CAN FIND THEM AT https://discord.gg/zg5T2avq54
 </details>
 
 ---
@@ -283,6 +283,8 @@ example output:
 ---
 
 ### Logs
+
+Logs are available at https://discord.gg/rcNTKUcgZj
 
 ---
 
@@ -1180,7 +1182,7 @@ You can also find me on the zeppelin support server
 
 [![Join our Discord server!](https://invidget.switchblade.xyz/9bCGvGw5rT)](http://discord.gg/9bCGvGw5rT)
 
-You can join my server and follow github channel for updates or to play with Zeppelin there (since you cant use zeppelin on Zep support server)
+You can join my server and check under Zep category for more zep related things or for updates or to play with Zeppelin there (since you cant use zeppelin on Zep support server)
 
 [![Join our Discord server!](https://invidget.switchblade.xyz/JCZf3sHYpE)](http://discord.gg/JCZf3sHYpE)
 
