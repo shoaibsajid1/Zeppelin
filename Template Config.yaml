@@ -11,11 +11,6 @@ levels:
 
 plugins: #Auto-delete|Auto-reactions|Automod|Cases|Companion channels|Counters|Locate user|Logs|Mod actions|Mutes|Persist|Pingable roles|Post|Reaction roles|Reminders|Roles|Self-grantable roles|Slowmode|Starboard|Tags|Time and date|Utility|Welcome message
 
-#Notes:
-#cases plugin - log auto actions tf is that
-#starboard - tf is copy full embed
-#self grant roles - tf is ignore cooldown
-#spam protection and censor are legacy plugins and wont be included
 
 
   auto_delete:
