@@ -33,3 +33,164 @@ The image below shows what the dashboard looks like after you set all these. In 
 ### Config breakdown
 
 Coming soon
+
+For advanced users: Coming soon as well lmao
+
+For total new beginners
+
+Just copy paste this code below and edit the values
+
+<details>
+  <summary>Click to view code!</summary>
+
+```yaml
+prefix: '!'
+
+levels:
+  "844782218563944488": 100 #admin role
+  "844759879847247893": 50  #Mod role
+
+plugins:
+  post: {}
+  reminders: {}
+  auto_reactions: {}
+  locate_user: {}
+  reaction_roles: {}
+  slowmode: {}
+  utility: {}
+  time_and_date: {}
+  
+  cases:
+    config:
+      case_log_channel: "854373344232865832" #cases channel id
+
+  mutes:
+    config:
+      mute_role: "777121217630175243" #muterole id here
+
+  mod_actions:
+    config:
+      dm_on_kick: true
+      dm_on_ban: true
+      
+ 
+  welcome_message:
+    config:
+      send_dm: true
+      message: |-
+              **Welcome to Dexter's Laboratory**
+              
+              **Invite others with**
+              https://discord.gg/... 
+
+  logs:
+    config:
+      channels:
+        '761972021612904519': #log channel id here 
+          exclude: [] #exclude nothing, include everythinh
+      format:
+        timestamp: ""
+
+  automod:
+    config:
+      rules:
+        badwords: #badwords
+          enabled: true
+          triggers:
+          - match_words:
+              words: 
+              - retard
+              - e-girl
+              - boobs
+              - asshole
+              - dick
+              - cnut
+              - dick
+              - blowjob
+              - slut
+              - b1tch
+              - slut
+              - bitch
+              - c0ck
+              - pussy
+              - thot
+              - cunt
+              - fuk
+              - bitches
+              - penis
+              case_sensitive: true
+              only_full_words: true
+              normalize: true
+              loose_matching: false
+              loose_matching_threshold: 0
+              strip_markdown: true
+              match_messages: true
+              match_embeds: true
+              match_visible_names: false
+          - match_regex:
+              patterns:
+                #- 'fuck'
+                - 'afak'
+                - 'n[il1]+g{2,}(er|a)' #nigger
+                - "n[\\s.\\-]*[i1][\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*[e3][\\s.\\-]*r" #nigger
+                - "n[\\s.\\-]*[i1][\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*a" #nigga
+                - "f[\\s.\\-]*a[\\s.\\-]*[g6][\\s.\\-]*[g6][\\s.\\-]*o[\\s.\\-]*[t7]" #faggot
+              normalize: true
+              strip_markdown: true
+              match_messages: true
+              match_embeds: true
+              match_visible_names: false
+          actions:
+            clean: false
+            reply:
+              text: 
+                content: "<@{user.id}> Whoa :p"
+              auto_delete: 3s
+
+
+        copypasta: #copy paste spam
+          enabled: true
+          triggers:
+            - match_regex:
+                patterns: 
+                  - "[⠁⠂⠃⠄⠅⠆⠇⠈⠉⠊⠋⠌⠍⠎⠏⠐⠑⠒⠓⠔⠕⠖⠗⠘⠙⠚⠛⠜⠝⠞⠟⠠⠡⠢⠣⠤⠥⠦⠧⠨⠩⠪⠫⠬⠭⠮⠯⠰⠱⠲⠳⠴⠵⠶⠷⠸⠹⠺⠻⠼⠽⠾⠿]"
+                  - "[░▐▌█▀▄]"
+                  - \# - "^(\\s*\\|\\|.+?\\|\\|\\s*)+$" 
+                  - (?:[\u2500-\u25FF\u2800-\u28FF]\s*){4,}
+                  - '▐▀█▀▌'
+                  - ⠟⠑⡄⠀⠀⠀⠀⠀⠀⠀ ⣀⣀⣤⣤⣤⣀⡀
+                  - ඞ
+                  - ████
+                  - ⣿⣿⣿
+                case_sensitive: false
+                normalize: true
+                strip_markdown: true
+                match_messages: true
+                match_embeds: true
+          actions:
+            log: true
+            reply:
+              text: 
+                content: "<@{user.id}> No copypasta spam pls"
+              auto_delete: 5s
+    overrides:
+    #Overrides are always calculated top down
+    #For example:
+    #If you want to have mods messages not be deleted, your overrides would need to be in this order:
+
+    #1. Enable in channel xyz
+    #2. Disable for mods
+    #If you have it the other way round it'll delete everything, even from mods.
+
+    - level: '>=50' #mods are not affected as its disabled for them
+      config:
+        can_view_antiraid: true #can view the antiraid level
+        can_set_antiraid: true #can set the antiraid level
+        rules:
+          badwords:
+            enabled: false 
+          copypasta:
+            enabled: false
+```
+
+</details>
