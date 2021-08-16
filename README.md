@@ -496,7 +496,7 @@ plugins:
 
 ## CONFIG FOR POWER USERS
 
-> Note: This is madlad stuff. This is wild as shit. You probably need to be insane to use this. It has everything, counters, escalations,  leveling, antiraid, autorole...BUTTONS?!!! CONTEXT MENUS. Truely a power users dream. Might as well fire half your mod team.
+> Note: This is madlad stuff. This is wild as shit. You probably need to be insane to use this. It has everything, counters, escalations,  leveling, antiraid, autorole...BUTTONS?!!! CONTEXT MENUS. Truly a power users dream. Might as well fire half your mod team.
 
 <details>
   <summary>Click to view madlad difficulty config!</summary>
