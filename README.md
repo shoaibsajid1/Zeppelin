@@ -2444,6 +2444,24 @@ plugins:
 ---
 
 
+## EXAMPLE SCREENSHOTS
+
+![image](assets/1.png)
+
+![image](assets/2.png)
+
+![image](assets/3.png)
+
+![image](assets/4.jpg)
+
+![image](assets/5.png)
+
+![image](assets/6.png)
+
+![image](assets/7.png)
+
+
+---
 
 ## CONTRIBUTING
 
