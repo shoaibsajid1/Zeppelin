@@ -497,3 +497,15 @@ plugins:
 ```
 
 </details>
+
+---
+
+## CONFIG FOR POWER USERS
+
+> Note: This is madlad stuff. This is wild as shit. You probbaly need to be insane to do this
+
+<details>
+  <summary>Click to view madlad difficulty config!</summary>
+
+Coming soon
+  </details>
