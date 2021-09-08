@@ -30,6 +30,10 @@ The image below shows what the dashboard looks like after you set all these. In 
 
 ![Example Config](assets/dashboard.png)
 
+## NOTICE
+
+> **NOTICE: THE CONFIGS BELOW ARE UPDATED AS OF AUGUST 2021, THINGS MAY HAVE CHANGED SINCE AND SOME THINGS MIGHT BREAK, IF THAT IS THE CASE, CONSIDER THIS AS A REFERENCE AND NOT A PLUG AND PLAY SOLUTION.**
+
 ## CONFIG FOR NEW USERS
 
 > Note: This excludes Counters, companion_channels, persist, roles, self_grantable_roles, starboard & tags plugins as they are not often used by starters. But this should get you off to a good start with default settings on zep!
