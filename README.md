@@ -2574,8 +2574,5 @@ Can be found on
 
 [![Join our Discord server!](https://invidget.switchblade.xyz/9bCGvGw5rT)](http://discord.gg/9bCGvGw5rT)
 
-and
-
-[![Join our Discord server!](https://invidget.switchblade.xyz/JCZf3sHYpE)](http://discord.gg/JCZf3sHYpE)
 
 ---
